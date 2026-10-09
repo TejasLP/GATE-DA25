@@ -1,0 +1,41 @@
+% linear_probing.tex
+\begin{figure}[H]
+	\centering
+	\begin{tikzpicture}[
+		slot/.style={draw, minimum width=3.5cm, minimum height=0.8cm, align=center},
+		occupied/.style={slot, fill=gray!30},
+		empty/.style={slot, fill=white},
+		>=Stealth,
+		start chain=1 going right,
+		node distance=-\pgflinewidth
+		]
+		
+		% Array structure
+		\node [on chain=1] {\dots};
+		\node [on chain=1, occupied] (slot0) {Occupied};
+		\node [on chain=1, occupied] (slot1) {Occupied};
+		\node [on chain=1, empty]    (slot2) {Empty};
+		\node [on chain=1] {\dots};
+		
+		% Indices below the array
+		\node[below=0.3cm of slot0] {$h(k) \bmod M$};
+		\node[below=0.3cm of slot1] {$h(k)+1 \bmod M$};
+		\node[below=0.3cm of slot2] {$h(k)+2 \bmod M$};
+		
+		% Key input
+		\node[above=2.5cm of slot0, draw, rounded corners, inner sep=0.2cm] (key) {Insert Key $k$};
+		
+		% Probing Arrows
+		\draw[->, thick] (key.south) -- (slot0.north)
+		node[midway, left=0.1cm] {$i=0$};
+		
+		\draw[->, thick] (slot0.north) .. controls +(up:1.5cm) and +(up:1.5cm) .. (slot1.north)
+		node[midway, above] {$i=1$ (Collision)};
+		
+		\draw[->, thick] (slot1.north) .. controls +(up:1.5cm) and +(up:1.5cm) .. (slot2.north)
+		node[midway, above] {$i=2$ (Success)};
+		
+	\end{tikzpicture}
+	\caption{Pictorial representation of Linear Probing in Hash Tables}
+	\label{fig:linear_probing}
+\end{figure}

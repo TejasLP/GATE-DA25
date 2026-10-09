@@ -9,7 +9,9 @@
 
 
 %\usepackage[a5paper, top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
-
+\usepackage{tikz}
+\usetikzlibrary{matrix, positioning, arrows.meta, chains}
+\usepackage{float}
 %
 \usepackage{gvv-book}
 \usepackage{gvv}
@@ -101,11 +103,9 @@
 %}{
 %    \textit{Formulae compilation pending.}
 %}
-\newpage
-
+\subsection{Formulae}
+\input{chapters/da-2025-formulae.tex}
 \subsection{Problems}
-% Checks chapters/da-2025-problems.tex first; falls back to root da-2025-problems.tex
-
-    \input{chapters/da-2025-problems.tex}%
+\input{chapters/da-2025-problems.tex}%
 
 \end{document}
