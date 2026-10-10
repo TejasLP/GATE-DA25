@@ -18,6 +18,13 @@
 			\item $9$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-threshold} and \eqref{eq:DA2025-indicator_step}, for threshold $c = 4$:
+	\begin{align}
+		N &= \sum_{i=1}^4 \sum_{j=1}^4 \mathbb{I}\brak{U_{ij}}
+		\\
+		&= 11
+	\end{align}
 	
 	% Q.5
 	\item 
@@ -29,6 +36,13 @@
 		\item Area increases by $10\%$.
 		\item The rectangle becomes a square.
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-scaling}, with width scaled by $\alpha = 0.10$:
+	\begin{align}
+		A' &= \brak{1 + 0.10}A
+		\\
+		&= 1.10A
+	\end{align}
 	
 	% Q.7
 	\item 
@@ -42,6 +56,13 @@
 			\item Either $a_1 = 50$ or $a_2 = 50$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-unimodal}, for peak $c = 50$:
+	\begin{align}
+		f\brak{a_1} &= f\brak{a_2}
+		\\
+		\implies a_1 &< 50 < a_2
+	\end{align}
 	
 	% Q.9
 	\item 
@@ -55,6 +76,23 @@
 			\item $2^{15}$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-exponent}:
+	\begin{align}
+		3^{x^2} &= 3^3 \cdot \brak{3^2}^x
+		\\
+		&= 3^{2x+3}
+		\\
+		\implies x^2 - 2x &= 3
+	\end{align}
+	Applying \eqref{eq:DA2025-exponent}:
+	\begin{align}
+		\frac{2^{x^2}}{\brak{2^x}^2} &= \frac{2^{x^2}}{2^{2x}}
+		\\
+		&= 2^{x^2 - 2x}
+		\\
+		&= 2^3
+	\end{align}
 	
 	% Q.11
 	\item 
@@ -68,20 +106,58 @@
 			\item $E\sbrak{Y}$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-expectation} and \eqref{eq:DA2025-cond_expectation}:
+	\begin{align}
+		E\sbrak{E\sbrak{X \mid Y}} &= \sum_y E\sbrak{X \mid Y = y} p_Y\brak{y}
+		\\
+		&= \sum_y \sum_x x p_{X|Y}\brak{x \mid y} p_Y\brak{y}
+		\\
+		&= \sum_x x \sum_y p_{X,Y}\brak{x, y}
+		\\
+		&= \sum_x x p_X\brak{x}
+		\\
+		&= E\sbrak{X}
+	\end{align}
 	
-	% Q.12
-	\item 
-	The number of additions and multiplications involved in performing Gaussian elimination on any $n \times n$ upper triangular matrix is of the order
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item $O\brak{n}$
-			\item $O\brak{n^2}$
-			\item $O\brak{n^3}$
-			\item $O\brak{n^4}$
-		\end{multicols}
-	\end{enumerate}
-	
+% Q.12
+\item 
+The number of additions and multiplications involved in performing Gaussian elimination on any $n \times n$ upper triangular matrix is of the order
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item $O\brak{n}$
+		\item $O\brak{n^2}$
+		\item $O\brak{n^3}$
+		\item $O\brak{n^4}$
+	\end{multicols}
+\end{enumerate}
+
+\solution
+From \eqref{eq:DA2025-back_sub}:
+\begin{align}
+	x_i &= \frac{1}{U_{ii}}\brak{b_i - \sum_{j=i+1}^n U_{ij} x_j}
+\end{align}
+For each row $i$ ($1 \le i \le n$), the back-substitution step requires:
+\begin{itemize}
+	\item Multiplications: $n - i$
+	\item Additions/Subtractions: $n - i$
+	\item Divisions: $1$
+\end{itemize}
+Summing these operations across all $n$ rows:
+\begin{align}
+	\text{Multiplications} &= \sum_{i=1}^n \brak{n - i} = \frac{n\brak{n-1}}{2}
+	\\
+	\text{Additions} &= \sum_{i=1}^n \brak{n - i} = \frac{n\brak{n-1}}{2}
+	\\
+	\text{Divisions} &= \sum_{i=1}^n 1 = n
+\end{align}
+The total sum of all arithmetic operations evaluates to:
+\begin{align}
+	\text{Total Operations} &= \frac{n\brak{n-1}}{2} + \frac{n\brak{n-1}}{2} + n = n^2
+	\\
+	&= O\brak{n^2}
+\end{align}
 	% Q.13
 	\item 
 	The sum of the elements in each row of $\vec{A} \in \mathbb{R}^{n \times n}$ is 1. If $\vec{B} = \vec{A}^3 - 2\vec{A}^2 + \vec{A}$, which one of the following statements is correct (for $\vec{x} \in \mathbb{R}^n$)?
@@ -92,20 +168,42 @@
 		\item The equation $\vec{Bx} = \vec{0}$ has infinitely many solutions
 		\item The equation $\vec{Bx} = \vec{0}$ has a unique solution
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-row_sum_eig}, $\vec{A}\vec{1} = \vec{1}$. For $\vec{B} = \vec{A}^3 - 2\vec{A}^2 + \vec{A}$:
+	\begin{align}
+		\vec{B}\vec{1} &= \brak{\vec{A}^3 - 2\vec{A}^2 + \vec{A}}\vec{1}
+		\\
+		&= \vec{A}^3\vec{1} - 2\vec{A}^2\vec{1} + \vec{A}\vec{1}
+		\\
+		&= \vec{1} - 2\vec{1} + \vec{1}
+		\\
+		&= \vec{0}
+	\end{align}
+	Thus, $\lambda = 0$ is an eigenvalue of $\vec{B}$, implying $\mydet{\vec{B}} = 0$, which yields infinitely many solutions.
 	
-	% Q.14
-	\item 
-	Let $f\brak{x} = \frac{e^x - e^{-x}}{2}, \; x \in \mathbb{R}$. Let $f^{(k)}\brak{a}$ denote the $k^{\text{th}}$ derivative of $f$ evaluated at $a$. What is the value of $f^{(10)}\brak{0}$? (Note: ! denotes factorial)
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item $0$
-			\item $1$
-			\item $\frac{1}{10!}$
-			\item $\frac{2}{10!}$
-		\end{multicols}
-	\end{enumerate}
-	
+% Q.14
+\item 
+Let $f\brak{x} = \frac{e^x - e^{-x}}{2}, \; x \in \mathbb{R}$. Let $f^{(k)}\brak{a}$ denote the $k^{\text{th}}$ derivative of $f$ evaluated at $a$. What is the value of $f^{(10)}\brak{0}$? (Note: ! denotes factorial)
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item $0$
+		\item $1$
+		\item $\frac{1}{10!}$
+		\item $\frac{2}{10!}$
+	\end{multicols}
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-maclaurin}:
+\begin{align}
+	f\brak{x} &= \sinh\brak{x} = \sum_{k=0}^{\infty} \frac{x^{2k+1}}{\brak{2k+1}!}
+\end{align}
+By definition, the general Maclaurin series coefficient for $x^n$ is given by $\frac{f^{(n)}\brak{0}}{n!}$. Since the series contains only odd powers of $x$, the coefficient of $x^{10}$ is zero:
+\begin{align}
+	\frac{f^{(10)}\brak{0}}{10!} &= 0
+	\\
+	\implies f^{(10)}\brak{0} &= 0
+\end{align}
 	% Q.17
 	\item 
 	Consider the following three relations:
@@ -126,6 +224,12 @@
 		\item All owners of a red car made by ABC
 		\item All red cars made by ABC
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-join}, $\sigma_{\text{color} = \text{'red'}}\brak{\text{Car} \bowtie \brak{\sigma_{\text{maker} = \text{'ABC'}}\text{Make}}}$ filters red cars made by ABC. Joining with $\text{Own}$ and projecting via $\pi_{\text{owner}}$ selects:
+	\begin{align}
+		\pi_{\text{owner}}\brak{\text{Own} \bowtie \brak{\dots}}
+	\end{align}
+	which corresponds to all owners of a red car made by ABC.
 	
 	% Q.18
 	\item 
@@ -143,6 +247,27 @@
 			\item 4 and 6
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-probing}, $h\brak{k, i} = \brak{3k + i} \pmod{10}$:
+	\begin{align}
+		k=1 &\implies h\brak{1, 0} = 3
+		\\
+		k=4 &\implies h\brak{4, 0} = 2
+		\\
+		k=5 &\implies h\brak{5, 0} = 5
+		\\
+		k=6 &\implies h\brak{6, 0} = 8
+		\\
+		k=14 &\implies h\brak{14, 0} = 2
+		\\
+		&\implies h\brak{14, 1} = 3
+		\\
+		&\implies h\brak{14, 2} = 4
+		\\
+		k=15 &\implies h\brak{15, 0} = 5
+		\\
+		&\implies h\brak{15, 1} = 6
+	\end{align}
 	
 	% Q.19
 	\item 
@@ -164,6 +289,17 @@
 			\item $0$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-median}, the median $m = 3$ satisfies:
+	\begin{align}
+		F_X\brak{3} &= 0.5
+		\\
+		\frac{3 - t}{4 - t} &= 0.5
+		\\
+		3 - t &= 2 - 0.5t
+		\\
+		\implies t &= 2
+	\end{align}
 	
 	% Q.20
 	\item 
@@ -181,6 +317,21 @@
 			\item $a = 1, \; b = 1$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-E_Z} and \eqref{eq:DA2025-affine_rv}, for $X = aZ + b$:
+	\begin{align}
+		E\sbrak{X} &= aE\sbrak{Z} + b
+		\\
+		\implies b &= 1
+	\end{align}
+	From \eqref{eq:DA2025-E_Z2}:
+	\begin{align}
+		E\sbrak{\brak{X - E\sbrak{X}}Z} &= E\sbrak{aZ^2}
+		\\
+		&= a(1)
+		\\
+		\implies a &= -2
+	\end{align}
 	
 	% Q.21
 	\item 
@@ -194,30 +345,40 @@
 			\item $\ln 0.25$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-exp_tail}:
+	\begin{align}
+		\pr{X \ge 2} &= e^{-2\lambda} = 0.25 = \frac{1}{4}
+		\\
+		\implies -2\lambda &= \ln\brak{\frac{1}{4}} = -\ln 4
+		\\
+		\implies 2\lambda &= 2\ln 2
+		\\
+		\implies \lambda &= \ln 2
+	\end{align}
 	
-% Q.23
-\item 
-Consider the following Python declarations of two lists.
-\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, resetmargins=true, gobble=4]
-A = [1, 2, 3]
-B = [4, 5, 6]
-\end{lstlisting}
-Which one of the following statements results in $A = [1, 2, 3, 4, 5, 6]$?
-\hfill (DA~2025)
-\begin{enumerate}
-	\begin{multicols}{4}
-		\item \lstinline|A.extend(B)|
-		\item \lstinline|A.append(B)|
-		\item \lstinline|A.update(B)|
-		\item \lstinline|A.insert(B)|
-	\end{multicols}
-\end{enumerate}
-\\
-\solution
-From \eqref{eq:DA2025-python_extend}:
-\begin{align}
-	A.\text{extend}\brak{B} \implies A \gets \sbrak{1, 2, 3, 4, 5, 6}
-\end{align}
+	% Q.23
+	\item 
+	Consider the following Python declarations of two lists.
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, resetmargins=true, gobble=4]
+	A = [1, 2, 3]
+	B = [4, 5, 6]
+	\end{lstlisting}
+	Which one of the following statements results in $A = [1, 2, 3, 4, 5, 6]$?
+	\hfill (DA~2025)
+	\begin{enumerate}
+		\begin{multicols}{4}
+			\item \lstinline|A.extend(B)|
+			\item \lstinline|A.append(B)|
+			\item \lstinline|A.update(B)|
+			\item \lstinline|A.insert(B)|
+		\end{multicols}
+	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-python_extend}:
+	\begin{align}
+		A.\text{extend}\brak{B} \implies A \gets \sbrak{1, 2, 3, 4, 5, 6}
+	\end{align}
 	
 	% Q.24
 	\item 
@@ -231,6 +392,8 @@ From \eqref{eq:DA2025-python_extend}:
 			\item $f \circ g + g \circ f$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-product_rule}, the product $f \cdot g$, sum $f \pm g$, and quotient $f/g$ (since $g\brak{c} > 1 \ne 0$) are strictly differentiable at $c$. $f \circ g$ requires differentiability of $f$ at $g(c)$, which is not guaranteed.
 	
 	% Q.25
 	\item 
@@ -242,6 +405,8 @@ From \eqref{eq:DA2025-python_extend}:
 		\item Linearly independent vectors in $\mathbb{R}^n$ are orthonormal
 		\item Orthonormal vectors in $\mathbb{R}^n$ are linearly independent
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-orthonormal}, $\vec{u}_i^\top \vec{u}_j = \delta_{ij}$ guarantees linear independence. Orthonormal bases in $\mathbb{R}^n$ are non-unique under spatial rotation.
 	
 	% Q.27
 	\item 
@@ -253,6 +418,14 @@ From \eqref{eq:DA2025-python_extend}:
 		\item An array of $n$ integers in increasing order
 		\item A linked list of $n$ integers in increasing order
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-binary_recurrence} and \eqref{eq:DA2025-binary_search}:
+	\begin{align}
+		T\brak{n} &= T\brak{n/2} + O\brak{1}
+		\\
+		&= O\brak{\log n}
+	\end{align}
+	which requires $O(1)$ random access to the median element, satisfied exclusively by an array of $n$ integers in increasing order.
 	
 	% Q.28
 	\item 
@@ -264,6 +437,22 @@ From \eqref{eq:DA2025-python_extend}:
 		\item $0$ is an eigenvalue of $\vec{A}$
 		\item $\vec{A}^{-1}$ has a negative eigenvalue
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-rank1_update}, evaluating the eigenvalues for $\vec{x}^\top\vec{x} = 1$:
+	\begin{align}
+		\vec{A}\vec{x} &= \vec{x} + \vec{x}\brak{\vec{x}^\top\vec{x}}
+		\\
+		&= 2\vec{x}
+		\\
+		\implies \lambda_1 &= 2
+		\\
+		\vec{A}\vec{v} &= \vec{v} + \vec{x}\brak{\vec{x}^\top\vec{v}}
+		\\
+		&= 1\vec{v}
+		\\
+		\implies \lambda_{2,\dots,n} &= 1 \quad \text{for } \vec{x}^\top\vec{v} = 0
+	\end{align}
+	Since all $\lambda_i > 0$, $\text{rank}\brak{\vec{A}} = n$ and $\vec{A}$ is invertible.
 	
 	% Q.29
 	\item 
@@ -277,6 +466,17 @@ From \eqref{eq:DA2025-python_extend}:
 			\item $16$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-insertion_swaps}:
+	\begin{align}
+		\text{Swaps} &= \text{Inversions} = 2
+	\end{align}
+	The pair $(15, 13)$ accounts for $1$ inversion. Therefore, $x$ contributes exactly $1$ inversion with $\sbrak{1, 3, 5, 7, 9, 11}$:
+	\begin{align}
+		9 \le x < 11
+		\\
+		\implies x &= 10
+	\end{align}
 	
 	% Q.31
 	\item 
@@ -288,11 +488,31 @@ From \eqref{eq:DA2025-python_extend}:
 	\end{itemize}
 	In a random experiment, one of these boxes is selected, where the probability of choosing Box-1 is $\frac{1}{2}$, Box-2 is $\frac{1}{6}$, and Box-3 is $\frac{1}{3}$. A ball is drawn at random from the selected box. Given that the ball drawn is white, the probability that it is drawn from Box-2 is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-bayes_setup}:
+	\begin{align}
+		Pr\brak{E_2 \mid W} &= \frac{Pr\brak{E_2}Pr\brak{W \mid E_2}}{\sum_{i=1}^3 Pr\brak{E_i}Pr\brak{W \mid E_i}}
+		\\
+		&= \frac{\frac{1}{6} \cdot \frac{2}{3}}{\frac{1}{2} \cdot \frac{1}{3} + \frac{1}{6} \cdot \frac{2}{3} + \frac{1}{3} \cdot \frac{3}{6}}
+		\\
+		&= \frac{\frac{1}{9}}{\frac{1}{6} + \frac{1}{9} + \frac{1}{6}}
+		\\
+		&= \frac{\frac{1}{9}}{\frac{4}{9}}
+		\\
+		&= \frac{1}{4} = 0.25
+	\end{align}
 	
 	% Q.32
 	\item 
 	$\lim\limits_{t \to +\infty} \sqrt{t^2 + t} - t = \underline{\hspace{1.5cm}}$.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-radical_limit}, with $a = 1$:
+	\begin{align}
+		\lim_{t \to +\infty} \brak{\sqrt{t^2 + t} - t} &= \frac{1}{2} = 0.5
+	\end{align}
 	
 	% Q.33
 	\item 
@@ -308,8 +528,8 @@ From \eqref{eq:DA2025-python_extend}:
 SELECT L1.loan_number
 FROM Loan L1
 WHERE L1.amount > (SELECT MAX (L2.amount)
-	FROM Loan L2
-	WHERE L2.branch_name = 'SR Nagar');
+FROM Loan L2
+WHERE L2.branch_name = 'SR Nagar');
 	\end{lstlisting}
 	The number of rows returned by the query is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
@@ -318,8 +538,19 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 	\item 
 	Given data $\cbrak{\brak{-1, 1}, \brak{2, 5}, \brak{3, 5}}$ of the form $\brak{x, y}$, we fit a model $y = wx$ using linear least-squares regression. The optimal value of $w$ is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-least_squares}:
+	\begin{align}
+		w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
+		\\
+		&= \frac{\brak{-1}\brak{1} + \brak{2}\brak{5} + \brak{3}\brak{5}}{\brak{-1}^2 + 2^2 + 3^2}
+		\\
+		&= \frac{24}{14}
+		\\
+		&= \frac{12}{7} \approx 1.714
+	\end{align}
 	
-
 	% Q.35
 	\item 
 	The naive Bayes classifier is used to solve a two-class classification problem with class-labels $y_1, y_2$. Suppose the prior probabilities are $P\brak{y_1} = \frac{1}{3}$ and $P\brak{y_2} = \frac{2}{3}$. Assuming a discrete feature space with
@@ -328,6 +559,21 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 	\end{align}
 	for a specific feature vector $\vec{x}$. The probability of misclassifying $\vec{x}$ is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-bayes_error}:
+	\begin{align}
+		Pr\brak{\text{error} \mid \vec{x}} &= \frac{\min_k Pr\brak{\vec{x} \mid y_k} Pr\brak{y_k}}{Pr\brak{\vec{x}}}
+		\\
+		&= \frac{\min\brak{\frac{3}{4} \cdot \frac{1}{3}, \frac{1}{4} \cdot \frac{2}{3}}}{\frac{3}{4} \cdot \frac{1}{3} + \frac{1}{4} \cdot \frac{2}{3}}
+		\\
+		&= \frac{\min\brak{\frac{1}{4}, \frac{1}{6}}}{\frac{1}{4} + \frac{1}{6}}
+		\\
+		&= \frac{\frac{1}{6}}{\frac{5}{12}}
+		\\
+		&= \frac{2}{5} = 0.4
+	\end{align}
+	
 	% Q.36
 	\item 
 	Let $Y = Z^2, \; Z = \frac{X - \mu}{\sigma}$, where $X$ is a normal random variable with mean $\mu$ and variance $\sigma^2$. The variance of $Y$ is
@@ -340,17 +586,38 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 			\item $4$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-variance_identity} and \eqref{eq:DA2025-normal_moments_2_4}, with $Z \sim \mathcal{N}\brak{0, 1}$:
+	\begin{align}
+		var\brak{Y} &= E\sbrak{Z^4} - \brak{E\sbrak{Z^2}}^2
+		\\
+		&= 3 - 1^2
+		\\
+		&= 2
+	\end{align}
 	
-	% Q.37
-	\item 
-	Let $\vec{A} \in \mathbb{R}^{n \times n}$ be such that $\vec{A}^3 = \vec{A}$. Which one of the following statements is ALWAYS correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $\vec{A}$ is invertible
-		\item Determinant of $\vec{A}$ is 0
-		\item The sum of the diagonal elements of $\vec{A}$ is 1
-		\item $\vec{A}$ and $\vec{A}^2$ have the same rank
-	\end{enumerate}
+% Q.37
+\item 
+Let $\vec{A} \in \mathbb{R}^{n \times n}$ be such that $\vec{A}^3 = \vec{A}$. Which one of the following statements is ALWAYS correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $\vec{A}$ is invertible
+	\item Determinant of $\vec{A}$ is 0
+	\item The sum of the diagonal elements of $\vec{A}$ is 1
+	\item $\vec{A}$ and $\vec{A}^2$ have the same rank
+\end{enumerate}
+\solution
+From \eqref{eq:1.1.26.1}:
+\begin{align}
+	\vec{A}^3 &= \vec{A}
+	\\
+	\implies \text{rank}\brak{\vec{A}} &= \text{rank}\brak{\vec{A}^2}
+\end{align}
+To demonstrate that other properties are not universally guaranteed, consider counterexamples satisfying $\vec{A}^3 = \vec{A}$:
+\begin{itemize}
+	\item For the zero matrix $\vec{A} = \mathbf{0}$, $\mydet{\vec{A}} = 0$ and it is not invertible, disproving strict invertibility and confirming determinant can be $0$.
+	\item For the identity matrix $\vec{A} = \vec{I}_n$, $\mydet{\vec{A}} = 1 \neq 0$ and the trace is $n$ (or $2$ for $\vec{I}_2$), showing that the determinant is not always $0$ and the sum of diagonal elements is not universally $1$.
+\end{itemize}
 	
 	% Q.38
 	\item 
@@ -362,6 +629,12 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 		\item Determinant of $\vec{A}$ is 0
 		\item $\vec{z}^{\top}\vec{A}\vec{z} = 0$ for some non-zero $\vec{z} \in \mathbb{R}^n$
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-gram}, for linearly independent columns of $\vec{X}$:
+	\begin{align}
+		\vec{z}^\top\vec{A}\vec{z} &= \norm{\vec{X}\vec{z}}^2 > 0, \quad \forall \vec{z} \ne \vec{0}
+	\end{align}
+	Thus, $\vec{A}$ is strictly positive definite, implying invertibility.
 	
 	% Q.39
 	\item 
@@ -383,6 +656,17 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 			\item $0.5625$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-interval_cdf}, with $c = \sqrt{0.25} = 0.5$:
+	\begin{align}
+		P\brak{X^2 \le 0.25} &= F_X\brak{0.5} - F_X\brak{-0.5}
+		\\
+		&= \frac{1}{4}\brak{0.5 + 1}^2 - \frac{1}{4}\brak{-0.5 + 1}^2
+		\\
+		&= \frac{2.25 - 0.25}{4}
+		\\
+		&= 0.5
+	\end{align}
 	
 	% Q.40
 	\item 
@@ -396,6 +680,19 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 			\item $\phi\brak{90} - \phi\brak{60}$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-binomial_sum_mean} and \eqref{eq:DA2025-binomial_sum_std}, for $n = 300$ and $\theta = 0.25$:
+	\begin{align}
+		\mu &= n\theta = 75
+		\\
+		\sigma &= \sqrt{n\theta\brak{1-\theta}} = 7.5
+	\end{align}
+	From \eqref{eq:DA2025-clt_binomial}, with $a = 60$ and $b = 90$:
+	\begin{align}
+		P\brak{60 \le Y \le 90} &= \phi\brak{\frac{90 - 75}{7.5}} - \phi\brak{\frac{60 - 75}{7.5}}
+		\\
+		&= \phi\brak{2} - \phi\brak{-2}
+	\end{align}
 	
 	% Q.41
 	\item 
@@ -417,6 +714,17 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 			\item $0.434$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-exp_geom} and \eqref{eq:DA2025-geom_pmf_q}, with $\lambda = \ln 10$:
+	\begin{align}
+		P\brak{Y = l} &= q^l\brak{1 - q}
+		\\
+		q &= e^{-\lambda}
+		\\
+		&= e^{-\ln 10}
+		\\
+		&= 0.1
+	\end{align}
 	
 	% Q.45
 	\item 
@@ -430,6 +738,13 @@ WHERE L1.amount > (SELECT MAX (L2.amount)
 			\item $1 - \brak{\frac{5}{6}}^{100}$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-at_least_one}, with $n = 100$ and $q = 5/6$:
+	\begin{align}
+		P\brak{A} &= 1 - q^n
+		\\
+		&= 1 - \brak{\frac{5}{6}}^{100}
+	\end{align}
 	
 	% Q.47
 	\item 
@@ -469,6 +784,21 @@ while "other" in C:
 		\item The maximum value of $f$ is $\frac{133}{2}$
 		\item The minimum value of the derivative of $f$ is attained at $x = -\frac{7}{2}$
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-extrema}, setting $f'\brak{x} = 0$:
+	\begin{align}
+		f'\brak{x} &= x^2 + 7x + 10 = 0
+		\\
+		\implies x &= -5, \; x = -2
+		\\
+		f''\brak{x} &= 2x + 7
+		\\
+		\implies f''\brak{-5} &= -3 < 0
+		\\
+		f''\brak{-2} &= 3 > 0
+	\end{align}
+	Thus, local maximum occurs at $x = -5$ and local minimum at $x = -2$.
+	The minimum of $f'\brak{x} = \brak{x + 7/2}^2 - 9/4$ occurs at $x = -7/2$.
 	
 	% Q.50
 	\item 
@@ -480,19 +810,34 @@ while "other" in C:
 		\item Determinant of $\vec{A}$ is 1
 		\item $\vec{A}$ is invertible
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-orthogonal_projection}, $\vec{A}^2 = \vec{A}$ and $\vec{A} = \vec{A}^\top$:
+	\begin{align}
+		\lambda &\in \{0, 1\}
+		\\
+		\sigma_i &= |\lambda_i| = \lambda_i
+		\\
+		\implies \sigma_i &\in \{0, 1\}
+	\end{align}
+	Since $\text{rank}\brak{\vec{A}} = \text{tr}\brak{\vec{A}} = 5 < 10$, $\mydet{\vec{A}} = 0$, rendering $\vec{A}$ non-invertible.
 	
-	% Q.51
-	\item 
-	Let $f: \mathbb{R} \to \mathbb{R}$ be a twice-differentiable function and suppose its second derivative satisfies $f''\brak{x} > 0$ for all $x \in \mathbb{R}$. Which of the following statements is/are ALWAYS correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $f$ has a local minima
-		\item There does not exist $x$ and $y$, $x \ne y$ such that $f'\brak{x} = f'\brak{y} = 0$
-		\item $f$ has at most one global minimum
-		\item $f$ has at most one local minimum
-		
-	\end{enumerate}
-	
+% Q.51
+\item 
+Let $f: \mathbb{R} \to \mathbb{R}$ be a twice-differentiable function and suppose its second derivative satisfies $f''\brak{x} > 0$ for all $x \in \mathbb{R}$. Which of the following statements is/are ALWAYS correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $f$ has a local minima
+	\item There does not exist $x$ and $y$, $x \ne y$ such that $f'\brak{x} = f'\brak{y} = 0$
+	\item $f$ has at most one global minimum
+	\item $f$ has at most one local minimum
+\end{enumerate}
+\solution
+Since $f''\brak{x} > 0$ for all $x \in \mathbb{R}$, the function $f\brak{x}$ is strictly convex across the entire real line. 
+\begin{itemize}
+	\item A strictly convex function has a strictly unique global minimum and at most one local minimum.
+	\item Functions like $f\brak{x} = e^x$ satisfy $f''(x) > 0$ everywhere but possess no local minima.
+	\item If $f'(x) = f'(y) = 0$ for $x \neq y$, Rolle's Theorem would imply $f''(c) = 0$ for some point between them, contradicting the strict condition $f''(x) > 0$.
+\end{itemize}
 	% Q.52
 	\item 
 	An $n \times n$ matrix $\vec{A}$ with real entries satisfies the property: $\norm{\vec{Ax}}^2 = \norm{\vec{x}}^2$, for all $\vec{x} \in \mathbb{R}^n$, where $\norm{\cdot}$ denotes the Euclidean norm. Which of the following statements is/are ALWAYS correct?
@@ -503,6 +848,14 @@ while "other" in C:
 		\item The eigenvalues of $\vec{A}$ are either +1 or -1
 		\item $\vec{A}$ has full rank
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-isometric_norm}:
+	\begin{align}
+		\norm{\vec{Ax}}^2 &= \norm{\vec{x}}^2
+		\\
+		\iff \vec{A}^\top\vec{A} &= \vec{I}
+	\end{align}
+	$\vec{A}$ is orthogonal, and hence $\text{rank}\brak{\vec{A}} = n$.
 	
 	% Q.53
 	\item 
@@ -517,7 +870,6 @@ while "other" in C:
 		\item The number of support vectors is 3
 		\item The margin is $\sqrt{2}$
 		\item Training accuracy is 98\%
-		
 	\end{enumerate}
 	
 	% Q.54
@@ -534,6 +886,14 @@ while "other" in C:
 		\item As $n$ increases, variance of $\hat{p}$ decreases
 		\item Variance of $\hat{p}$ does not depend on $n$
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-sample_prop_mean} and \eqref{eq:DA2025-sample_prop_var}:
+	\begin{align}
+		E\sbrak{\hat{p}} &= p
+		\\
+		var\brak{\hat{p}} &= \frac{p\brak{1-p}}{n}
+	\end{align}
+	Since $n$ is in the denominator, $var\brak{\hat{p}}$ strictly decreases as $n$ increases.
 	
 	% Q.58
 	\item 
@@ -554,6 +914,22 @@ while "other" in C:
 			\item $\brak{e, g}$
 		\end{multicols}
 	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-triangle_ineq}:
+	\begin{align}
+		d\brak{u, v} &\le d\brak{u, w} + d\brak{w, v}
+	\end{align}
+	If edge $(b, d)$ exists:
+	\begin{align}
+		d(a, d) &\le d(a, b) + d(b, d) = 2 < 3
+	\end{align}
+	contradicting that $a-b-c-d$ is a shortest path.
+	If edge $(e, g)$ exists:
+	\begin{align}
+		d(e, h) &\le d(e, g) + d(g, h) = 2 < 3
+	\end{align}
+	contradicting that $e-f-g-h$ is a shortest path.
+	$\therefore (b, d)$ and $(e, g)$ are not edges of $G$.
 	
 	% Q.59
 	\item 
@@ -562,6 +938,18 @@ while "other" in C:
 		f\brak{1} - f\brak{0} = \underline{\hspace{1.5cm}}
 	\end{align}
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-lipschitz}, with $\alpha = 2 > 1$:
+	\begin{align}
+		\abs{f\brak{x} - f\brak{y}} &\le \abs{x - y}^2
+		\\
+		\implies f'\brak{x} &= 0
+		\\
+		\implies f\brak{x} &= c
+		\\
+		\implies f\brak{1} - f\brak{0} &= 0
+	\end{align}
 	
 	% Q.60
 	\item 
@@ -570,12 +958,40 @@ while "other" in C:
 		\frac{1}{n}\sum_{i=1}^n \brak{\vec{u}^{\top}\vec{x}^{(i)}}^2 = \underline{\hspace{1.5cm}}
 	\end{align}
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-cov_centered}, \eqref{eq:DA2025-proj_variance}, and \eqref{eq:DA2025-pca_max_var}:
+	\begin{align}
+		\max_{\vec{u}^\top\vec{u} = 1} \frac{1}{n}\sum_{i=1}^n \brak{\vec{u}^\top \vec{x}^{(i)}}^2 &= \max_{\vec{u}^\top\vec{u} = 1} \vec{u}^\top \vec{C} \vec{u}
+		\\
+		&= \lambda_{\max}
+	\end{align}
+	With $\lambda_i = 100^{2-i}$ for $1 \le i \le 100$:
+	\begin{align}
+		\lambda_{\max} &= \lambda_1
+		\\
+		&= 100^{2-1}
+		\\
+		&= 100
+	\end{align}
 	
 	% Q.61
 	\item 
 	A bag contains 5 white balls and 10 black balls. In a random experiment, $n$ balls are drawn from the bag one at a time with replacement. Let $S_n$ denote the total number of black balls drawn in the experiment.
 	The expectation of $S_{100}$ denoted by $E\sbrak{S_{100}} = \underline{\hspace{1.5cm}}$.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-linearity}, with $p = \frac{10}{15} = \frac{2}{3}$ and $n = 100$:
+	\begin{align}
+		E\sbrak{S_{100}} &= \sum_{i=1}^{100} E\sbrak{I_i}
+		\\
+		&= 100p
+		\\
+		&= 100 \brak{\frac{2}{3}}
+		\\
+		&= \frac{200}{3} \approx 66.67
+	\end{align}
 	
 	% Q.62
 	\item 
@@ -590,6 +1006,16 @@ while "other" in C:
 	where $\bowtie$ denotes natural join.
 	The number of tuples returned by the above relational algebra query is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-rel_div}:
+	\begin{align}
+		\pi_{\text{branch\_name}}\brak{\text{Loan}} = \{\text{Banjara Hills, Kondapur, SR Nagar, Balanagar}\}
+	\end{align}
+	No customer in Borrower has loans in all 4 distinct branches:
+	\begin{align}
+		\text{Number of tuples} &= 0
+	\end{align}
 	
 	% Q.63
 	\item 
@@ -601,7 +1027,7 @@ def f(a, b):
 	if (a % 2 == 1):
 		return 2 * f((a - 1) / 2, b)
 	return b + f(a - 1, b)
-	
+		
 print(f(15, 10))
 	\end{lstlisting}
 	The value printed by the code snippet is \underline{\hspace{1.5cm}}.
@@ -621,15 +1047,15 @@ while (S is not empty) {
 		Push x onto S
 	}
 	if (x equals 8):
-		Set flag = 1
-		if (flag equals 1){
-			x = Pop(S)
-			if (x is odd):
-			Pop(S)
-			Set sum = sum + x
+	Set flag = 1
+	if (flag equals 1){
+		x = Pop(S)
+		if (x is odd):
+		Pop(S)
+		Set sum = sum + x
 	}
 }
-Output sum
+		Output sum
 	\end{lstlisting}
 	The value of sum output by a program executing the above pseudocode is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
@@ -638,5 +1064,21 @@ Output sum
 	\item 
 	Consider a directed graph $G = (V, E)$, where $V = \{0, 1, 2, \dots, 100\}$ and $E = \{(i, j) : 0 < j - i \le 2 \text{ for all } i, j \in V\}$. Suppose the adjacency list of each vertex is in decreasing order of vertex number, and depth-first search (DFS) is performed at vertex 0. The number of vertices that will be discovered after vertex 50 is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
+	\\
+	\solution
+	From \eqref{eq:DA2025-dfs_seq}, for $0 \le k \le 50$:
+	\begin{align}
+		D\brak{k} &= 2k
+		\\
+		\implies 2k &= 50
+		\\
+		\implies k_{50} &= 25
+	\end{align}
+	From \eqref{eq:DA2025-dfs_remaining}, the remaining discoveries evaluate to:
+	\begin{align}
+		n - k_{50} &= 100 - 25
+		\\
+		&= 75
+	\end{align}
 	
 \end{enumerate}

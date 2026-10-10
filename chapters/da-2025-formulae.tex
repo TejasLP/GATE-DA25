@@ -73,7 +73,7 @@ The total count of elements in a matrix $\vec{U}$ satisfying a threshold $c$ is 
 	\item Computational Complexity of Back-Substitution
 	For an $n \times n$ upper triangular matrix system $\vec{U}\vec{x} = \vec{b}$, variables are obtained sequentially:
 	\begin{align}
-		x_i &= \frac{1}{U_{ii}}\brak{b_i - \sum_{j=i+1}^n U_{ij} x_j}
+		x_i &= \frac{1}{U_{ii}}\brak{b_i - \sum_{j=i+1}^n U_{ij} x_j} \label{eq:DA2025-back_sub}
 	\end{align}
 	
 % =========================================================
@@ -741,6 +741,7 @@ Because $n$ is in the denominator of the resulting expression, the variance of $
 	% [Reference: General Domain Knowledge - SQL/Relational Algebra]
 	% =========================================================
 	\item Relational Division
+	\input{figs/relational.tex}
 	\begin{align}
 		R \div S = \pi_A\brak{R} - \pi_A\brak{\brak{\pi_A\brak{R} \times S} - R} \label{eq:DA2025-rel_div}
 	\end{align}

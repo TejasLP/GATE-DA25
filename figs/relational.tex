@@ -1,0 +1,47 @@
+\begin{center}
+	\begin{tikzpicture}[
+		node distance=0.8cm,
+		table/.style={matrix of nodes, nodes={draw, minimum width=1.5cm, minimum height=0.55cm, anchor=center, font=\small}, row sep=-\pgflinewidth, column sep=-\pgflinewidth},
+		header/.style={nodes={fill=gray!25, font=\bfseries\small}},
+		arrow/.style={-{Stealth[length=3mm]}, thick}
+		]
+		
+		% Table R
+		\matrix[table, header] (R) {
+			\node {A}; & \node {B}; \\
+			\node {Alice}; & \node {SQL}; \\
+			\node {Alice}; & \node {Java}; \\
+			\node {Alice}; & \node {Python}; \\
+			\node {Bob}; & \node {SQL}; \\
+			\node {Bob}; & \node {Python}; \\
+			\node {Charlie}; & \node {SQL}; \\
+			\node {Charlie}; & \node {Java}; \\
+			\node {Charlie}; & \node {Python}; \\
+		};
+		\node[above=0.1cm of R, font=\bfseries\small] {$R$ (Student, Skill)};
+		
+		% Division Operator Symbol
+		\node[right=0.6cm of R, font=\large\bfseries] (Div) {$\div$};
+		
+		% Table S
+		\matrix[table, header, right=0.6cm of Div] (S) {
+			\node {B}; \\
+			\node {SQL}; \\
+			\node {Java}; \\
+			\node {Python}; \\
+		};
+		\node[above=0.1cm of S, font=\bfseries\small] {$S$ (Required)};
+		
+		% Equals Symbol
+		\node[right=0.6cm of S, font=\large\bfseries] (Eq) {$=$};
+		
+		% Result Table R / S
+		\matrix[table, header, right=0.6cm of Eq] (Res) {
+			\node {A}; \\
+			\node {Alice}; \\
+			\node {Charlie}; \\
+		};
+		\node[above=0.1cm of Res, font=\bfseries\small] {$R \div S$};
+		
+	\end{tikzpicture}
+\end{center}

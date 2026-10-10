@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  11 OCT 2026 00:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  11 OCT 2026 03:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -477,11 +477,22 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box66
 \@float@everytoks=\toks33
 \@floatcapt=\box67
-) (./gvv-book.sty
-(/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
-Package: setspace 2022/12/04 v6.7b set line spacing
 )
-(/usr/share/texlive/texmf-dist/tex/latex/gensymb/gensymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks34
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(./gvv-book.sty (/usr/share/texlive/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+) (/usr/share/texlive/texmf-dist/tex/latex/gensymb/gensymb.sty
 Package: gensymb 2022/10/17 v1.0.2 (KJH)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
@@ -494,7 +505,7 @@ Package: amstext 2024/11/17 v2.01 AMS text
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks34
+\@emptytoks=\toks35
 \ex@=\dimen292
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -534,21 +545,21 @@ LaTeX Info: Redefining \Relbar on input line 970.
 \dotsspace@=\muskip17
 \c@parentequation=\count322
 \dspbrk@lvl=\count323
-\tag@help=\toks35
+\tag@help=\toks36
 \row@=\count324
 \column@=\count325
 \maxfields@=\count326
-\andhelp@=\toks36
+\andhelp@=\toks37
 \eqnshift@=\dimen295
 \alignsep@=\dimen296
 \tagshift@=\dimen297
 \tagwidth@=\dimen298
 \totwidth@=\dimen299
 \lineht@=\dimen300
-\@envbody=\toks37
+\@envbody=\toks38
 \multlinegap=\skip53
 \multlinetaggap=\skip54
-\mathdisplay@stack=\toks38
+\mathdisplay@stack=\toks39
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
@@ -610,26 +621,26 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 \col@sep=\dimen306
 \ar@mcellbox=\box78
 \extrarowheight=\dimen307
-\NC@list=\toks39
+\NC@list=\toks40
 \extratabsurround=\skip55
 \backup@length=\skip56
 \ar@cellbox=\box79
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks40
-\thm@bodyfont=\toks41
-\thm@headfont=\toks42
-\thm@notefont=\toks43
-\thm@headpunct=\toks44
+\thm@style=\toks41
+\thm@bodyfont=\toks42
+\thm@headfont=\toks43
+\thm@notefont=\toks44
+\thm@headpunct=\toks45
 \thm@preskip=\skip57
 \thm@postskip=\skip58
 \thm@headsep=\skip59
-\dth@everypar=\toks45
+\dth@everypar=\toks46
 )
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
-\symrsfs=\mathgroup4
+\symrsfs=\mathgroup6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/sttools/stfloats.sty
 Package: stfloats 2025/06/18 v3.4 Improve float mechanism and baselineskip sett
@@ -652,7 +663,7 @@ Package pict2e Info: Driver file for pict2e: p2e-pdftex.def on input line 114.
 (/usr/share/texlive/texmf-dist/tex/latex/pict2e/p2e-pdftex.def
 File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
-\pIIe@GRAPH=\toks46
+\pIIe@GRAPH=\toks47
 \@arclen=\dimen308
 \@arcrad=\dimen309
 \pIIe@tempdima=\dimen310
@@ -670,10 +681,12 @@ File: p2e-pdftex.def 2016/02/05 v0.1u Driver-dependant file (RN,HjG,JT)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2025/10/21 v1.2g Bold Symbol Support (DPC/FMi)
-\symboldoperators=\mathgroup5
-\symboldletters=\mathgroup6
-\symboldsymbols=\mathgroup7
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
 Package bm Info: No bold for \OMX/cmex/m/n, using \pmb.
+Package bm Info: No bold for \U/msa/m/n, using \pmb.
+Package bm Info: No bold for \U/msb/m/n, using \pmb.
 Package bm Info: No bold for \U/rsfs/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
@@ -703,7 +716,7 @@ Package: longtable 2025-10-13 v4.24 Multi-page Table package (DPC)
 \LT@rows=\count346
 \c@LT@tables=\count347
 \c@LT@chunks=\count348
-\LT@p@ftn=\toks47
+\LT@p@ftn=\toks48
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
@@ -713,7 +726,7 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 \TX@target=\dimen321
 \TX@delta=\dimen322
 \TX@cols=\count349
-\TX@ftn=\toks48
+\TX@ftn=\toks49
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
@@ -726,7 +739,7 @@ Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip70
 \enit@outerparindent=\dimen324
-\enit@toks=\toks49
+\enit@toks=\toks50
 \enit@inbox=\box86
 \enit@count@id=\count351
 \enitdp@description=\count352
@@ -833,8 +846,8 @@ zlibraryfpu.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
 Package: verbatim 2024-01-22 v1.5x LaTeX2e package for verbatim enhancements
-\every@verbatim=\toks50
-\verbatim@line=\toks51
+\every@verbatim=\toks51
+\verbatim@line=\toks52
 \verbatim@in@stream=\read3
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
@@ -1017,7 +1030,7 @@ s.code.tex
 zlibrarymath.code.tex
 \tikz@math@for@depth=\count374
 \tikz@math@dimen=\dimen366
-\tikz@math@toks=\toks52
+\tikz@math@toks=\toks53
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibraryplotmarks.code.tex
@@ -1162,7 +1175,7 @@ File: pgflibraryfadings.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 )) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count377
 \lst@gtempboxa=\box94
-\lst@token=\toks53
+\lst@token=\toks54
 \lst@length=\count378
 \lst@currlwidth=\dimen378
 \lst@column=\count379
@@ -1336,44 +1349,35 @@ Package caption Info: longtable package is loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 ))
-Package hyperref Info: Option `colorlinks' set `true' on input line 27.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup8
-\symAMSb=\mathgroup9
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)
+Package hyperref Info: Option `colorlinks' set `true' on input line 28.
 \@indexfile=\write4
 \openout4 = `main.idx'.
 
 
 Writing index file main.idx
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 31.
+h' as default language. on input line 32.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 -- Lines per column: 45 (approximate, difference = 0.60239pt).
 *geometry* driver: auto-detecting
@@ -1417,12 +1421,12 @@ LaTeX Font Info:    ... okay on input line 31.
 \scratchbox=\box142
 \nofMPsegments=\count407
 \nofMParguments=\count408
-\everyMPshowfont=\toks54
+\everyMPshowfont=\toks55
 \MPscratchCnt=\count409
 \MPscratchDim=\dimen400
 \MPnumerator=\count410
 \makeMPintoPDFobject=\count411
-\everyMPtoPDFconversion=\toks55
+\everyMPtoPDFconversion=\toks56
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -1432,15 +1436,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \celsius on input line 31.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 31.
+LaTeX Info: Redefining \celsius on input line 32.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 32.
 
 
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 31.
-Package gensymb Info: Using \Omega for \ohm on input line 31.
+LaTeX Info: Redefining \ohm on input line 32.
+Package gensymb Info: Using \Omega for \ohm on input line 32.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -1451,8 +1455,8 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 31.
-Package hyperref Info: Link coloring ON on input line 31.
+or `english'. on input line 32.
+Package hyperref Info: Link coloring ON on input line 32.
  (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1460,155 +1464,598 @@ Package hyperref Info: Link coloring ON on input line 31.
 \c@lstlisting=\count412
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-<figs/logo.jpg, id=43, 2537.48pt x 2047.65pt>
-File: figs/logo.jpg Graphic file (type jpg)
-<use figs/logo.jpg>
-Package pdftex.def Info: figs/logo.jpg  used on input line 58.
-(pdftex.def)             Requested size: 72.83794pt x 58.77106pt.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf
 -dist/fonts/enc/dvips/base/8r.enc}
 
 
- <./figs/logo.jpg>] [2] (./main.toc
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
-
-
-(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-)
+] (./main.toc
 LaTeX Font Info:    Trying to load font information for U+msa on input line 2.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 2.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ))
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- [3]
-(./chapters/da-2025-formulae.tex [4
+ [2]
+(./chapters/da-2025-formulae1.tex [3
 
-] [5] (./figs/natural_join.tex
+] [4] (./figs/natural_join.tex
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 34.
-) [6]
-(./figs/linear_probing.tex) [7] [8] [9] [10] (./figs/insertion_sort.tex)
-[11] [12] [13] [14] [15]
-Underfull \hbox (badness 2790) in paragraph at lines 682--683
+) [5]
+(./figs/linear_probing.tex) [6] [7] [8] [9] (./figs/insertion_sort.tex)
+[10] [11] [12] [13] [14]
+Underfull \hbox (badness 2790) in paragraph at lines 684--685
 []\OT1/ptm/m/n/10 To eval-u-ate the vari-ance, ap-ply the fun-da-men-tal vari-a
 nce scal-ing prop-erty
  []
 
-[16] (./figs/DFS.tex
+[15] (./figs/relational.tex) (./figs/DFS.tex
 Overfull \hbox (6.2486pt too wide) in paragraph at lines 61--62
  [][] 
  []
 
-) [17]) (./chapters/da-2025-problems.tex (./figs/Pixel_Grid.tex) [18]
+) [16]) (./chapters/da-2025-problems1.tex (./figs/Pixel_Grid.tex) [17]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.27 	\end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.27 	\end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 	\end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.2.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.45 	\end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.65 	\end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.4.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.87 	\end{align}
+                  [18]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.5.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.121 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.5.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.121 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.140 \end{align}
+                  [19]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.7.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.181 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.7.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.181 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.7.3}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.181 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.7.4}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.181 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.8.1}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.200 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.8.2}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.206 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.8.3}
+) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.206 \end{align}
+                  [20]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.120 	\end{align}
-                   [19]
+l.218 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.10.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.135 	\end{align}
-                  
+l.239 	\end{align}
+                   [21]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.11.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.156 	\end{align}
+l.281 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.11.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.302 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.11.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.302 	\end{align}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.12.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.173 	\end{align}
-                   [20] (./figs/Loan.tex) [21]
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 3
-04.
+l.309 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.12.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.326 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.12.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.326 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.12.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.334 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.12.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.334 	\end{align}
+                   [22]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.13.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.358 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.13.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.358 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.13.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.358 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.13.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.358 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.14.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.381 	\end{align}
+                   [23]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.17.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.427 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.18.6
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.454 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.19.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.473 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.19.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.479 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.19.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.479 	\end{align}
+                   [24]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.504 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.21.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.515 	\end{align}
+                   (./figs/Loan.tex) [25]
+LaTeX Font Info:    Trying to load font information for OML+ptm on input line 5
+30.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 304.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 530.
 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.23.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.552 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.23.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.552 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.23.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.552 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.23.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.552 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.24.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.322 	\end{align}
-                   [22]
+l.559 	\end{align}
+                   [26]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.25.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.597 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.25.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.597 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.26.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.615 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.26.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.615 \end{align}
+                 
+pdfTeX warning (ext4): destination with the same identifier (name{equation.27.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.636 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.28.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.369 	\end{align}
+l.648 	\end{align}
+                   [27]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.28.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.669 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.28.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.669 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.28.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.669 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.28.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.669 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.29.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.689 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.29.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.689 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.29.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.695 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.29.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.695 	\end{align}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.30.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.399 	\end{align}
+l.702 	\end{align}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.30.2
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 	\end{align}
+l.706 	\end{align}
                   
-LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 4
-32.
+pdfTeX warning (ext4): destination with the same identifier (name{equation.30.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.727 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.30.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.727 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.30.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.727 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.30.6
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.727 	\end{align}
+                   [28]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.31.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.31.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.747 	\end{align}
+                  
+LaTeX Font Info:    Trying to load font information for OMS+ptm on input line 7
+53.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 432.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 753.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 7
+58.
 
-[23]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 4
-37.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 pdfTeX warning (ext4): destination with the same identifier (name{equation.33.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.457 	\end{align}
+l.778 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.33.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.799 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.33.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.799 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.33.4
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.799 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.33.5
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.799 	\end{align}
+                   [29]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.34.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.821 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.34.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.821 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.34.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.821 	\end{align}
+                   [30]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.36.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.857 	\end{align}
                   
 pdfTeX warning (ext4): destination with the same identifier (name{equation.37.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.506 	\end{align}
-                   [24]
+l.865 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.38.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.522 	\end{align}
-                   (./figs/Graph_Q58.tex)
+l.880 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.38.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.895 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.38.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.895 	\end{align}
+                   (./figs/Graph_Q58.tex) [31]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.39.1
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.921 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.40.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.557 	\end{align}
-                   [25]
+l.939 	\end{align}
+                  
 pdfTeX warning (ext4): destination with the same identifier (name{equation.41.1
 }) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.565 	\end{align}
-                   (./figs/Loan_Borrower.tex) [26]) [27] (./main.aux)
+l.959 	\end{align}
+                   [32]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.41.2
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.968 	\end{align}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{equation.41.3
+}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.968 	\end{align}
+                   (./figs/Loan_Borrower.tex) [33] [34]) [35] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1617,13 +2064,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F6688DB632BB6C6FC25A608F9FC20625;303.
  ) 
 Here is how much of TeX's memory you used:
- 55285 strings out of 467533
- 1322919 string characters out of 5422138
- 2022387 words of memory out of 5000000
- 82904 multiletter control sequences out of 15000+600000
- 674644 words of font info for 146 fonts, out of 8000000 for 9000
+ 55850 strings out of 467533
+ 1329498 string characters out of 5422138
+ 2078486 words of memory out of 5000000
+ 83390 multiletter control sequences out of 15000+600000
+ 677750 words of font info for 164 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 102i,18n,107p,1194b,2716s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,18n,107p,1194b,1516s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
@@ -1634,21 +2081,23 @@ t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
 public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times
-/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (27 pages, 718648 bytes).
+r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (35 pages, 378193 bytes).
 PDF statistics:
- 849 PDF objects out of 1000 (max. 8388607)
- 728 compressed objects within 8 object streams
- 469 named destinations out of 1000 (max. 500000)
- 138 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1018 PDF objects out of 1200 (max. 8388607)
+ 885 compressed objects within 9 object streams
+ 537 named destinations out of 1000 (max. 500000)
+ 133 words of extra memory for PDF output out of 10000 (max. 10000000)
 
