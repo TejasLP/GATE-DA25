@@ -55,18 +55,17 @@ The total count of elements in a matrix $\vec{U}$ satisfying a threshold $c$ is 
 	\begin{align}
 		\frac{a^{u}}{a^{v}} = a^{u-v}, \quad \brak{a^x}^y = a^{xy} \label{eq:DA2025-exponent}
 	\end{align}
-	
-	% =========================================================
-	% Q.11
-	% [Reference: ce2-2025-problems.tex (Q.51: Continuous Expected Values)]
-	% =========================================================
-	\item Law of Total Expectation (Tower Property)
-	Let $X$ and $Y$ be continuous random variables. The initial integral equations defining the expectations are:
-	\begin{align}
-		g\brak{y} = E\sbrak{X \mid Y = y} &= \int_{-\infty}^{\infty} x f_{X \mid Y}\brak{x \mid y} \, dx \label{eq:DA2025-cond_exp} \\
-		E\sbrak{E\sbrak{X \mid Y}} &= \int_{-\infty}^{\infty} g\brak{y} f_Y\brak{y} \, dy \label{eq:DA2025-tower_integral} \\
-		E\sbrak{X} &= \int_{-\infty}^{\infty} x f_X\brak{x} \, dx \label{eq:DA2025-expected_x}
-	\end{align}
+% =========================================================
+% Q.11
+% Mathematical & Conditional Expectation
+% [Reference: main.pdf (Eq 5.1.1.1 and Eq 4.1.6.1)]
+% =========================================================
+\item Conditional Expectation of random variables X and Y
+\begin{align}
+	E\sbrak{X} &= \sum_{k} k p_X\brak{k} \label{eq:DA2025-expectation}
+	\\
+	E\sbrak{X \mid Y = y} &= \sum_{k} k p_{X|Y}\brak{k \mid y} \label{eq:DA2025-cond_expectation}
+\end{align}
 	% =========================================================
 	% Q.12
 	% [Reference: bt-2025-formulae.tex (Item 8: System of Linear Eq / Matrices)]
@@ -182,7 +181,30 @@ Because the integral of $f_X\brak{x}$ from $-\infty$ to $m$ is exactly $F_X\brak
 	F_X\brak{m} = \int_{-\infty}^{m} f_X\brak{x} \, dx = 0.5 \label{eq:DA2025-median}
 \end{align}
 
+% =========================================================
+% General Moments of the Standard Normal Distribution
+% [Reference: General Probability Theory (Extension of Section 9.1)]
+% =========================================================
+\item General Moments of the Standard Normal Distribution
 
+The expected value $E\sbrak{Z^n}$ for a standard normal variable $Z \sim \mathcal{N}\brak{0, 1}$ is defined by the integral:
+\begin{align}
+	E\sbrak{Z^n} &= \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} z^n e^{-z^2/2} \,dz \label{eq:DA2025-normal_moment_integral}
+\end{align}
+
+For odd powers ($n = 2k + 1$), the integrand is an odd function symmetric about the origin:
+\begin{align}
+	E\sbrak{Z^{2k+1}} &= 0 \label{eq:DA2025-normal_moment_odd}
+\end{align}
+
+For even powers ($n = 2k$), integrating by parts ($u = z^{n-1}$, $dv = z e^{-z^2/2} dz$) yields:
+\begin{align}
+	\int_{-\infty}^{\infty} z^n e^{-z^2/2} \,dz &= \sbrak{-z^{n-1} e^{-z^2/2}}_{-\infty}^{\infty} + \int_{-\infty}^{\infty} \brak{n-1} z^{n-2} e^{-z^2/2} \,dz
+	\intertext{The boundary term decays to zero. Multiplying by the normalization constant establishes the recurrence relation:}
+	E\sbrak{Z^n} &= \brak{n-1} E\sbrak{Z^{n-2}}
+	\intertext{Expanding recursively to the base case $E\sbrak{Z^0} = 1$ gives the expanded product:}
+	E\sbrak{Z^n} &= \brak{n - 1} \cdot \brak{n - 3} \cdots 3 \cdot 1 \label{eq:DA2025-normal_moment_even}
+\end{align}
 % =========================================================
 % Q.20
 % [Reference: formulae.tex (Item 16: Gaussian Functions & Variances)]
@@ -242,27 +264,19 @@ The step-by-step derivations for the expectations are:
 	\end{align}
 	
 	% =========================================================
-	% Q.23, Q.47
-	% [Reference: General Domain Knowledge - Python sets and lists]
-	% =========================================================
-	% =========================================================
 	% Q.23
 	% [Reference: General Domain Knowledge - Python Data Structures]
 	% =========================================================
-	\item Python List and Set Operations
+	\item 
+	Let $A = \sbrak{a_1, a_2, \dots, a_n}$ and $B = \sbrak{b_1, b_2, \dots, b_m}$ represent sequences, and let $\gets$ denote in-place modification. The python functions map to the following mathematical transformations:
 	\begin{align}
-		A.\text{update}\brak{B} \implies A \gets A \cup B \label{eq:DA2025-set_update}
-	\end{align}
-	\solution
-	Let $A = \brak{a_1, a_2, \dots, a_n}$ and $B = \brak{b_1, b_2, \dots, b_m}$ represent sequences, and let $\gets$ denote in-place modification. The functions map to the following mathematical transformations[cite: 41]:
-	\begin{align}
-		A.\text{extend}\brak{B} &\implies A \gets \brak{a_1, \dots, a_n, b_1, \dots, b_m}
+		A.\text{extend}\brak{B} &\implies A \gets \sbrak{a_1, \dots, a_n, b_1, \dots, b_m}
 		\\
-		A.\text{append}\brak{B} &\implies A \gets \brak{a_1, \dots, a_n, B}
+		A.\text{append}\brak{B} &\implies A \gets \sbrak{a_1, \dots, a_n, B}
 		\\
 		A.\text{update}\brak{B} &\implies A \gets A \cup B \quad \text{(where $A$ and $B$ are sets)}
 		\\
-		A.\text{insert}\brak{i, B} &\implies A \gets \brak{a_1, \dots, a_i, B, a_{i+1}, \dots, a_n}
+		A.\text{insert}\brak{i, B} &\implies A \gets \sbrak{a_1, \dots, a_i, B, a_{i+1}, \dots, a_n}
 	\end{align}
 	% =========================================================
 	% Q.24
@@ -272,7 +286,6 @@ The step-by-step derivations for the expectations are:
 	\begin{align}
 		\brak{fg}'\brak{c} = f'\brak{c}g\brak{c} + f\brak{c}g'\brak{c} \label{eq:DA2025-product_rule}
 	\end{align}
-	\solution
 	If $f$ and $g$ are differentiable at $c$, their sum, difference, and product are strictly differentiable at $c$. The quotient is differentiable if $g\brak{c} \ne 0$. Composition $f \circ g$ requires $f$ to be differentiable at $g\brak{c}$, which is not universally guaranteed.
 	
 	% =========================================================
@@ -292,46 +305,108 @@ The step-by-step derivations for the expectations are:
 	% =========================================================
 	\item Binary Search Complexity
 	\begin{align}
-		T\brak{n} = T\brak{n/2} + O\brak{1} \implies T\brak{n} = O\brak{\log n} \label{eq:DA2025-binary_search}
+		T\brak{n} &= T\brak{n/2} + O\brak{1} \label{eq:DA2025-binary_recurrence}
+		\\
+		T\brak{n} &= O\brak{\log n} \label{eq:DA2025-binary_search}
 	\end{align}
 	\solution
-	Binary search requires $O\brak{1}$ random access to indices, restricting its $O\brak{\log n}$ performance bounds strictly to contiguous arrays, not linked lists.
-	
-	% =========================================================
-	% Q.28
-	% [Reference: ae-2026_formulae.tex (Item 20: Matrix Determinant Lemma)]
-	% =========================================================
-	\item Matrix Determinant Lemma
+	Binary search operates by halving the search space at each step. Let $c$ represent the constant $O\brak{1}$ time required to access the middle element. Expanding the recurrence relation iteratively yields:
 	\begin{align}
-		\mydet{\vec{I} + \vec{u}\vec{v}^\top} = 1 + \vec{v}^\top\vec{u} \label{eq:DA2025-det_lemma}
+		T\brak{n} &= T\brak{\frac{n}{2}} + c
+		\\
+		&= \brak{T\brak{\frac{n}{4}} + c} + c
+		\\
+		&= T\brak{\frac{n}{2^2}} + 2c
+		\\
+		&= T\brak{\frac{n}{2^k}} + kc
 	\end{align}
-	\solution
-	For $\vec{A} = \vec{I}_n + \vec{x}\vec{x}^\top$ with $\vec{x}^\top\vec{x} = 1$:
+	The recursion strictly terminates when the array size reduces to $1$. 
 	\begin{align}
-		\mydet{\vec{A}} &= 1 + \vec{x}^\top\vec{x} = 2 \ne 0
+		\frac{n}{2^k} &= 1
+		\\
+		n &= 2^k
+		\\
+		k &= \log_2 n
 	\end{align}
-	Because $\mydet{\vec{A}} \ne 0$, $\vec{A}$ is invertible and has full rank. Its eigenvalues are $2$ and $1$, neither being zero or negative.
-	
+	Substituting $k$ back into the expanded equation:
+	\begin{align}
+		T\brak{n} &= T\brak{1} + c \log_2 n
+		\\
+		&= O\brak{\log n}
+	\end{align}
+	This logarithmic performance bound relies entirely on executing the $O\brak{1}$ constant-time midpoint calculation, restricting its use strictly to contiguous memory structures like arrays, rendering it incompatible with linked lists.
+% =========================================================
+% Q.29
+% [Reference: General Domain Knowledge - Linear Algebra]
+% =========================================================
+\item 
+\begin{align}
+	A &= I_n + x x^\top
+\end{align}
+
+Given the condition $x^\top x = a$, we can determine the eigenvalues by evaluating the standard eigenvalue equation $A v = \lambda v$ across the two geometric subspaces defined by $x$.
+
+For an eigenvector parallel to $x$ (let $v = x$):
+\begin{align}
+	A x &= \brak{I_n + x x^\top}x
+	\\
+	&= x + x\brak{x^\top x}
+	\\
+	&= x + x\brak{a}
+	\\
+	&= \brak{1 + a}x
+\end{align}
+yielding a single eigenvalue of $\lambda_1 = 1 + a$.
+
+For any eigenvector $v$ orthogonal to $x$ (meaning $x^\top v = 0$):
+\begin{align}
+	A v &= \brak{I_n + x x^\top}v
+	\\
+	&= v + x\brak{x^\top v}
+	\\
+	&= v + x\brak{0}
+	\\
+	&= 1v
+\end{align}
+yielding an eigenvalue of $\lambda_2 = 1$ with multiplicity $n-1$.
+
+To derive the corresponding eigenvalues for the inverse matrix $A^{-1}$, we use the defining property of eigenvalues $A v = \lambda v$ and left-multiply both sides by $A^{-1}$:
+\begin{align}
+	A^{-1} \brak{A v} &= A^{-1} \brak{\lambda v}
+	\\
+	\brak{A^{-1} A} v &= \lambda \brak{A^{-1} v}
+	\\
+	I_n v &= \lambda A^{-1} v
+	\\
+	v &= \lambda A^{-1} v
+	\\
+	A^{-1} v &= \frac{1}{\lambda} v
+\end{align}
+This proves that any eigenvector $v$ of $A$ is also an eigenvector of $A^{-1}$, and its corresponding eigenvalue is exactly the reciprocal $\frac{1}{\lambda}$. Substituting our previously derived values, the eigenvalues of $A^{-1}$ are $\frac{1}{1+a}$ and $1$.
+
 	% =========================================================
-	% Q.29
-	% [Reference: General Domain Knowledge - Sorting algorithms]
+	% Q.30
+	% [Reference: General Domain Knowledge - Algorithms/Sorting]
 	% =========================================================
 	\item Insertion Sort Inversions
+	\input{figs/insertion_sort.tex}
 	\begin{align}
-		\text{Swaps} = \text{Number of Inversions} \label{eq:DA2025-inversions}
+		\text{Swaps} &= \text{Number of Inversions} \label{eq:DA2025-insertion_swaps}
 	\end{align}
 	\solution
-	Insertion sort executes one swap per inverted pair. For the array to be sorted in exactly two swaps, the inserted element $x$ must be strictly smaller than exactly two preceding elements.
+	Insertion sort executes exactly one swap per inverted pair. Therefore, for the array to achieve a completely sorted state using exactly $n$ swaps, the newly inserted element $x$ must be strictly smaller than exactly $n$ preceding elements.
 	
-	% =========================================================
-	% Q.31
-	% [Reference: ce2-2025-problems.tex (Q.22: Conditional Probability Rules)]
-	% =========================================================
-	\item Bayes' Theorem for Partitioned Spaces
-	\begin{align}
-		\pr{B_j \mid W} = \frac{\pr{W \mid B_j}\pr{B_j}}{\sum_i \pr{W \mid B_i}\pr{B_i}} \label{eq:DA2025-bayes}
-	\end{align}
+
 	
+% =========================================================
+% Q.31
+% [Reference: ncert-probability/main.pdf (Eq 4.1.4.1: Bayes' Theorem)]
+% =========================================================
+\item Bayes' Theorem:
+\begin{align}
+	Pr\brak{E_2|W} &= \frac{Pr\brak{E_2}Pr\brak{W|E_2}}{\sum_{i}Pr\brak{E_i}Pr\brak{W|E_i}} \label{eq:DA2025-bayes_setup}
+\end{align}
+
 	% =========================================================
 	% Q.32
 	% [Reference: formulae.tex (Item 7: Definition of Derivative / Limits)]
@@ -343,193 +418,279 @@ The step-by-step derivations for the expectations are:
 	\solution
 	Multiplying by the conjugate:
 	\begin{align}
-		\lim_{t \to +\infty} \frac{\brak{t^2 + t} - t^2}{\sqrt{t^2 + t} + t} &= \lim_{t \to +\infty} \frac{1}{\sqrt{1 + \frac{1}{t}} + 1} = 0.5
+		\lim_{t \to +\infty} \frac{\brak{t^2 + at} - t^2}{\sqrt{t^2 + at} + t} &= \lim_{t \to +\infty} \frac{a}{\sqrt{1 + \frac{a}{t}} + 1} = \frac{a}{2}
 	\end{align}
 	
-	% =========================================================
-	% Q.34
-	% [Reference: bt-2025-formulae.tex (Item 6: First-Order Parameter Update/Gradient)]
-	% =========================================================
-	\item Least Squares Regression Through Origin
-	\begin{align}
-		w^* = \frac{\sum x_i y_i}{\sum x_i^2} \label{eq:DA2025-least_squares}
-	\end{align}
-	\solution
-	Minimizing $S\brak{w} = \sum \brak{y_i - w x_i}^2$:
-	\begin{align}
-		\frac{dS}{dw} &= -2\sum x_i \brak{y_i - w x_i} = 0 \implies w^* = \frac{24}{14} \approx 1.714
-	\end{align}
-	
-	% =========================================================
-	% Q.35
-	% [Reference: ce2-2025-problems.tex (Q.22: Conditional Probability Rules)]
-	% =========================================================
-	\item Bayes Optimal Error Rate
-	\begin{align}
-		\pr{\text{error} \mid \vec{x}} = \frac{\min_k \pr{\vec{x} \mid y_k}\pr{y_k}}{\pr{\vec{x}}} \label{eq:DA2025-bayes_error}
-	\end{align}
-	\solution
-	The classifier selects the class with the maximum posterior probability. The error probability is determined by the unselected (minimum) posterior:
-	\begin{align}
-		\min\cbrak{\frac{3}{4} \cdot \frac{1}{3}, \frac{1}{4} \cdot \frac{2}{3}} &= \frac{1}{6}
-		\\
-		\pr{\vec{x}} &= \frac{1}{4} + \frac{1}{6} = \frac{5}{12}
-		\\
-		\pr{\text{error} \mid \vec{x}} &= \frac{1/6}{5/12} = 0.40
-	\end{align}
-	
-	% =========================================================
-	% Q.36
-	% [Reference: formulae.tex (Item 16: Gaussian properties)]
-	% =========================================================
-	\item Moments of Standard Normal and Chi-Square
-	\begin{align}
-		Z \sim \mathcal{N}\brak{0,1} \implies E\sbrak{Z^2} = 1, \; E\sbrak{Z^4} = 3 \label{eq:DA2025-chisq}
-	\end{align}
-	\solution
-	For $Y = Z^2$:
-	\begin{align}
-		\text{Var}\brak{Y} &= E\sbrak{Y^2} - \brak{E\sbrak{Y}}^2 = E\sbrak{Z^4} - \brak{E\sbrak{Z^2}}^2 = 3 - 1^2 = 2
-	\end{align}
-	
-	% =========================================================
-	% Q.37
-	% [Reference: ae-2026_formulae.tex (Item 18: Matrix properties)]
-	% =========================================================
-	\item Rank of Involutory Matrices
-	\begin{align}
-		\vec{A}^3 = \vec{A} \implies \text{rank}\brak{\vec{A}} = \text{rank}\brak{\vec{A}^2} \label{eq:DA2025-annihilating}
-	\end{align}
-	\solution
-	Factoring $\vec{A}^3 - \vec{A} = \vec{A}\brak{\vec{A} - \vec{I}}\brak{\vec{A} + \vec{I}} = \vec{0}$. The minimal polynomial has distinct linear roots, making $\vec{A}$ diagonalizable. The Rank-Nullity theorem confirms equal rank across powers.
+% =========================================================
+% Q.34
+% [Reference: General Domain Knowledge - Statistics/Machine Learning]
+% =========================================================
+\item Least Squares Regression Through Origin
+\begin{align}
+	w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
+\end{align}
+\solution
+For a linear model constrained to pass strictly through the origin, the predicted value is $\hat{y}_i = w x_i$. The objective function $S\brak{w}$ represents the Sum of Squared Residuals (SSR), which measures the total squared penalty between the actual observed values $y_i$ and the model's predictions $\hat{y}_i$:
+\begin{align}
+	S\brak{w} &= \sum \brak{y_i - \hat{y}_i}^2
+	\\
+	&= \sum \brak{y_i - w x_i}^2
+\end{align}
+To determine the optimal parameter $w^*$ that minimizes this cumulative error, evaluate the derivative of $S\brak{w}$ with respect to $w$ and equate it to zero to solve for the global minimum symbolically:
+\begin{align}
+	\frac{dS}{dw} &= -2 \sum x_i \brak{y_i - w x_i} = 0
+	\\
+	\sum x_i y_i - w \sum x_i^2 &= 0
+	\\
+	w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
+\end{align}
+% =========================================================
+% Q.32
+% [Reference: main.pdf (Eq 4.1.3.1: Total Probability & Eq 4.1.4.1: Bayes' Theorem)]
+% =========================================================
+\item Bayes Optimal Error Rate
+\begin{align}
+	Pr\brak{\text{error} \mid \mathbf{x}} &= \frac{\min_k Pr\brak{\mathbf{x} \mid y_k} Pr\brak{y_k}}{Pr\brak{\mathbf{x}}} \label{eq:DA2025-bayes_error}
+\end{align}
+
+% =========================================================
+% Q.35
+% [Reference: main_2.pdf (Section 5.1: Moments & Section 9.1: Gaussian)]
+% =========================================================
+\item Moments of Standard Normal
+\begin{align}
+	Z &\sim \mathcal{N}\brak{0, 1} \implies E\sbrak{Z^2} = 1, E\sbrak{Z^4} = 3
+\end{align}
+\begin{align}
+	var\brak{Y} &= E\sbrak{Y^2} - \brak{E\sbrak{Y}}^2 \label{eq:DA2025-variance_identity}
+\end{align}
+% =========================================================
+% Q.37
+% [Reference: Linear Algebra / Matrix Theory]
+% =========================================================
+\item Rank of Involutory Matrices
+\begin{align}
+	\mathbf{A}^3 &= \mathbf{A} \implies \text{rank}\brak{\mathbf{A}} = \text{rank}\brak{\mathbf{A}^2} \label{eq:1.1.26.1}
+\end{align}
+\solution
+\begin{align}
+	\intertext{Let $\mathbf{z} \in \text{Col}\brak{\mathbf{A}^2}$. By definition, there exists a vector $\mathbf{v}$ such that:}
+	\mathbf{z} &= \mathbf{A}^2\mathbf{v}
+	\\
+	&= \mathbf{A}\brak{\mathbf{A}\mathbf{v}}
+	\intertext{Letting $\mathbf{u} = \mathbf{A}\mathbf{v}$, we have $\mathbf{z} = \mathbf{A}\mathbf{u}$, which dictates $\mathbf{z} \in \text{Col}\brak{\mathbf{A}}$. Thus:}
+	\text{Col}\brak{\mathbf{A}^2} &\subseteq \text{Col}\brak{\mathbf{A}} \implies \text{rank}\brak{\mathbf{A}^2} \leq \text{rank}\brak{\mathbf{A}}
+	\intertext{Conversely, let $\mathbf{y} \in \text{Col}\brak{\mathbf{A}}$. Then there exists a vector $\mathbf{x}$ such that:}
+	\mathbf{y} &= \mathbf{A}\mathbf{x}
+	\\
+	&= \mathbf{A}^3\mathbf{x} \quad \text{(given $\mathbf{A} = \mathbf{A}^3$)}
+	\\
+	&= \mathbf{A}^2 \brak{\mathbf{A}\mathbf{x}}
+	\intertext{This demonstrates $\mathbf{y} \in \text{Col}\brak{\mathbf{A}^2}$, establishing the reverse inclusion:}
+	\text{Col}\brak{\mathbf{A}} &\subseteq \text{Col}\brak{\mathbf{A}^2} \implies \text{rank}\brak{\mathbf{A}} \leq \text{rank}\brak{\mathbf{A}^2}
+	\intertext{Consequently, the ranks must be equal:}
+	\text{rank}\brak{\mathbf{A}} &= \text{rank}\brak{\mathbf{A}^2}
+\end{align}
 	
 	% =========================================================
 	% Q.38
 	% [Reference: bt-2025-formulae.tex (Item 8: System of Linear Equations)]
 	% =========================================================
-	\item Gram Matrix Positive Definiteness
+	\item 
 	\begin{align}
 		\vec{A} = \vec{X}^\top\vec{X} \implies \vec{z}^\top\vec{A}\vec{z} = \norm{\vec{X}\vec{z}}^2 \label{eq:DA2025-gram}
 	\end{align}
-	\solution
 	If the columns of $\vec{X}$ are linearly independent, $\vec{X}\vec{z} = \vec{0} \iff \vec{z} = \vec{0}$. Thus, $\norm{\vec{X}\vec{z}}^2 > 0$ for all non-zero $\vec{z}$, rendering $\vec{A}$ positive definite and invertible.
 	
-	% =========================================================
-	% Q.39
-	% [Reference: General Domain Knowledge - Probability CDF mapping]
-	% =========================================================
-	\item Interval Probabilities from CDF
-	\begin{align}
-		\pr{X^2 \le c^2} = F_X\brak{c} - F_X\brak{-c} \label{eq:DA2025-interval_cdf}
-	\end{align}
-	\solution
-	For $F_X\brak{x} = \frac{1}{4}\brak{x + 1}^2$:
-	\begin{align}
-		\pr{X^2 \le 0.25} &= F_X\brak{0.5} - F_X\brak{-0.5} = \frac{2.25}{4} - \frac{0.25}{4} = 0.5
-	\end{align}
-	
-	% =========================================================
-	% Q.40
-	% [Reference: formulae.tex (Item 11: Binomial Distribution & Item 17: CLT)]
-	% =========================================================
-	\item Central Limit Theorem for Binomial Sums
-	\begin{align}
-		Z_n = \frac{\sum X_i - n\theta}{\sqrt{n\theta\brak{1-\theta}}} \xrightarrow{d} \mathcal{N}\brak{0,1} \label{eq:DA2025-clt}
-	\end{align}
-	\solution
-	For $n = 300, \theta = 0.25$, $\mu = 75$ and $\sigma = 7.5$:
-	\begin{align}
-		\pr{60 \le Y \le 90} &\approx \phi\brak{\frac{90-75}{7.5}} - \phi\brak{\frac{60-75}{7.5}} = \phi\brak{2} - \phi\brak{-2}
-	\end{align}
-	
-	% =========================================================
-	% Q.41
-	% [Reference: bt-2025-formulae.tex (Item 3: Integrals)]
-	% =========================================================
-	\item Geometric Discretization of Exponential
-	\begin{align}
-		\pr{\lfloor X \rfloor = l} = e^{-\lambda l}\brak{1 - e^{-\lambda}} \label{eq:DA2025-floor_exp}
-	\end{align}
-	\solution
-	Integrating $\lambda e^{-\lambda x}$ over $[l, l+1]$ yields $q^l\brak{1-q}$ with $q = e^{-\lambda}$.
-	
-	% =========================================================
-	% Q.45
-	% [Reference: ce2-2025-problems.tex (Q.22: Probability basics)]
-	% =========================================================
-	\item Complement Rule
-	\begin{align}
-		\pr{\text{at least one success}} = 1 - \brak{1 - p}^n \label{eq:DA2025-complement}
-	\end{align}
-	\solution
-	The probability of rolling zero $1$s on 100 fair dice is $\brak{5/6}^{100}$.
-	
+% =========================================================
+% Q.39
+% [Reference: Cumulative Distribution Function]
+% =========================================================
+\item Interval Probabilities from CDF
+\begin{align}
+	\Pr\brak{X^2 \le c^2} &= F_X\brak{c} - F_X\brak{-c} \label{eq:DA2025-interval_cdf}
+\end{align}
+\solution
+For any constant $c > 0$, the quadratic inequality $X^2 \le c^2$ algebraically resolves to a bounded symmetric interval. The probability of this event is evaluated by separating the interval bounds:
+\begin{align}
+	\Pr\brak{X^2 \le c^2} &= \Pr\brak{-c \le X \le c}
+	\\
+	&= \Pr\brak{X > -c \text{ and } X \le c}
+	\\
+	&= \Pr\brak{X \le c} - \Pr\brak{X \le -c}
+	\intertext{Substituting the fundamental definition of the Cumulative Distribution Function, $F_X\brak{x} = \Pr\brak{X \le x}$ (assuming a continuous distribution where $\Pr\brak{X = -c} = 0$), yields the final expression:}
+	\Pr\brak{X^2 \le c^2} &= F_X\brak{c} - F_X\brak{-c}
+\end{align}
+% =========================================================
+% Q.40
+% [Reference: DA.pdf]
+% =========================================================
+\item Central Limit Theorem Approximation for Binomial Sums
+\begin{align}
+	Z &= \frac{Y - n\theta}{\sqrt{n\theta(1-\theta)}} \xrightarrow{d} \mathcal{N}\brak{0, 1}
+\end{align}
+For independent variables $X_i \sim \text{Bernoulli}\brak{\theta}$, the sum $Y$, its mean $\mu$, and standard deviation $\sigma$ are defined as:
+\begin{align}
+	Y &= \sum_{i=1}^n X_i 
+	\\
+	\mu &= n\theta 
+	\\
+	\sigma &= \sqrt{n\theta\brak{1-\theta}}
+\end{align}
+
+Standardizing the interval $[a, b]$ maps the boundaries to the standard normal distribution $Z$. The probability evaluates to the difference of the standard normal Cumulative Distribution Function (CDF), denoted by $\phi\brak{x}$, at these bounds:
+\begin{align}
+	P\brak{a \le Y \le b} &= P\brak{\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}}
+	\\
+	&= \phi\brak{\frac{b - n\theta}{\sqrt{n\theta\brak{1-\theta}}}} - \phi\brak{\frac{a - n\theta}{\sqrt{n\theta\brak{1-\theta}}}}
+\end{align}
+% =========================================================
+% Q.41
+% [Reference: Geometric Discretization of Exponential]
+% =========================================================
+\item
+\begin{align}
+	\Pr\brak{\lfloor X \rfloor = \ell} &= e^{-\lambda \ell}\brak{1 - e^{-\lambda}}
+\end{align}
+\solution
+Let $X$ be an exponentially distributed random variable with rate parameter $\lambda = \frac{1}{\mu}$. Its probability density function is $f_X\brak{x} = \lambda e^{-\lambda x}$. 
+
+The event $Y = \lfloor X \rfloor = \ell$ strictly occurs when $X$ falls within the bounded interval $[\ell, \ell+1)$. The probability is derived by integrating the PDF over these boundaries:
+\begin{align}
+	P\brak{Y = \ell} &= P\brak{\ell \le X < \ell + 1}
+	\\
+	&= \int_{\ell}^{\ell+1} \lambda e^{-\lambda x} \,dx
+	\\
+	&= \sbrak{-e^{-\lambda x}}_{\ell}^{\ell+1}
+	\\
+	&= e^{-\lambda \ell} - e^{-\lambda\brak{\ell+1}}
+	\\
+	&= e^{-\lambda \ell} \brak{1 - e^{-\lambda}}
+	\intertext{By substituting $q = e^{-\lambda}$, the exact geometric probability mass function emerges:}
+	P\brak{Y = \ell} &= q^\ell \brak{1 - q}
+\end{align}
+% =========================================================
+% Q.45 (General Form via Z-Transform)
+% [Reference: main.pdf (Section 8.1: Binomial)]
+% =========================================================
+\item Probability of At Least One Success via Z-Transform
+\begin{align}
+	M_X\brak{z} &= \brak{q + pz^{-1}}^n 
+\end{align}
+Let $X = \sum_{i=1}^n X_i$ represent the total sum of $n$ independent trials, where each $X_i \sim \text{Bernoulli}\brak{p}$. The Z-transform for a single trial is $M_{X_i}\brak{z} = q + pz^{-1}$, and the aggregate transform is:
+\begin{align}
+	M_X\brak{z} &= \brak{q + pz^{-1}}^n 
+\end{align}
+Expanding this polynomial yields the probability mass function $p_X\brak{k}$ as the coefficient of the $z^{-k}$ term. The probability of zero successes ($k=0$) corresponds to the constant term $q^n$. Applying the complement rule to find the probability of at least one success:
+\begin{align}
+	P\brak{X \ge 1} &= 1 - p_X\brak{0}
+	\\
+	&= 1 - q^n
+\end{align}
 	% =========================================================
 	% Q.49
 	% [Reference: ce2-2025-problems.tex (Q.38: Local Extrema)]
 	% =========================================================
-	\item Critical Points
+	\item 
 	\begin{align}
 		f'\brak{x} = 0 \text{ at local extrema} \label{eq:DA2025-extrema}
 	\end{align}
-	\solution
-	Local extrema require evaluating roots of $f'\brak{x}$ and checking $f''\brak{x}$ convexity. Extrema of the derivative itself locate inflection points.
 	
-	% =========================================================
-	% Q.50
-	% [Reference: ae-2026_formulae.tex (Item 16: Orthogonal sets)]
-	% =========================================================
-	\item Orthogonal Projection Matrices
-	\begin{align}
-		\vec{A} = \sum_{i=1}^k \vec{x}_i \vec{x}_i^\top \implies \vec{A}^2 = \vec{A} \label{eq:DA2025-projection}
-	\end{align}
-	\solution
-	Using orthonormal properties, $\vec{A}$ is idempotent. Singular values equal eigenvalues $\sigma \in \{0, 1\}$. For incomplete bases $k < n$, $\vec{A}$ is singular.
-	
-	% =========================================================
-	% Q.51
-	% [Reference: bt-2025-formulae.tex (Item 6: Convexity)]
-	% =========================================================
-	\item Strict Convexity
-	\begin{align}
-		f''\brak{x} > 0 \implies \text{Unique global minimum (if any)} \label{eq:DA2025-convex}
-	\end{align}
-	\solution
-	A strictly monotonic $f'\brak{x}$ cannot possess multiple roots, precluding multiple local minima.
-	
-	% =========================================================
-	% Q.52
-	% [Reference: ae-2026_formulae.tex (Item 18: Matrix Determinant/Norm)]
-	% =========================================================
-	\item Isometric Norm Preservation
-	\begin{align}
-		\norm{\vec{Ax}}^2 = \norm{\vec{x}}^2 \iff \vec{A}^\top\vec{A} = \vec{I} \label{eq:DA2025-isometry}
-	\end{align}
-	\solution
-	Applying polarization identity, the equality strictly implies orthogonality and full rank.
-	
-	% =========================================================
-	% Q.53
-	% [Reference: General Domain Knowledge - SVM Optimization]
-	% =========================================================
-	\item SVM Margin
-	\begin{align}
-		\gamma = \frac{2}{\norm{\vec{w}}} \label{eq:DA2025-svm}
-	\end{align}
-	\solution
-	Support vectors lie directly on the canonical hyperplanes $y_i\brak{\vec{w}^\top\vec{x}_i + b} = 1$. The geometric width is inverse to norm $\vec{w}$.
-	
-	% =========================================================
-	% Q.54
-	% [Reference: formulae.tex (Item 17: Central Limit Theorem / Sample Means)]
-	% =========================================================
-	\item Variance of Sample Mean
-	\begin{align}
-		\text{Var}\brak{\frac{1}{n}\sum_{i=1}^n X_i} = \frac{\sigma^2}{n} \label{eq:DA2025-sample_mean}
-	\end{align}
-	\solution
-	Variance of a sum of independent identical variables scales by $n$, rendering the sample mean variance inversely proportional to $n$.
-	
+% =========================================================
+% Q.50
+% [Reference: Linear Algebra / Orthogonal Projection]
+% =========================================================
+\item Properties of Orthogonal Projection Matrices
+\begin{align}
+	\mathbf{A} &= \sum_{i=1}^k \mathbf{x}_i \mathbf{x}_i^\top \implies \mathbf{A}^2 = \mathbf{A} \label{eq:DA2025-orthogonal_projection}
+\end{align}
+\solution
+For an orthonormal set of vectors where the inner product $\mathbf{x}_i^\top \mathbf{x}_j = \delta_{ij}$:
+\begin{align}
+	\mathbf{A}^2 &= \left(\sum_{i=1}^k \mathbf{x}_i \mathbf{x}_i^\top\right) \left(\sum_{j=1}^k \mathbf{x}_j \mathbf{x}_j^\top\right)
+	\\
+	&= \sum_{i=1}^k \sum_{j=1}^k \mathbf{x}_i \left(\mathbf{x}_i^\top \mathbf{x}_j\right) \mathbf{x}_j^\top
+	\\
+	&= \sum_{i=1}^k \mathbf{x}_i \brak{1} \mathbf{x}_i^\top
+	\\
+	&= \mathbf{A}
+\end{align}
+
+%Given idempotence ($\mathbf{A}^2 = \mathbf{A}$) and symmetry ($\mathbf{A} = %\mathbf{A}^\top$), the eigenvalues and singular values are restricted:
+%\begin{align}
+	%\mathbf{A}\mathbf{v} &= \lambda\mathbf{v} \implies \lambda^2 = \lambda \implies %\lambda \in \{0, 1\}
+	%\\
+	%\sigma_i &= |\lambda_i| = \lambda_i \implies \sigma_i \in \{0, 1\}
+%\end{align}
+
+
+%For an incomplete basis ($k < n$), the rank is strictly less than the full dimension. %Therefore, the matrix is singular and not invertible.	
+% =========================================================
+% Q.52
+% [Reference: Linear Algebra / Isometric Norm Preservation]
+% =========================================================
+\item Isometric Norm Preservation
+\begin{align}
+	\|\mathbf{Ax}\|^2 &= \|\mathbf{x}\|^2 \iff \mathbf{A}^\top\mathbf{A} = \mathbf{I}
+\end{align}
+\solution
+By the definition of the Euclidean norm in terms of the standard inner product, evaluate both sides for an arbitrary vector $\mathbf{x} \in \mathbb{R}^n$:
+\begin{align}
+	\|\mathbf{Ax}\|^2 &= \brak{\mathbf{Ax}}^\top \brak{\mathbf{Ax}} = \mathbf{x}^\top \mathbf{A}^\top \mathbf{A} \mathbf{x}
+	\\
+	\|\mathbf{x}\|^2 &= \mathbf{x}^\top \mathbf{x} = \mathbf{x}^\top \mathbf{I} \mathbf{x}
+\end{align}
+Equating the two expanded forms for all $\mathbf{x}$:
+\begin{align}
+	\mathbf{x}^\top \mathbf{A}^\top \mathbf{A} \mathbf{x} &= \mathbf{x}^\top \mathbf{I} \mathbf{x}
+	\\
+	\mathbf{x}^\top \brak{\mathbf{A}^\top \mathbf{A} - \mathbf{I}} \mathbf{x} &= 0
+\end{align}
+The matrix $\brak{\mathbf{A}^\top \mathbf{A} - \mathbf{I}}$ is inherently symmetric. If a quadratic form of a symmetric matrix evaluates to zero for all possible vectors $\mathbf{x}$, the matrix must be the zero matrix. Therefore:
+\begin{align}
+	\mathbf{A}^\top \mathbf{A} - \mathbf{I} &= \mathbf{0} \implies \mathbf{A}^\top \mathbf{A} = \mathbf{I}
+\end{align}
+% =========================================================
+% Q.54
+% [Reference: main_2.pdf]
+% =========================================================
+\item Properties of Sample Proportion
+\begin{align}
+	E\sbrak{\hat{p}} &= p 
+	\\
+	var\brak{\hat{p}} &= \frac{p\brak{1-p}}{n}
+\end{align}
+\solution
+Let $X = \sum_{i=1}^n X_i$ represent the total number of heads. Because $X_i$ are independent Bernoulli random variables, their sum follows a Binomial distribution $X \sim B\brak{n, p}. $
+
+From the defined moments of a Binomial distribution:
+\begin{align}
+	E\brak{X} &= np 
+	\\
+	var\brak{X} &= npq = np\brak{1-p} 
+\end{align}
+
+The sample proportion is given as $\hat{p} = \frac{X}{n}$. Evaluating the expectation yields:
+\begin{align}
+	E\sbrak{\hat{p}} &= E\sbrak{\frac{X}{n}}
+	\\
+	&= \frac{1}{n} E\brak{X}
+	\\
+	&= \frac{1}{n} \brak{np} = p
+\end{align}
+
+To evaluate the variance, apply the fundamental variance scaling property $var\brak{aX} = a^2 var\brak{X}$ established in the text:
+\begin{align}
+	var\brak{\hat{p}} &= var\brak{\frac{X}{n}}
+	\\
+	&= \frac{1}{n^2} var\brak{X}
+	\\
+	&= \frac{1}{n^2} \sbrak{np\brak{1-p}}
+	\\
+	&= \frac{p\brak{1-p}}{n}
+\end{align}
+
+Because $n$ is in the denominator of the resulting expression, the variance of $\hat{p}$ strictly decreases as the total number of independent coin tosses $n$ increases. Therefore, statements (A) and (C) are correct.
 	% =========================================================
 	% Q.58
 	% [Reference: ce2-2025-problems.tex (Q.53: Network/Graph Constraints)]
@@ -538,7 +699,7 @@ The step-by-step derivations for the expectations are:
 	\begin{align}
 		d\brak{u,v} \le d\brak{u,w} + d\brak{w,v} \label{eq:DA2025-triangle_ineq}
 	\end{align}
-	\solution
+	
 	Fake edges violating the triangle inequality are identifiable by calculating the minimum spanning distances directly.
 	
 	% =========================================================
@@ -552,17 +713,18 @@ The step-by-step derivations for the expectations are:
 	\solution
 	Dividing by $\abs{x-y}$ and taking the limit $y \to x$ for $\alpha > 1$ yields a derivative of zero, enforcing a constant function.
 	
-	% =========================================================
-	% Q.60
-	% [Reference: ae-2026_formulae.tex (Item 18: Eigenvalues trace mapping)]
-	% =========================================================
-	\item Rayleigh-Ritz Theorem for PCA
-	\begin{align}
-		\max_{\norm{\vec{u}}=1} \vec{u}^\top\vec{S}\vec{u} = \lambda_{\max}\brak{\vec{S}} \label{eq:DA2025-pca}
-	\end{align}
-	\solution
-	Empirical variance along $\vec{u}$ is maximized by the eigenvector corresponding to the principal eigenvalue.
-	
+% =========================================================
+% Q.60
+% [Reference: Statistics / Principal Component Analysis]
+% =========================================================
+\item Projected Variance and Principal Components
+\begin{align}
+	\mathbf{C} &= \frac{1}{n} \sum_{i=1}^n \mathbf{x}^{(i)} {\mathbf{x}^{(i)}}^\top \quad \text{(Covariance Matrix for centered data)}
+	\\
+	\sigma_{\mathbf{u}}^2 &= \frac{1}{n} \sum_{i=1}^n \left(\mathbf{u}^\top \mathbf{x}^{(i)}\right)^2 = \mathbf{u}^\top \mathbf{C} \mathbf{u} \quad \text{(Variance along direction $\mathbf{u}$)}
+	\\
+	\max_{\mathbf{u}^\top \mathbf{u} = 1} \mathbf{u}^\top \mathbf{C} \mathbf{u} &= \lambda_{\max} \quad \text{(Rayleigh Quotient / Maximum Variance)}
+\end{align}
 	% =========================================================
 	% Q.61
 	% [Reference: bt-2025-formulae.tex (Item 9: Sum of Discrete RVs)]
@@ -584,5 +746,23 @@ The step-by-step derivations for the expectations are:
 	\end{align}
 	\solution
 	Simulates universal quantification $\forall$ in relational schema.
+	% =========================================================
+	% Q.65
+	% [Reference: Graph Theory / Depth-First Search]
+	% =========================================================
+	\item Depth-First Search (DFS) Traversal Sequence
+	\input{figs/DFS.tex}
+	\begin{align}
+		V &= \{0, 1, \dots, n\}, \quad E = \{(i, j) : 0 < j - i \le 2\}
+	\end{align}
+	\solution
+	Decreasing adjacency order restricts the neighbor queue to $Adj(i) = [i+2, i+1]$. A DFS from $0$ greedily traverses even vertices forward via $i+2$ edges, then odd vertices during backtracking via $i+1$ edges. For an even boundary $n$, the vertex $D(k)$ discovered at step $k \in \{0, \dots, n\}$ is:
+	\begin{align}
+		D(k) &= \begin{cases} 2k & 0 \le k \le n/2 \quad \text{(Forward)} \\ 2n - 2k + 1 & n/2 < k \le n \quad \text{(Backtrack)} \end{cases}
+	\end{align}
+	To find the number of vertices discovered chronologically after a target $v$, solve $D(k_v) = v$ for its discovery index $k_v$. Out of $n+1$ total vertices, the remaining unvisited count evaluates to:
+	\begin{align}
+		\text{Remaining Discoveries} &= n - k_v
+	\end{align}
 	
 \end{enumerate}

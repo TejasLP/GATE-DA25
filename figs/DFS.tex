@@ -1,0 +1,64 @@
+
+	
+	\begin{figure}[htbp]
+		\centering
+		\begin{tikzpicture}[
+			node distance=2cm and 2.5cm,
+			vertex/.style={circle, draw=black, thick, minimum size=8mm, font=\bfseries},
+			% Visually distinct paths:
+			dfspath/.style={->, >={Stealth[length=3mm]}, line width=1.5pt, black},
+			unwindpath/.style={->, >={Stealth[length=3mm]}, line width=1.5pt, black, dashed},
+			unvisited/.style={->, >={Stealth[length=2mm]}, draw=gray, dotted, thick}
+			]
+			
+			% ==========================================
+			% 1. Define the Vertices
+			% ==========================================
+			% Even vertices (Forward tracking path)
+			\node[vertex] (0) {0};
+			\node[vertex, right=of 0] (2) {2};
+			\node[vertex, right=of 2] (4) {4};
+			\node[vertex, right=of 4] (6) {6};
+			
+			% Odd vertices (Backtracking path)
+			\node[vertex, below right=1cm and 0.75cm of 0] (1) {1};
+			\node[vertex, below right=1cm and 0.75cm of 2] (3) {3};
+			\node[vertex, below right=1cm and 0.75cm of 4] (5) {5};
+			
+			% ==========================================
+			% 2. Draw Bypassed/Unused Graph Edges
+			% ==========================================
+			% These edges exist but hit already-visited nodes
+			\draw[unvisited] (1) -- (2);
+			\draw[unvisited] (1) -- (3);
+			\draw[unvisited] (3) -- (4);
+			\draw[unvisited] (3) -- (5);
+			\draw[unvisited] (5) -- (6);
+			
+			% ==========================================
+			% 3. Draw DFS Forward Path (Evens: i -> i+2)
+			% ==========================================
+			\draw[dfspath] (0) -- node[above, font=\small\bfseries] {Step 1} (2);
+			\draw[dfspath] (2) -- node[above, font=\small\bfseries] {Step 2} (4);
+			\draw[dfspath] (4) -- node[above, font=\small\bfseries] {Step 3} (6);
+			
+			% ==========================================
+			% 4. Draw DFS Unwind Path (Odds: i -> i+1)
+			% ==========================================
+			\draw[unwindpath] (4) -- node[right, font=\small\bfseries, xshift=2pt] {Step 4} (5);
+			\draw[unwindpath] (2) -- node[right, font=\small\bfseries, xshift=2pt] {Step 5} (3);
+			\draw[unwindpath] (0) -- node[right, font=\small\bfseries, xshift=2pt] {Step 6} (1);
+			
+			% ==========================================
+			% 5. Legend
+			% ==========================================
+			\matrix [draw, below left=1.5cm and -4.8cm of 1, anchor=north west] {
+				\draw[dfspath] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Phase 1: Initial Dive ($i \to i+2$)}; \\
+				\draw[unwindpath] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Phase 2: Recursion Unwind ($i \to i+1$)}; \\
+				\draw[unvisited] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Bypassed Edges (Target already visited)}; \\
+			};
+			
+		\end{tikzpicture}
+		\caption{DFS Traversal for $n=6$. Decreasing adjacency priority forces the DFS to exhaust all even vertices forward via $i+2$ edges. It then unwinds sequentially, mapping the bypassed odd vertices via the $i+1$ edges in reverse chronological order.}
+	\end{figure}
+	

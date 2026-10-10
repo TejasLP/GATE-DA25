@@ -1,0 +1,45 @@
+% insertion_sort.tex
+\begin{figure}[H]
+	\centering
+	\vspace{-1em} 
+	\begin{tikzpicture}[
+		slot/.style={draw, minimum width=2.2cm, minimum height=0.8cm, align=center},
+		active/.style={slot, fill=gray!30},
+		target/.style={slot, fill=gray!10},
+		desc/.style={align=center, font=\small},
+		>=Stealth,
+		start chain=1 going right,
+		node distance=-\pgflinewidth
+		]
+		
+		% Array structure
+		\node [on chain=1] {\dots};
+		\node [on chain=1, slot]   (slot1) {$a_{i-n}$};
+		\node [on chain=1, target] (slot2) {$a_{i-n+1}$};
+		\node [on chain=1, target] (slot3) {\dots};
+		\node [on chain=1, target] (slot4) {$a_{i}$};
+		\node [on chain=1, active] (slot5) {$x$};
+		\node [on chain=1] {\dots};
+		
+		% Explanatory labels below (stacked to save width)
+		\node[below=0.2cm of slot1, desc] {$a_{i-n} \le x$\\ (Stop)};
+		\node[below=0.2cm of slot2, desc] {$a_{i-n+1} > x$\\ (Inv. $n$)};
+		\node[below=0.2cm of slot3, desc] {\dots};
+		\node[below=0.2cm of slot4, desc] {$a_{i} > x$\\ (Inv. $1$)};
+		\node[below=0.2cm of slot5, desc] {Insert};
+		
+		% Swapping Arrows
+		\draw[->, thick] (slot5.north) .. controls +(up:1.0cm) and +(up:1.0cm) .. (slot4.north)
+		node[midway, above] {Swap $1$};
+		
+		\draw[->, thick, dashed] (slot4.north) .. controls +(up:1.0cm) and +(up:1.0cm) .. (slot3.north);
+		
+		\draw[->, thick] (slot3.north) .. controls +(up:1.0cm) and +(up:1.0cm) .. (slot2.north)
+		node[midway, above] {Swap $n$};
+		
+	\end{tikzpicture}
+	\vspace{-0.5em} 
+	\caption{Pictorial representation of Insertion Sort executing exactly $n$ swaps for $n$ inversions}
+	\label{fig:insertion_sort}
+	\vspace{-1.5em} 
+\end{figure}
