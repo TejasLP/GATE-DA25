@@ -499,11 +499,29 @@ An orthonormal set of vectors in $\mathbb{R}^n$ is unconditionally linearly inde
 	% [Reference: bt-2025-formulae.tex (Item 8: System of Linear Equations)]
 	% =========================================================
 	\item 
-	\begin{align}
-		\vec{A} = \vec{X}^\top\vec{X} \implies \vec{z}^\top\vec{A}\vec{z} = \norm{\vec{X}\vec{z}}^2 \label{eq:DA2025-gram}
-	\end{align}
-	If the columns of $\vec{X}$ are linearly independent, $\vec{X}\vec{z} = \vec{0} \iff \vec{z} = \vec{0}$. Thus, $\norm{\vec{X}\vec{z}}^2 > 0$ for all non-zero $\vec{z}$, rendering $\vec{A}$ positive definite and invertible.
-	
+Construct the matrix $\vec{X} \in \mathbb{R}^{n \times n}$ having the given vectors as its columns:
+\begin{align}
+	\vec{X} &= \myvec{\vec{x}_1 & \vec{x}_2 & \dots & \vec{x}_n}
+\end{align}
+By definition of matrix multiplication, the $(i, j)$-th entry of $\vec{X}^{\top}\vec{X}$ is $\vec{x}_i^{\top}\vec{x}_j$. Therefore:
+\begin{align}
+	\vec{A} &= \vec{X}^{\top}\vec{X} \label{eq:DA2025-A-Gram}
+\end{align}
+Notice that $\vec{A}$ is symmetric since $\vec{A}^{\top} = \brak{\vec{X}^{\top}\vec{X}}^{\top} = \vec{X}^{\top}\vec{X} = \vec{A}$.
+
+For any arbitrary non-zero vector $\vec{z} \in \mathbb{R}^n$, the quadratic form evaluates to:
+\begin{align}
+	\vec{z}^{\top}\vec{A}\vec{z} &= \vec{z}^{\top}\brak{\vec{X}^{\top}\vec{X}}\vec{z}
+	\\
+	&= \brak{\vec{X}\vec{z}}^{\top}\brak{\vec{X}\vec{z}}
+	\\
+	&= \norm{\vec{X}\vec{z}}^2 \label{eq:DA2025-quadratic-norm}
+\end{align}
+Since the columns $\cbrak{\vec{x}_1, \dots, \vec{x}_n}$ are linearly independent, the linear combination satisfies:
+\begin{align}
+	\vec{X}\vec{z} = \sum_{k=1}^n z_k \vec{x}_k = \vec{0} \iff \vec{z} = \vec{0}
+	\label{eq:DA2025-linear}
+\end{align}
 	% =========================================================
 	% Q.39
 	% [Reference: Cumulative Distribution Function]
@@ -631,12 +649,14 @@ An orthonormal set of vectors in $\mathbb{R}^n$ is unconditionally linearly inde
 	% Roll's Theorem
 	% [Reference: Calculus Core - Mean Value Theorems]
 	% =========================================================
-	\item Rolle's Theorem
-	\begin{align}
-		f\brak{a} = f\brak{b}, \; f \text{ continuous on } [a, b], \; f \text{ differentiable on } (a, b) \implies \exists \, c \in (a, b) \text{ s.t. } f'\brak{c} = 0 \label{eq:DA2025-rolles}
-	\end{align}
-	\solution
-	Rolle's theorem states that if a real-valued function is continuous on a closed interval and differentiable on the open interval, and has equal values at the endpoints, then there exists at least one interior point where the first derivative is zero.
+\item Rolle's Theorem
+\begin{align}
+	\begin{split}
+		&f\brak{a} = f\brak{b}, \; f \text{ continuous on } [a, b], \; f \text{ differentiable on } (a, b) \\
+		&\implies \exists \, c \in (a, b) \text{ s.t. } f'\brak{c} = 0
+	\end{split} \label{eq:DA2025-rolles}
+\end{align}
+Rolle's theorem states that if a real-valued function is continuous on a closed interval and differentiable on the open interval, and has equal values at the endpoints, then there exists at least one interior point where the first derivative is zero.
 	
 	% =========================================================
 	% Q.52
@@ -715,17 +735,28 @@ An orthonormal set of vectors in $\mathbb{R}^n$ is unconditionally linearly inde
 	
 	Fake edges violating the triangle inequality are identifiable by calculating the minimum spanning distances directly.
 	
-	% =========================================================
-	% Q.59
-	% [Reference: formulae.tex (Item 7: First Principles Derivative)]
-	% =========================================================
-	\item Lipschitz Continuity with Exponent $> 1$
-	\begin{align}
-		\abs{f\brak{x} - f\brak{y}} \le K\abs{x - y}^\alpha \implies f'\brak{x} = 0 \label{eq:DA2025-lipschitz}
-	\end{align}
-	\solution
-	Dividing by $\abs{x-y}$ and taking the limit $y \to x$ for $\alpha > 1$ yields a derivative of zero, enforcing a constant function.
-	
+% =========================================================
+% Q.59
+% [Reference: Lipschitz Continuity with Exponent > 1]
+% =========================================================
+\item Lipschitz Continuity with Exponent $> 1$
+\begin{align}
+	\abs{f\brak{x} - f\brak{y}} &\le K \abs{x - y}^\alpha \implies f'\brak{x} = 0 \label{eq:DA2025-lipschitz}
+\end{align}
+\solution
+For $y \ne x$, dividing both sides by $\abs{x - y}$:
+\begin{align}
+	\abs{\frac{f\brak{x} - f\brak{y}}{x - y}} &\le K \abs{x - y}^{\alpha - 1}
+\end{align}
+Taking the limit as $y \to x$ for $\alpha > 1$ (where $\alpha - 1 > 0$):
+\begin{align}
+	\abs{f'\brak{x}} &= \lim_{y \to x} \abs{\frac{f\brak{x} - f\brak{y}}{x - y}}
+	\\
+	&\le \lim_{y \to x} K \abs{x - y}^{\alpha - 1} = 0
+	\\
+	\implies f'\brak{x} &= 0
+\end{align}
+Since $f'\brak{x} = 0$ for all $x$, $f\brak{x}$ is a constant function.s
 	% =========================================================
 	% Q.60
 	% [Reference: Statistics / Principal Component Analysis]

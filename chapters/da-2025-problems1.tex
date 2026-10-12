@@ -356,30 +356,32 @@ By definition, the general Maclaurin series coefficient for $x^n$ is given by $\
 		\\
 		\implies \lambda &= \ln 2
 	\end{align}
-	
-	% Q.23
-	\item 
-	Consider the following Python declarations of two lists.
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, resetmargins=true, gobble=4]
-	A = [1, 2, 3]
-	B = [4, 5, 6]
-	\end{lstlisting}
-	Which one of the following statements results in $A = [1, 2, 3, 4, 5, 6]$?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item \lstinline|A.extend(B)|
-			\item \lstinline|A.append(B)|
-			\item \lstinline|A.update(B)|
-			\item \lstinline|A.insert(B)|
-		\end{multicols}
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-python_extend}:
-	\begin{align}
-		A.\text{extend}\brak{B} \implies A \gets \sbrak{1, 2, 3, 4, 5, 6}
-	\end{align}
-	
+% Q.23
+\item 
+Consider the following Python declarations of two lists.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
+A = [1, 2, 3]
+B = [4, 5, 6]
+\end{lstlisting}
+Which one of the following statements results in $A = [1, 2, 3, 4, 5, 6]$?
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item \lstinline|A.extend(B)|
+		\item \lstinline|A.append(B)|
+		\item \lstinline|A.update(B)|
+		\item \lstinline|A.insert(B)|
+	\end{multicols}
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-python_extend}:
+\begin{align}
+	A.\text{extend}\brak{B} \implies A \gets \sbrak{1, 2, 3, 4, 5, 6}
+\end{align}
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q14/q14.py}@*)
+\end{lstlisting}
 	% Q.24
 	\item 
 	Consider two functions $f: \mathbb{R} \to \mathbb{R}$ and $g: \mathbb{R} \to \brak{1, \infty}$. Both functions are differentiable at a point $c$. Which of the following functions is/are ALWAYS differentiable at $c$? The symbol $\cdot$ denotes product and the symbol $\circ$ denotes composition of functions.
@@ -521,7 +523,7 @@ By definition, the general Maclaurin series coefficient for $x^n$ is given by $\
 		\centering
 		\input{figs/Loan.tex}
 		\caption{}
-		\label{fig:DA-2025-33}
+		\label{fig:DA-LOAN}
 	\end{figure}
 	the following SQL query is executed.
 	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
@@ -533,7 +535,16 @@ WHERE L2.branch_name = 'SR Nagar');
 	\end{lstlisting}
 	The number of rows returned by the query is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)
-	
+	\\
+	\solution
+	The inner subquery evaluates the maximum loan amount for the \texttt{'SR Nagar'} branch, giving $\max\{40000, 25000, 65000\} = 65000$. The outer query selects candidate rows satisfying $\text{amount} > 65000$, which matches $\cbrak{\text{L11}, \text{L23}, \text{L25}}$.
+	\begin{align}
+		\text{Number of rows returned} = 3
+	\end{align}
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q22/q22.sql}@*)
+	\end{lstlisting}
 	% Q.34
 	\item 
 	Given data $\cbrak{\brak{-1, 1}, \brak{2, 5}, \brak{3, 5}}$ of the form $\brak{x, y}$, we fit a model $y = wx$ using linear least-squares regression. The optimal value of $w$ is \underline{\hspace{1.5cm}}.
@@ -619,23 +630,41 @@ To demonstrate that other properties are not universally guaranteed, consider co
 	\item For the identity matrix $\vec{A} = \vec{I}_n$, $\mydet{\vec{A}} = 1 \neq 0$ and the trace is $n$ (or $2$ for $\vec{I}_2$), showing that the determinant is not always $0$ and the sum of diagonal elements is not universally $1$.
 \end{itemize}
 	
-	% Q.38
-	\item 
-	Let $\cbrak{\vec{x}_1, \vec{x}_2, \dots, \vec{x}_n}$ be a set of linearly independent vectors in $\mathbb{R}^n$. Let the $(i, j)$-th element of matrix $\vec{A} \in \mathbb{R}^{n \times n}$ be given by $A_{ij} = \vec{x}_i^{\top}\vec{x}_j, \; 1 \le i, j \le n$. Which one of the following statements is correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $\vec{A}$ is invertible
-		\item 0 is a singular value of $\vec{A}$
-		\item Determinant of $\vec{A}$ is 0
-		\item $\vec{z}^{\top}\vec{A}\vec{z} = 0$ for some non-zero $\vec{z} \in \mathbb{R}^n$
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-gram}, for linearly independent columns of $\vec{X}$:
+% Q.38
+\item 
+Let $\cbrak{\vec{x}_1, \vec{x}_2, \dots, \vec{x}_n}$ be a set of linearly independent vectors in $\mathbb{R}^n$. Let the $(i, j)$-th element of matrix $\vec{A} \in \mathbb{R}^{n \times n}$ be given by $A_{ij} = \vec{x}_i^{\top}\vec{x}_j, \; 1 \le i, j \le n$. Which one of the following statements is correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $\vec{A}$ is invertible
+	\item 0 is a singular value of $\vec{A}$
+	\item Determinant of $\vec{A}$ is 0
+	\item $\vec{z}^{\top}\vec{A}\vec{z} = 0$ for some non-zero $\vec{z} \in \mathbb{R}^n$
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-quadratic-norm}, the following properties hold:
+\begin{itemize}
+	\item \textbf{Positive Definiteness:} For every $\vec{z} \neq \vec{0}$, $\vec{X}\vec{z} \neq \vec{0}$, which ensures $\norm{\vec{X}\vec{z}}^2 > 0$. Consequently:
 	\begin{align}
-		\vec{z}^\top\vec{A}\vec{z} &= \norm{\vec{X}\vec{z}}^2 > 0, \quad \forall \vec{z} \ne \vec{0}
+		\vec{z}^{\top}\vec{A}\vec{z} > 0, \quad \forall \vec{z} \neq \vec{0}
 	\end{align}
-	Thus, $\vec{A}$ is strictly positive definite, implying invertibility.
+	which implies $\vec{z}^{\top}\vec{A}\vec{z} \neq 0$ for any non-zero $\vec{z}$.
 	
+	\item \textbf{Eigenvalues and Invertibility:} Let $\lambda$ be an eigenvalue of $\vec{A}$ with corresponding eigenvector $\vec{v} \neq \vec{0}$:
+	\begin{align}
+		\vec{A}\vec{v} = \lambda \vec{v} \implies \vec{v}^{\top}\vec{A}\vec{v} = \lambda \norm{\vec{v}}^2
+	\end{align}
+	Since $\vec{v} \neq \vec{0}$, $\norm{\vec{v}}^2 > 0$. Together with $\vec{v}^{\top}\vec{A}\vec{v} > 0$, this yields:
+	\begin{align}
+		\lambda = \frac{\vec{v}^{\top}\vec{A}\vec{v}}{\norm{\vec{v}}^2} > 0
+	\end{align}
+	Because every eigenvalue $\lambda_i > 0$, zero is not an eigenvalue of $\vec{A}$. Hence, the null space is trivial, which proves that $\vec{A}$ has full rank $n$ and is invertible.
+	
+	\item \textbf{Singular Values:} Because $\vec{A}$ is real, symmetric, and positive definite, its singular values coincide directly with its eigenvalues:
+	\begin{align}
+		\sigma_i = \sqrt{\lambda_i\brak{\vec{A}^{\top}\vec{A}}} = \sqrt{\lambda_i^2} = \lambda_i > 0, \quad \forall i \in \{1, \dots, n\}
+	\end{align}
+	Because all singular values are strictly positive, $0$ cannot be a singular value of $\vec{A}$.
+\end{itemize}
 	% Q.39
 	\item 
 	Consider the cumulative distribution function (CDF) of a random variable $X$:
@@ -746,97 +775,191 @@ To demonstrate that other properties are not universally guaranteed, consider co
 		&= 1 - \brak{\frac{5}{6}}^{100}
 	\end{align}
 	
-	% Q.47
-	\item 
-	Consider the following Python code snippet.
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
+% Q.32
+\item 
+Consider the following Python code snippet.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt]
 A = {"this", "that"}
 B = {"that", "other"}
 C = {"other", "this"}
+	
 while "other" in C:
 	if "this" in A:
 		A, B, C = A - B, B - C, C - A
 	if "that" in B:
 		A, B, C = C | A, A | B, B | C
-	\end{lstlisting}
-	When the above program is executed, at the end, which of the following sets contains ``this''?
-	\hfill (DA~2025)
+\end{lstlisting}
+When the above program is executed, at the end, which of the following sets contains \texttt{"this"}?
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item Only A
+		\item Only B
+		\item Only C
+		\item A, C
+	\end{multicols}
+\end{enumerate}
+\solution
+The execution proceeds step-by-step as follows:
+\begin{itemize}
+	\item \textbf{Initial state:}
+	\begin{align}
+		A_0 = \{\text{`this'}, \text{`that'}\}, \quad B_0 = \{\text{`that'}, \text{`other'}\}, \quad C_0 = \{\text{`other'}, \text{`this'}\}
+	\end{align}
+	
+	\item \textbf{Iteration 1} ($\text{`other'} \in C_0$ is true):
 	\begin{enumerate}
-		\begin{multicols}{4}
-			\item Only A
-			\item Only B
-			\item Only C
-			\item A, C
-		\end{multicols}
+		\item Since $\text{`this'} \in A_0$, evaluate set differences simultaneously:
+		\begin{align}
+			A_1 &= A_0 \setminus B_0 = \{\text{`this'}\} \\
+			B_1 &= B_0 \setminus C_0 = \{\text{`that'}\} \\
+			C_1 &= C_0 \setminus A_0 = \{\text{`other'}\}
+		\end{align}
+		\item Since $\text{`that'} \in B_1$, evaluate set unions simultaneously:
+		\begin{align}
+			A_2 &= C_1 \cup A_1 = \{\text{`other'}, \text{`this'}\} \\
+			B_2 &= A_1 \cup B_1 = \{\text{`this'}, \text{`that'}\} \\
+			C_2 &= B_1 \cup C_1 = \{\text{`that'}, \text{`other'}\}
+		\end{align}
 	\end{enumerate}
 	
-	% Q.49
-	\item 
-	Consider the function
-	\begin{align}
-		f\brak{x} = \frac{x^3}{3} + \frac{7}{2}x^2 + 10x + \frac{133}{2}, \quad x \in \sbrak{-8, 0}
-	\end{align}
-	Which of the following statements is/are correct?
-	\hfill (DA~2025)
+	\item \textbf{Iteration 2} ($\text{`other'} \in C_2$ is true):
 	\begin{enumerate}
+		\item Since $\text{`this'} \in A_2$, evaluate set differences simultaneously:
+		\begin{align}
+			A_3 &= A_2 \setminus B_2 = \{\text{`other'}\} \\
+			B_3 &= B_2 \setminus C_2 = \{\text{`this'}\} \\
+			C_3 &= C_2 \setminus A_2 = \{\text{`that'}\}
+		\end{align}
+		\item Now check $\text{`that'} \in B_3$: since$B_3 = \{\text{`this'}\}$, this condition is false. The second block does not execute.
+	\end{enumerate}
+	
+	\item \textbf{Loop termination:} The condition $\text{`other'} \in C_3$evaluates to false because$C_3 = \{\text{`that'}\}$.
+\end{itemize}
+At termination, the final sets are:
+\begin{align}
+	A = \{\text{`other'}\}, \quad B = \{\text{`this'}\}, \quad C = \{\text{`that'}\}
+\end{align}
+$\therefore$ Only set $B$ contains \texttt{"this"}.
+
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q32/q32.py}@*)
+\end{lstlisting}
+	
+\item Consider the function
+\begin{align}
+	f(x) = \frac{x^3}{3} + \frac{7}{2}x^2 + 10x + \frac{133}{2}, \quad x \in [-8, 0] \label{eq:DA-2025-33-1}
+\end{align}
+Which of the following statements is/are correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{2}
 		\item The maximum value of $f$ is attained at $x = -5$
 		\item The minimum value of $f$ is attained at $x = -2$
 		\item The maximum value of $f$ is $\frac{133}{2}$
 		\item The minimum value of the derivative of $f$ is attained at $x = -\frac{7}{2}$
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-extrema}, setting $f'\brak{x} = 0$:
-	\begin{align}
-		f'\brak{x} &= x^2 + 7x + 10 = 0
-		\\
-		\implies x &= -5, \; x = -2
-		\\
-		f''\brak{x} &= 2x + 7
-		\\
-		\implies f''\brak{-5} &= -3 < 0
-		\\
-		f''\brak{-2} &= 3 > 0
-	\end{align}
-	Thus, local maximum occurs at $x = -5$ and local minimum at $x = -2$.
-	The minimum of $f'\brak{x} = \brak{x + 7/2}^2 - 9/4$ occurs at $x = -7/2$.
-	
-	% Q.50
-	\item 
-	Let $\vec{x}_1, \vec{x}_2, \vec{x}_3, \vec{x}_4, \vec{x}_5$ be a system of orthonormal vectors in $\mathbb{R}^{10}$. Consider the matrix $\vec{A} = \vec{x}_1\vec{x}_1^{\top} + \dots + \vec{x}_5\vec{x}_5^{\top}$. Which of the following statements is/are correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
+	\end{multicols}
+\end{enumerate}
+\solution From \eqref{eq:DA2025-extrema}, setting $f'(x) = 0$:
+\begin{align}
+	 f'(x) &= x^2 + 7x + 10 = 0 \label{eq:DA-2025-33-2}
+	\\
+	 \implies x &= -5, \quad x = -2 \label{eq:DA-2025-33-3}
+	\\
+	 f''(x) &= 2x + 7 \label{eq:DA-2025-33-4}
+	\\
+	 \implies f''(-5) &= -3 < 0 \label{eq:DA-2025-33-5}
+	\\
+	 f''(-2) &= 3 > 0 \label{eq:DA-2025-33-6}
+\end{align}
+Thus, local maximum occurs at $x = -5$ and local minimum at $x = -2$. The minimum of $f'(x) = (x + 7/2)^2 - 9/4$ occurs at $x = -7/2$.
+
+The following code verifies the solution and generates \figref{fig:DA-2025-33}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+	(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q33/q33.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figs/q33_extrema.pdf}
+	\caption{Extrema of $f(x)$ on $[-8, 0]$}
+	\label{fig:DA-2025-33}
+\end{figure}
+% Q.50
+\item 
+Let $\vec{x}_1, \vec{x}_2, \vec{x}_3, \vec{x}_4, \vec{x}_5$ be a system of orthonormal vectors in $\mathbb{R}^{10}$. Consider the matrix $\vec{A} = \vec{x}_1\vec{x}_1^{\top} + \dots + \vec{x}_5\vec{x}_5^{\top}$. Which of the following statements is/are correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{2}
 		\item Singular values of $\vec{A}$ are also its eigenvalues
 		\item Singular values of $\vec{A}$ are either 0 or 1
 		\item Determinant of $\vec{A}$ is 1
 		\item $\vec{A}$ is invertible
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-orthogonal_projection}, $\vec{A}^2 = \vec{A}$ and $\vec{A} = \vec{A}^\top$:
+	\end{multicols}
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-orthogonal_projection}, the orthonormality property $\vec{x}_i^{\top}\vec{x}_j = \delta_{ij}$ implies that $\vec{A}$ is symmetric and idempotent:
+\begin{align}
+	\vec{A}^{\top} = \vec{A}
+	\\
+	\vec{A}^2 =\vec{A}
+\end{align}
+Let $\lambda$ be an eigenvalue of $\vec{A}$ with corresponding eigenvector $\vec{v} \neq \vec{0}$:
+\begin{align}
+	\vec{A}\vec{v} = \lambda \vec{v} \implies \vec{A}^2\vec{v} = \lambda^2 \vec{v}
+\end{align}
+Substituting $\vec{A}^2 = \vec{A}$:
+\begin{align}
+	\lambda^2 \vec{v} = \lambda \vec{v} \implies \brak{\lambda^2 - \lambda}\vec{v} = \vec{0}
+\end{align}
+Since $\vec{v} \neq \vec{0}$:
+\begin{align}
+	\lambda\brak{\lambda - 1} = 0 \implies \lambda \in \{0, 1\}
+\end{align}
+Specifically:
+\begin{itemize}
+	\item For any $\vec{x}_k$ ($k \in \{1, \dots, 5\}$):
 	\begin{align}
-		\lambda &\in \{0, 1\}
-		\\
-		\sigma_i &= |\lambda_i| = \lambda_i
-		\\
-		\implies \sigma_i &\in \{0, 1\}
+		\vec{A}\vec{x}_k = \sum_{i=1}^5 \vec{x}_i \brak{\vec{x}_i^{\top}\vec{x}_k} = \vec{x}_k \brak{1} = 1\cdot\vec{x}_k \implies \lambda = 1 \quad (\text{multiplicity } 5)
 	\end{align}
-	Since $\text{rank}\brak{\vec{A}} = \text{tr}\brak{\vec{A}} = 5 < 10$, $\mydet{\vec{A}} = 0$, rendering $\vec{A}$ non-invertible.
+	\item For any orthogonal vector $\vec{y} \perp \text{span}\cbrak{\vec{x}_1, \dots, \vec{x}_5}$:
+	\begin{align}
+		\vec{A}\vec{y} = \sum_{i=1}^5 \vec{x}_i \brak{\vec{x}_i^{\top}\vec{y}} = \vec{0} = 0\cdot\vec{y} \implies \lambda = 0 \quad (\text{multiplicity } 5)
+	\end{align}
+\end{itemize}
+Since $\vec{A}$ is real, symmetric, and positive semi-definite ($\lambda_i \ge 0$), its singular values $\sigma_i$ are identical to its eigenvalues:
+\begin{align}
+	\sigma_i = \abs{\lambda_i} = \lambda_i \implies \sigma_i \in \{0, 1\}
+\end{align}
+The determinant is given by the product of all 10 eigenvalues:
+\begin{align}
+	\mydet{\vec{A}} = \prod_{i=1}^{10} \lambda_i = 1^5 \times 0^5 = 0
+\end{align}
+Since $\mydet{\vec{A}} = 0$, $\vec{A}$ is non-invertible.
+
 	
 % Q.51
 \item 
-Let $f: \mathbb{R} \to \mathbb{R}$ be a twice-differentiable function and suppose its second derivative satisfies $f''\brak{x} > 0$ for all $x \in \mathbb{R}$. Which of the following statements is/are ALWAYS correct?
+Let $f : \mathbb{R} \to \mathbb{R}$ be a twice-differentiable function and suppose its second derivative satisfies $f'' (x) > 0$ for all $x \in \mathbb{R}$. Which of the following statements is/are ALWAYS correct?
 \hfill (DA~2025)
 \begin{enumerate}
 	\item $f$ has a local minima
-	\item There does not exist $x$ and $y$, $x \ne y$ such that $f'\brak{x} = f'\brak{y} = 0$
+	\item There does not exist $x$ and $y$, $x \neq y$ such that $f' (x) = f' (y) = 0$
 	\item $f$ has at most one global minimum
 	\item $f$ has at most one local minimum
 \end{enumerate}
 \solution
-Since $f''\brak{x} > 0$ for all $x \in \mathbb{R}$, the function $f\brak{x}$ is strictly convex across the entire real line. 
+Since $f''(x) > 0$ for all $x \in \mathbb{R}$, the first derivative $f'(x)$ is strictly increasing, and $f(x)$ is strictly convex across $\mathbb{R}$.
 \begin{itemize}
-	\item A strictly convex function has a strictly unique global minimum and at most one local minimum.
-	\item Functions like $f\brak{x} = e^x$ satisfy $f''(x) > 0$ everywhere but possess no local minima.
-	\item If $f'(x) = f'(y) = 0$ for $x \neq y$, Rolle's Theorem would imply $f''(c) = 0$ for some point between them, contradicting the strict condition $f''(x) > 0$.
+	\item \textbf{Existence of local minimum:} The condition $f''(x) > 0$ guarantees convexity but does not guarantee the existence of a critical point. For instance, $f(x) = e^x$ satisfies $f''(x) = e^x > 0$ for all $x \in \mathbb{R}$, yet $f'(x) = e^x \neq 0$ everywhere, so it has no local or global minima. 
+	
+	\item \textbf{Uniqueness of critical points:} Suppose there exist distinct points $x, y \in \mathbb{R}$ with $x < y$ such that $f'(x) = f'(y) = 0$. Applying Rolle's Theorem \eqref{eq:DA2025-rolles} to the function $g(t) = f'(t)$ on $[x, y]$:
+	\begin{align}
+		g(x) = g(y) = 0 \implies \exists \, c \in (x, y) \text{ s.t. } g'(c) = f''(c) = 0
+	\end{align}
+	This contradicts the given condition that $f''(t) > 0$ for all $t \in \mathbb{R}$. Hence, no such pair of points can exist, meaning $f'(x) = 0$ can occur at at most one point.
+	
+	\item \textbf{Global and local minima count:} For any convex function, any local minimum is necessarily a global minimum. Since $f'(x)$ is strictly increasing, $f'(x) = 0$ has at most one solution, ensuring $f$ has at most one local minimum and at most one global minimum.
 \end{itemize}
 	% Q.52
 	\item 
@@ -993,73 +1116,133 @@ Since $f''\brak{x} > 0$ for all $x \in \mathbb{R}$, the function $f\brak{x}$ is 
 		&= \frac{200}{3} \approx 66.67
 	\end{align}
 	
-	% Q.62
-	\item 
-	Consider the following tables, Loan and Borrower, of a bank.
-	\begin{figure}[H]
-		\centering
-		\input{figs/Loan_Borrower.tex}
-		\caption{}
-		\label{fig:DA-2025-62}
-	\end{figure}
-	Query: $\pi_{\text{branch\_name}, \text{customer\_name}}(\text{Loan} \bowtie \text{Borrower}) \div \pi_{\text{branch\_name}}(\text{Loan})$
-	where $\bowtie$ denotes natural join.
-	The number of tuples returned by the above relational algebra query is \underline{\hspace{1.5cm}}.
-	\hfill (DA~2025)
+% Q.62
+\item 
+\begin{figure}[H]
+	\centering
+	\input{figs/Loan_Borrower.tex}
+	\caption{}
+	\label{fig:DA-2025-43-1}
+\end{figure}
+Query: $\pi_{\text{branch\_name}, \text{customer\_name}}(\text{Loan} \bowtie \text{Borrower}) \div \pi_{\text{branch\_name}}(\text{Loan})$ where $\bowtie$ denotes natural join. The number of tuples returned by the above relational algebra query is \underline{\hspace{1.5cm}}.
+\hfill (DA~2025)
+\\
+\solution
+From \eqref{eq:DA2025-rel_div}, the divisor relation is the set of all unique branches in \texttt{Loan}:
+\begin{align}
+	\pi_{\text{branch\_name}}(\text{Loan}) &= \cbrak{\text{Banjara Hills}, \text{Kondapur}, \text{SR Nagar}, \text{Balanagar}}
+\end{align}
+The natural join $\text{Loan} \bowtie \text{Borrower}$ maps each customer to their respective loan branches:
+\begin{itemize}
+	\item \textbf{Anand:} $\cbrak{\text{Banjara Hills}}$ (via L11)
+	\item \textbf{Ankita:} $\cbrak{\text{SR Nagar}}$ (via L15)
+	\item \textbf{Gopal:} $\cbrak{\text{SR Nagar}}$ (via L19)
+	\item \textbf{Sunil:} $\cbrak{\text{Balanagar}, \text{Kondapur}}$ (via L23, L25)
+	\item \textbf{Karteek:} $\cbrak{\text{Banjara Hills}, \text{Kondapur}, \text{SR Nagar}, \text{Balanagar}}$ (via L11, L14, L22, L23)
+\end{itemize}
+By definition of relational division $R(A, B) \div S(B)$, the result contains all distinct values of $A$ (\texttt{customer\_name}) that are paired with every value in $S$ (\texttt{branch\_name}):
+\begin{gather}
+	\pi_{\text{branch\_name}, \text{customer\_name}}(\text{Loan} \bowtie \text{Borrower}) \div \pi_{\text{branch\_name}}(\text{Loan}) = \cbrak{\text{Karteek}}
 	\\
-	\solution
-	From \eqref{eq:DA2025-rel_div}:
-	\begin{align}
-		\pi_{\text{branch\_name}}\brak{\text{Loan}} = \{\text{Banjara Hills, Kondapur, SR Nagar, Balanagar}\}
-	\end{align}
-	No customer in Borrower has loans in all 4 distinct branches:
-	\begin{align}
-		\text{Number of tuples} &= 0
-	\end{align}
-	
-	% Q.63
-	\item 
-	Consider the following Python code snippet.
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
+	\text{Number of tuples} = 1
+\end{gather}
+
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q43/q43.sql}@*)
+\end{lstlisting}
+% Q.63
+\item 
+Consider the following Python code snippet.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt]
 def f(a, b):
 	if (a == 0):
 		return b
 	if (a % 2 == 1):
 		return 2 * f((a - 1) / 2, b)
 	return b + f(a - 1, b)
-		
+	
 print(f(15, 10))
-	\end{lstlisting}
-	The value printed by the code snippet is \underline{\hspace{1.5cm}}.
-	\hfill (DA~2025)
-	
-	% Q.64
-	\item 
-	Consider the following pseudocode.
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
-Create empty stack S
-Set x = 0, flag = 0, sum = 0
-Push x onto S
+\end{lstlisting}
+The value printed by the code snippet is \underline{\hspace{1.5cm}}.
+\hfill (DA~2025)
+\\
+\solution
+The function $f(a, b)$ is defined recursively. Whenever $a$ is odd ($a \pmod 2 = 1$), it branches into $2 \cdot f\brak{\frac{a-1}{2}, b}$. Unrolling the recursive calls starting with $a = 15$ and $b = 10$[cite: 15]:
+\begin{align}
+	f(15, 10) &= 2 \cdot f(7, 10) \\
+	f(7, 10)  &= 2 \cdot f(3, 10) \\
+	f(3, 10)  &= 2 \cdot f(1, 10) \\
+	f(1, 10)  &= 2 \cdot f(0, 10)
+\end{align}
+When $a = 0$, the base condition triggers and returns $b = 10$:
+\begin{align}
+	f(0, 10) &= 10
+\end{align}
+Substituting the base case back into the recurrence:
+\begin{align}
+	f(15, 10) &= 2^4 \cdot f(0, 10) = 16 \times 10 = 160
+\end{align}
+Thus, the value printed by the code snippet is $160$.
 
-while (S is not empty) {
-	if (flag equals 0){
-		Set x = x + 1
-		Push x onto S
-	}
-	if (x equals 8):
-	Set flag = 1
-	if (flag equals 1){
-		x = Pop(S)
-		if (x is odd):
-		Pop(S)
-		Set sum = sum + x
-	}
-}
-		Output sum
-	\end{lstlisting}
-	The value of sum output by a program executing the above pseudocode is \underline{\hspace{1.5cm}}.
-	\hfill (DA~2025)
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q44/q44.py}@*)
+\end{lstlisting}
+% Q.64
+\item 
+Consider the following pseudocode.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt]
+	Create empty stack S
+	Set x = 0, flag = 0, sum = 0
+	Push x onto S
 	
+	while (S is not empty) {
+		if (flag equals 0){
+			Set x = x + 1
+			Push x onto S
+		}
+		if (x equals 8):
+		Set flag = 1
+		if (flag equals 1){
+			x = Pop(S)
+			if (x is odd):
+			Pop(S)
+			Set sum = sum + x
+		}
+	}
+	Output sum
+\end{lstlisting}
+The value of sum output by a program executing the above pseudocode is \underline{\hspace{1.5cm}}.
+\hfill (DA~2025)
+\solution
+The algorithm executes in two distinct phases:
+\begin{itemize}
+	\item \textbf{Pushing Phase ($\text{flag} = 0$):}
+	In each iteration, $x$ is incremented and pushed onto stack $S$. When $x$ reaches $8$, the stack contents from bottom to top are:
+	\begin{align}
+		S = \sbrak{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	\end{align}
+	The condition \texttt{if (x equals 8)} triggers, setting $\text{flag} = 1$.
+	
+	\item \textbf{Popping Phase ($\text{flag} = 1$):}
+	Because braces $\{\}$ are not used after \texttt{if (x is odd):}, standard pseudocode scoping rules apply the condition solely to the single next statement \texttt{Pop(S)}. The statement \texttt{Set sum = sum + x} belongs to the outer \texttt{if (flag equals 1)} block and executes on every pop iteration:
+	\begin{enumerate}
+		\item Pop $x = 8$ (even): no extra pop occurs $\implies \text{sum} = 0 + 8 = 8$.
+		\item Pop $x = 7$ (odd): additionally pops $6 \implies \text{sum} = 8 + 7 = 15$.
+		\item Pop $x = 5$ (odd): additionally pops $4 \implies \text{sum} = 15 + 5 = 20$.
+		\item Pop $x = 3$ (odd): additionally pops $2 \implies \text{sum} = 20 + 3 = 23$.
+		\item Pop $x = 1$ (odd): additionally pops $0 \implies \text{sum} = 23 + 1 = 24$.
+	\end{enumerate}
+\end{itemize}
+The stack is now empty, terminating the loop.
+\begin{align}
+	\text{sum} = 24
+\end{align}
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q45/q45.py}@*)
+\end{lstlisting}
 	% Q.65
 	\item 
 	Consider a directed graph $G = (V, E)$, where $V = \{0, 1, 2, \dots, 100\}$ and $E = \{(i, j) : 0 < j - i \le 2 \text{ for all } i, j \in V\}$. Suppose the adjacency list of each vertex is in decreasing order of vertex number, and depth-first search (DFS) is performed at vertex 0. The number of vertices that will be discovered after vertex 50 is \underline{\hspace{1.5cm}}.

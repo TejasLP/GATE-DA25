@@ -1,64 +1,69 @@
-
-	
-	\begin{figure}[htbp]
-		\centering
-		\begin{tikzpicture}[
-			node distance=2cm and 2.5cm,
-			vertex/.style={circle, draw=black, thick, minimum size=8mm, font=\bfseries},
-			% Visually distinct paths:
-			dfspath/.style={->, >={Stealth[length=3mm]}, line width=1.5pt, black},
-			unwindpath/.style={->, >={Stealth[length=3mm]}, line width=1.5pt, black, dashed},
-			unvisited/.style={->, >={Stealth[length=2mm]}, draw=gray, dotted, thick}
-			]
-			
-			% ==========================================
-			% 1. Define the Vertices
-			% ==========================================
-			% Even vertices (Forward tracking path)
-			\node[vertex] (0) {0};
-			\node[vertex, right=of 0] (2) {2};
-			\node[vertex, right=of 2] (4) {4};
-			\node[vertex, right=of 4] (6) {6};
-			
-			% Odd vertices (Backtracking path)
-			\node[vertex, below right=1cm and 0.75cm of 0] (1) {1};
-			\node[vertex, below right=1cm and 0.75cm of 2] (3) {3};
-			\node[vertex, below right=1cm and 0.75cm of 4] (5) {5};
-			
-			% ==========================================
-			% 2. Draw Bypassed/Unused Graph Edges
-			% ==========================================
-			% These edges exist but hit already-visited nodes
-			\draw[unvisited] (1) -- (2);
-			\draw[unvisited] (1) -- (3);
-			\draw[unvisited] (3) -- (4);
-			\draw[unvisited] (3) -- (5);
-			\draw[unvisited] (5) -- (6);
-			
-			% ==========================================
-			% 3. Draw DFS Forward Path (Evens: i -> i+2)
-			% ==========================================
-			\draw[dfspath] (0) -- node[above, font=\small\bfseries] {Step 1} (2);
-			\draw[dfspath] (2) -- node[above, font=\small\bfseries] {Step 2} (4);
-			\draw[dfspath] (4) -- node[above, font=\small\bfseries] {Step 3} (6);
-			
-			% ==========================================
-			% 4. Draw DFS Unwind Path (Odds: i -> i+1)
-			% ==========================================
-			\draw[unwindpath] (4) -- node[right, font=\small\bfseries, xshift=2pt] {Step 4} (5);
-			\draw[unwindpath] (2) -- node[right, font=\small\bfseries, xshift=2pt] {Step 5} (3);
-			\draw[unwindpath] (0) -- node[right, font=\small\bfseries, xshift=2pt] {Step 6} (1);
-			
-			% ==========================================
-			% 5. Legend
-			% ==========================================
-			\matrix [draw, below left=1.5cm and -4.8cm of 1, anchor=north west] {
-				\draw[dfspath] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Phase 1: Initial Dive ($i \to i+2$)}; \\
-				\draw[unwindpath] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Phase 2: Recursion Unwind ($i \to i+1$)}; \\
-				\draw[unvisited] (0,0) -- (1,0); & \node[anchor=west, font=\small] {Bypassed Edges (Target already visited)}; \\
-			};
-			
-		\end{tikzpicture}
-		\caption{DFS Traversal for $n=6$. Decreasing adjacency priority forces the DFS to exhaust all even vertices forward via $i+2$ edges. It then unwinds sequentially, mapping the bypassed odd vertices via the $i+1$ edges in reverse chronological order.}
-	\end{figure}
-	
+\begin{center}
+	\begin{tikzpicture}[
+		>=Stealth,
+		vertex/.style={circle, draw=black, very thick, minimum size=8.5mm, inner sep=0pt, font=\bfseries},
+		discover_even/.style={->, very thick, black},
+		discover_odd/.style={->, thick, dashed, black},
+		backtrack/.style={->, thick, dotted, black},
+		graphedge/.style={->, thin, loosely dotted, black!45}
+		]
+		
+		% Top row (Even vertices: Forward chain)
+		\node[vertex] (v0) at (0, 0) {0};
+		\node[vertex] (v2) at (3.2, 0) {2};
+		\node[vertex] (v4) at (6.4, 0) {4};
+		\node[vertex] (v6) at (9.6, 0) {6};
+		
+		% Bottom row (Odd vertices: Branch discoveries)
+		\node[vertex] (v1) at (1.6, -2.2) {1};
+		\node[vertex] (v3) at (4.8, -2.2) {3};
+		\node[vertex] (v5) at (8.0, -2.2) {5};
+		
+		% Remaining edges of the graph G (Unvisited)
+		\draw[graphedge] (v1) -- (v2);
+		\draw[graphedge] (v1) -- (v3);
+		\draw[graphedge] (v3) -- (v4);
+		\draw[graphedge] (v3) -- (v5);
+		\draw[graphedge] (v5) -- (v6);
+		
+		% ==========================================
+		% Phase 1: Forward greedy path on even nodes
+		% ==========================================
+		\draw[discover_even] (v0) -- node[above=2pt, font=\small\bfseries] {Step 1} (v2);
+		\draw[discover_even] (v2) -- node[above=2pt, font=\small\bfseries] {Step 2} (v4);
+		\draw[discover_even] (v4) -- node[above=2pt, font=\small\bfseries] {Step 3} (v6);
+		
+		% Dead end at node 6
+		\node[above=2pt of v6, font=\scriptsize\itshape] {Dead end};
+		
+		% ==========================================
+		% Backtrack 1: From 6 back to 4
+		% ==========================================
+		\draw[backtrack] (v6) to[bend right=35] node[above=1pt, font=\scriptsize\itshape] {Backtrack to 4} (v4);
+		
+		% Step 4: Explore vertex 5 from vertex 4
+		\draw[discover_odd] (v4) -- node[pos=0.45, right=2pt, font=\small\bfseries] {Step 4} (v5);
+		\node[below=2pt of v5, font=\scriptsize\itshape] {Dead end};
+		
+		% ==========================================
+		% Backtrack 2: Unwind call stack (5 -> 4 -> 2)
+		% ==========================================
+		\draw[backtrack] (v5) to[bend left=25] node[left=1pt, font=\tiny\itshape] {return} (v4);
+		\draw[backtrack] (v4) to[bend right=35] node[above=1pt, font=\scriptsize\itshape] {Backtrack to 2} (v2);
+		
+		% Step 5: Explore vertex 3 from vertex 2
+		\draw[discover_odd] (v2) -- node[pos=0.45, right=2pt, font=\small\bfseries] {Step 5} (v3);
+		\node[below=2pt of v3, font=\scriptsize\itshape] {Dead end};
+		
+		% ==========================================
+		% Backtrack 3: Unwind call stack (3 -> 2 -> 0)
+		% ==========================================
+		\draw[backtrack] (v3) to[bend left=25] node[left=1pt, font=\tiny\itshape] {return} (v2);
+		\draw[backtrack] (v2) to[bend right=35] node[above=1pt, font=\scriptsize\itshape] {Backtrack to 0} (v0);
+		
+		% Step 6: Explore vertex 1 from vertex 0
+		\draw[discover_odd] (v0) -- node[pos=0.45, right=2pt, font=\small\bfseries] {Step 6} (v1);
+		\node[below=2pt of v1, font=\scriptsize\itshape] {Complete};
+		
+	\end{tikzpicture}
+\end{center}
