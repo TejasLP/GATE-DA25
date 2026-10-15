@@ -643,13 +643,13 @@ Let $\cbrak{\vec{x}_1, \vec{x}_2, \dots, \vec{x}_n}$ be a set of linearly indepe
 \solution
 From \eqref{eq:DA2025-quadratic-norm}, the following properties hold:
 \begin{itemize}
-	\item \textbf{Positive Definiteness:} For every $\vec{z} \neq \vec{0}$, $\vec{X}\vec{z} \neq \vec{0}$, which ensures $\norm{\vec{X}\vec{z}}^2 > 0$. Consequently:
+	\item Positive Definiteness: For every $\vec{z} \neq \vec{0}$, $\vec{X}\vec{z} \neq \vec{0}$, which ensures $\norm{\vec{X}\vec{z}}^2 > 0$. Consequently:
 	\begin{align}
 		\vec{z}^{\top}\vec{A}\vec{z} > 0, \quad \forall \vec{z} \neq \vec{0}
 	\end{align}
 	which implies $\vec{z}^{\top}\vec{A}\vec{z} \neq 0$ for any non-zero $\vec{z}$.
 	
-	\item \textbf{Eigenvalues and Invertibility:} Let $\lambda$ be an eigenvalue of $\vec{A}$ with corresponding eigenvector $\vec{v} \neq \vec{0}$:
+	\item Eigenvalues and Invertibility: Let $\lambda$ be an eigenvalue of $\vec{A}$ with corresponding eigenvector $\vec{v} \neq \vec{0}$:
 	\begin{align}
 		\vec{A}\vec{v} = \lambda \vec{v} \implies \vec{v}^{\top}\vec{A}\vec{v} = \lambda \norm{\vec{v}}^2
 	\end{align}
@@ -659,7 +659,7 @@ From \eqref{eq:DA2025-quadratic-norm}, the following properties hold:
 	\end{align}
 	Because every eigenvalue $\lambda_i > 0$, zero is not an eigenvalue of $\vec{A}$. Hence, the null space is trivial, which proves that $\vec{A}$ has full rank $n$ and is invertible.
 	
-	\item \textbf{Singular Values:} Because $\vec{A}$ is real, symmetric, and positive definite, its singular values coincide directly with its eigenvalues:
+	\item Singular Values: Because $\vec{A}$ is real, symmetric, and positive definite, its singular values coincide directly with its eigenvalues:
 	\begin{align}
 		\sigma_i = \sqrt{\lambda_i\brak{\vec{A}^{\top}\vec{A}}} = \sqrt{\lambda_i^2} = \lambda_i > 0, \quad \forall i \in \{1, \dots, n\}
 	\end{align}
@@ -802,12 +802,12 @@ When the above program is executed, at the end, which of the following sets cont
 \solution
 The execution proceeds step-by-step as follows:
 \begin{itemize}
-	\item \textbf{Initial state:}
+	\item Initial state:
 	\begin{align}
 		A_0 = \{\text{`this'}, \text{`that'}\}, \quad B_0 = \{\text{`that'}, \text{`other'}\}, \quad C_0 = \{\text{`other'}, \text{`this'}\}
 	\end{align}
 	
-	\item \textbf{Iteration 1} ($\text{`other'} \in C_0$ is true):
+	\item Iteration 1: ($\text{`other'} \in C_0$ is true):
 	\begin{enumerate}
 		\item Since $\text{`this'} \in A_0$, evaluate set differences simultaneously:
 		\begin{align}
@@ -823,7 +823,7 @@ The execution proceeds step-by-step as follows:
 		\end{align}
 	\end{enumerate}
 	
-	\item \textbf{Iteration 2} ($\text{`other'} \in C_2$ is true):
+	\item Iteration 2: ($\text{`other'} \in C_2$ is true):
 	\begin{enumerate}
 		\item Since $\text{`this'} \in A_2$, evaluate set differences simultaneously:
 		\begin{align}
@@ -834,7 +834,7 @@ The execution proceeds step-by-step as follows:
 		\item Now check $\text{`that'} \in B_3$: since$B_3 = \{\text{`this'}\}$, this condition is false. The second block does not execute.
 	\end{enumerate}
 	
-	\item \textbf{Loop termination:} The condition $\text{`other'} \in C_3$evaluates to false because$C_3 = \{\text{`that'}\}$.
+	\item Loop termination: The condition $\text{`other'} \in C_3$evaluates to false because$C_3 = \{\text{`that'}\}$.
 \end{itemize}
 At termination, the final sets are:
 \begin{align}
@@ -854,12 +854,10 @@ The following code verifies the solution
 Which of the following statements is/are correct?
 \hfill (DA~2025)
 \begin{enumerate}
-	\begin{multicols}{2}
 		\item The maximum value of $f$ is attained at $x = -5$
 		\item The minimum value of $f$ is attained at $x = -2$
 		\item The maximum value of $f$ is $\frac{133}{2}$
 		\item The minimum value of the derivative of $f$ is attained at $x = -\frac{7}{2}$
-	\end{multicols}
 \end{enumerate}
 \solution From \eqref{eq:DA2025-extrema}, setting $f'(x) = 0$:
 \begin{align}
@@ -951,15 +949,15 @@ Let $f : \mathbb{R} \to \mathbb{R}$ be a twice-differentiable function and suppo
 \solution
 Since $f''(x) > 0$ for all $x \in \mathbb{R}$, the first derivative $f'(x)$ is strictly increasing, and $f(x)$ is strictly convex across $\mathbb{R}$.
 \begin{itemize}
-	\item \textbf{Existence of local minimum:} The condition $f''(x) > 0$ guarantees convexity but does not guarantee the existence of a critical point. For instance, $f(x) = e^x$ satisfies $f''(x) = e^x > 0$ for all $x \in \mathbb{R}$, yet $f'(x) = e^x \neq 0$ everywhere, so it has no local or global minima. 
+	\item Existence of local minimum: The condition $f''(x) > 0$ guarantees convexity but does not guarantee the existence of a critical point. For instance, $f(x) = e^x$ satisfies $f''(x) = e^x > 0$ for all $x \in \mathbb{R}$, yet $f'(x) = e^x \neq 0$ everywhere, so it has no local or global minima. 
 	
-	\item \textbf{Uniqueness of critical points:} Suppose there exist distinct points $x, y \in \mathbb{R}$ with $x < y$ such that $f'(x) = f'(y) = 0$. Applying Rolle's Theorem \eqref{eq:DA2025-rolles} to the function $g(t) = f'(t)$ on $[x, y]$:
+	\item Uniqueness of critical points: Suppose there exist distinct points $x, y \in \mathbb{R}$ with $x < y$ such that $f'(x) = f'(y) = 0$. Applying Rolle's Theorem \eqref{eq:DA2025-rolles} to the function $g(t) = f'(t)$ on $[x, y]$:
 	\begin{align}
 		g(x) = g(y) = 0 \implies \exists \, c \in (x, y) \text{ s.t. } g'(c) = f''(c) = 0
 	\end{align}
 	This contradicts the given condition that $f''(t) > 0$ for all $t \in \mathbb{R}$. Hence, no such pair of points can exist, meaning $f'(x) = 0$ can occur at at most one point.
 	
-	\item \textbf{Global and local minima count:} For any convex function, any local minimum is necessarily a global minimum. Since $f'(x)$ is strictly increasing, $f'(x) = 0$ has at most one solution, ensuring $f$ has at most one local minimum and at most one global minimum.
+	\item Global and local minima count: For any convex function, any local minimum is necessarily a global minimum. Since $f'(x)$ is strictly increasing, $f'(x) = 0$ has at most one solution, ensuring $f$ has at most one local minimum and at most one global minimum.
 \end{itemize}
 	% Q.52
 	\item 
@@ -1134,11 +1132,11 @@ From \eqref{eq:DA2025-rel_div}, the divisor relation is the set of all unique br
 \end{align}
 The natural join $\text{Loan} \bowtie \text{Borrower}$ maps each customer to their respective loan branches:
 \begin{itemize}
-	\item \textbf{Anand:} $\cbrak{\text{Banjara Hills}}$ (via L11)
-	\item \textbf{Ankita:} $\cbrak{\text{SR Nagar}}$ (via L15)
-	\item \textbf{Gopal:} $\cbrak{\text{SR Nagar}}$ (via L19)
-	\item \textbf{Sunil:} $\cbrak{\text{Balanagar}, \text{Kondapur}}$ (via L23, L25)
-	\item \textbf{Karteek:} $\cbrak{\text{Banjara Hills}, \text{Kondapur}, \text{SR Nagar}, \text{Balanagar}}$ (via L11, L14, L22, L23)
+	\item Anand: $\cbrak{\text{Banjara Hills}}$ (via L11)
+	\item Ankita: $\cbrak{\text{SR Nagar}}$ (via L15)
+	\item Gopal: $\cbrak{\text{SR Nagar}}$ (via L19)
+	\item Sunil: $\cbrak{\text{Balanagar}, \text{Kondapur}}$ (via L23, L25)
+	\item Karteek: $\cbrak{\text{Banjara Hills}, \text{Kondapur}, \text{SR Nagar}, \text{Balanagar}}$ (via L11, L14, L22, L23)
 \end{itemize}
 By definition of relational division $R(A, B) \div S(B)$, the result contains all distinct values of $A$ (\texttt{customer\_name}) that are paired with every value in $S$ (\texttt{branch\_name}):
 \begin{gather}
@@ -1168,7 +1166,7 @@ The value printed by the code snippet is \underline{\hspace{1.5cm}}.
 \hfill (DA~2025)
 \\
 \solution
-The function $f(a, b)$ is defined recursively. Whenever $a$ is odd ($a \pmod 2 = 1$), it branches into $2 \cdot f\brak{\frac{a-1}{2}, b}$. Unrolling the recursive calls starting with $a = 15$ and $b = 10$[cite: 15]:
+The function $f(a, b)$ is defined recursively. Whenever $a$ is odd ($a \pmod 2 = 1$), it branches into $2 \cdot f\brak{\frac{a-1}{2}, b}$. Unrolling the recursive calls starting with $a = 15$ and $b = 10$:
 \begin{align}
 	f(15, 10) &= 2 \cdot f(7, 10) \\
 	f(7, 10)  &= 2 \cdot f(3, 10) \\
@@ -1218,14 +1216,14 @@ The value of sum output by a program executing the above pseudocode is \underlin
 \solution
 The algorithm executes in two distinct phases:
 \begin{itemize}
-	\item \textbf{Pushing Phase ($\text{flag} = 0$):}
+	\item Pushing Phase ($\text{flag} = 0$):
 	In each iteration, $x$ is incremented and pushed onto stack $S$. When $x$ reaches $8$, the stack contents from bottom to top are:
 	\begin{align}
 		S = \sbrak{0, 1, 2, 3, 4, 5, 6, 7, 8}
 	\end{align}
 	The condition \texttt{if (x equals 8)} triggers, setting $\text{flag} = 1$.
 	
-	\item \textbf{Popping Phase ($\text{flag} = 1$):}
+	\item Popping Phase ($\text{flag} = 1$):
 	Because braces $\{\}$ are not used after \texttt{if (x is odd):}, standard pseudocode scoping rules apply the condition solely to the single next statement \texttt{Pop(S)}. The statement \texttt{Set sum = sum + x} belongs to the outer \texttt{if (flag equals 1)} block and executes on every pop iteration:
 	\begin{enumerate}
 		\item Pop $x = 8$ (even): no extra pop occurs $\implies \text{sum} = 0 + 8 = 8$.
