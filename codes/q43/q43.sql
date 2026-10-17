@@ -4,20 +4,20 @@ USE bank_db_div;
 DROP TABLE IF EXISTS Borrower;
 DROP TABLE IF EXISTS Loan;
 
--- Create Loan table[cite: 7]
+-- Create Loan table
 CREATE TABLE Loan (
     loan_num VARCHAR(10) PRIMARY KEY,
     branch_name VARCHAR(50) NOT NULL,
     amount INT NOT NULL
 );
 
--- Create Borrower table[cite: 7]
+-- Create Borrower table
 CREATE TABLE Borrower (
     customer_name VARCHAR(50) NOT NULL,
     loan_num VARCHAR(10) NOT NULL
 );
 
--- Insert data into Loan table[cite: 7]
+-- Insert data into Loan table
 INSERT INTO Loan (loan_num, branch_name, amount) VALUES
 ('L11', 'Banjara Hills', 90000),
 ('L14', 'Kondapur', 50000),
@@ -27,7 +27,7 @@ INSERT INTO Loan (loan_num, branch_name, amount) VALUES
 ('L25', 'Kondapur', 70000),
 ('L19', 'SR Nagar', 65000);
 
--- Insert data into Borrower table[cite: 7]
+-- Insert data into Borrower table
 INSERT INTO Borrower (customer_name, loan_num) VALUES
 ('Anand', 'L11'),
 ('Karteek', 'L11'),
@@ -39,7 +39,7 @@ INSERT INTO Borrower (customer_name, loan_num) VALUES
 ('Sunil', 'L23'),
 ('Sunil', 'L25');
 
--- Equivalent SQL query for the relational algebra division expression[cite: 7]
+-- Equivalent SQL query for the relational algebra division expression
 SELECT customer_name
 FROM (
     SELECT DISTINCT b.customer_name, l.branch_name

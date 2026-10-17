@@ -4,8 +4,7 @@
 		vertex/.style={circle, draw=black, very thick, minimum size=8.5mm, inner sep=0pt, font=\bfseries},
 		discover_even/.style={->, very thick, black},
 		discover_odd/.style={->, thick, dashed, black},
-		backtrack/.style={->, thick, dotted, black},
-		graphedge/.style={->, thin, loosely dotted, black!45}
+		backtrack/.style={->, thick, dotted, black}
 		]
 		
 		% Top row (Even vertices: Forward chain)
@@ -18,13 +17,6 @@
 		\node[vertex] (v1) at (1.6, -2.2) {1};
 		\node[vertex] (v3) at (4.8, -2.2) {3};
 		\node[vertex] (v5) at (8.0, -2.2) {5};
-		
-		% Remaining edges of the graph G (Unvisited)
-		\draw[graphedge] (v1) -- (v2);
-		\draw[graphedge] (v1) -- (v3);
-		\draw[graphedge] (v3) -- (v4);
-		\draw[graphedge] (v3) -- (v5);
-		\draw[graphedge] (v5) -- (v6);
 		
 		% ==========================================
 		% Phase 1: Forward greedy path on even nodes
