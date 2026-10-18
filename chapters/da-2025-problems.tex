@@ -182,7 +182,7 @@ The total sum of all arithmetic operations evaluates to:
 		\\
 		&= \vec{0}
 	\end{align}
-	Thus, $\lambda = 0$ is an eigenvalue of $\vec{B}$, implying $\mydet{\vec{B}} = 0$, which yields infinitely many solutions.
+	Thus, $\lambda = 0$ is an eigenvalue of $\vec{B}$, implying $\vec{B}$ has dependent column vectors, which yields infinitely many solutions.
 	
 % Q.14
 \item 
@@ -311,7 +311,7 @@ The following code generates \figref{fig:DA-2025-19}.
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.80\linewidth]{figs/pdf_cdf_distribution.pdf}
+	\includegraphics[width=0.85\linewidth]{figs/pdf_cdf_distribution.pdf}
 	\caption{PDF and CDF of continuous random variable $X$ with $t = 2$}
 	\label{fig:DA-2025-19}
 \end{figure}
@@ -1034,21 +1034,90 @@ Since $f''(x) > 0$ for all $x \in \mathbb{R}$, the first derivative $f'(x)$ is s
 		\brak{\lambda^2 - 1}\norm{\vec{v}}^2 &= 0
 	\end{align}
 	Since $\vec{v} \neq \vec{0}$, $\norm{\vec{v}}^2 \neq 0$, which implies $\lambda^2 = 1$, or equivalently, the eigenvalues of $\vec{A}$ are restricted to $\lambda \in \{+1, -1\}$.
-	% Q.53
-	\item 
-	Consider designing a linear binary classifier $f\brak{\vec{x}} = \text{sign}\brak{\vec{w}^{\top}\vec{x} + b}, \; \vec{x} \in \mathbb{R}^2$ on the following training data:
-	\begin{align}
-		\text{Class-1}: \cbrak{\myvec{2 \\ 0}, \myvec{0 \\ 2}, \myvec{2 \\ 2}}, \quad \text{Class-2}: \cbrak{\myvec{0 \\ 0}}
-	\end{align}
-	Hard-margin support vector machine (SVM) formulation is solved to obtain $\vec{w}$ and $b$. Which of the following options is/are correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $\vec{w} = \myvec{4 \\ 4}$ and $b = 1$
-		\item The number of support vectors is 3
-		\item The margin is $\sqrt{2}$
-		\item Training accuracy is 98\%
-	\end{enumerate}
+% =========================================================
+% Q.53
+% [Reference: Machine Learning / Hard-Margin Support Vector Machine]
+% =========================================================
+\item 
+Consider designing a linear binary classifier $f\brak{\vec{x}} = \text{sign}\brak{\vec{w}^{\top}\vec{x} + b}, \; \vec{x} \in \mathbb{R}^2$ on the following training data:
+\begin{align}
+	\text{Class-1}: \cbrak{\myvec{2 \\ 0}, \myvec{0 \\ 2}, \myvec{2 \\ 2}}, \quad \text{Class-2}: \cbrak{\myvec{0 \\ 0}}
+\end{align}
+Hard-margin support vector machine (SVM) formulation is solved to obtain $\vec{w}$ and $b$. Which of the following options is/are correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $\vec{w} = \myvec{4 \\ 4}$ and $b = 1$
+	\item The number of support vectors is 3
+	\item The margin is $\sqrt{2}$
+	\item Training accuracy is 98\%
+\end{enumerate}
+\solution
+Let the training vectors and their corresponding class labels be denoted by:
+\begin{align}
+	\vec{x}_1 &= \myvec{2 \\ 0}, \; y_1 = +1; \quad
+	\vec{x}_2 = \myvec{0 \\ 2}, \; y_2 = +1
+	\\
+	\vec{x}_3 &= \myvec{2 \\ 2}, \; y_3 = +1; \quad
+	\vec{x}_4 = \myvec{0 \\ 0}, \; y_4 = -1
+\end{align}
+
+The nearest points of Class-1 to the origin $\vec{x}_4 = \myvec{0 \\ 0}$ lie along the line segment connecting $\vec{x}_1 = \myvec{2 \\ 0}$ and $\vec{x}_2 = \myvec{0 \\ 2}$. By definition of support vectors in \eqref{eq:DA2025-svm_sv_def}, these active boundary points satisfy $y_i\brak{\vec{w}^\top \vec{x}_i + b} = 1$.
+
+For the negative support vector $\vec{x}_4 = \myvec{0 \\ 0}$ with label $y_4 = -1$:
+\begin{align}
+	-\brak{\vec{w}^\top \myvec{0 \\ 0} + b} = 1 \implies b = -1
+\end{align}
+
+For the positive support vectors $\vec{x}_1$ and $\vec{x}_2$ with labels $y_1 = y_2 = +1$:
+\begin{align}
+	\vec{w}^\top \vec{x}_1 + b = 1 &\implies \myvec{w_1 & w_2}\myvec{2 \\ 0} - 1 = 1 \implies 2w_1 = 2 \implies w_1 = 1
+	\\
+	\vec{w}^\top \vec{x}_2 + b = 1 &\implies \myvec{w_1 & w_2}\myvec{0 \\ 2} - 1 = 1 \implies 2w_2 = 2 \implies w_2 = 1
+\end{align}
+Thus, the optimal parameters of the decision boundary are:
+\begin{align}
+	\vec{w} = \myvec{1 \\ 1}, \quad b = -1
+\end{align}
+
+\begin{itemize}
+	\item The solved parameter values are $\vec{w} = \myvec{1 \\ 1} \neq \myvec{4 \\ 4}$ and $b = -1 \neq 1$. 
 	
+	\item Testing the functional margin $y_i\brak{\vec{w}^\top \vec{x}_i + b}$ for all training samples using \eqref{eq:DA2025-svm_sv_def}:
+	\begin{align}
+		y_1\brak{\vec{w}^\top \vec{x}_1 + b} &= +1\brak{1(2) + 1(0) - 1} = 1 \quad (\text{Support Vector})
+		\\
+		y_2\brak{\vec{w}^\top \vec{x}_2 + b} &= +1\brak{1(0) + 1(2) - 1} = 1 \quad (\text{Support Vector})
+		\\
+		y_4\brak{\vec{w}^\top \vec{x}_4 + b} &= -1\brak{1(0) + 1(0) - 1} = 1 \quad (\text{Support Vector})
+		\\
+		y_3\brak{\vec{w}^\top \vec{x}_3 + b} &= +1\brak{1(2) + 1(2) - 1} = 3 > 1
+	\end{align}
+	Since only $\vec{x}_1, \vec{x}_2$, and $\vec{x}_4$ lie on the margin boundaries $y_i\brak{\vec{w}^\top \vec{x}_i + b} = 1$, the number of support vectors is exactly $3$. 
+	\item The Euclidean norm of $\vec{w}$ is $\norm{\vec{w}} = \sqrt{1^2 + 1^2} = \sqrt{2}$. Substituting $\norm{\vec{w}}$ into \eqref{eq:DA2025-svm_margin_width}, the geometric margin evaluates to:
+	\begin{align}
+		\gamma = \frac{2}{\norm{\vec{w}}} = \frac{2}{\sqrt{2}} = \sqrt{2}
+	\end{align}
+
+	
+	\item All training points strictly satisfy the canonical feasibility condition \eqref{eq:DA2025-svm_canonical_constraint}, $y_i\brak{\vec{w}^\top \vec{x}_i + b} \ge 1 > 0$. The classifier predicts all $4$ out of $4$ samples correctly without misclassification:
+	\begin{align}
+		\text{Training Accuracy} = \frac{4}{4} \times 100\% = 100\%
+	\end{align}
+
+\end{itemize}
+
+
+The following code verifies the solution and generates \figref{fig:DA-2025-53}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q37/q37.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.75\linewidth]{figs/svm_hard_margin.pdf}
+	\caption{Hard-Margin SVM decision boundary and margins}
+	\label{fig:DA-2025-53}
+\end{figure}
+
 	% Q.54
 	\item 
 	Consider a coin-toss experiment where the probability of head showing up is $p$. In the $i^{\text{th}}$ coin toss, let $X_i = 1$ if head appears, and $X_i = 0$ if tail appears. Consider

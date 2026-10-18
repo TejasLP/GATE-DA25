@@ -106,7 +106,7 @@
 	
 	To find the eigenvalue of $\vec{A} - R\vec{I}$ corresponding to the same eigenvector $\vec{1}$:
 	\begin{align}
-		\brak{\vec{A} - R\vec{I}}\vec{1} = \vec{A}\vec{1} - R\vec{I}\vec{1} = R\vec{1} - R\vec{1} = \vec{0} = 0 \cdot \vec{1}
+		\brak{\vec{A} - R\vec{I}}\vec{1} = \vec{A}\vec{1} - \brak{R\vec{I}}\vec{1} = R\vec{1} - R\vec{1} = \vec{0} = 0 \cdot \vec{1}
 	\end{align}
 	Thus, $\vec{A} - R\vec{I}$ possesses an eigenvalue of $0$, meaning it is a singular matrix.
 	
@@ -719,6 +719,34 @@ Yielding,
 		\mathbf{A}^\top \mathbf{A} - \mathbf{I} &= \mathbf{0} \implies \mathbf{A}^\top \mathbf{A} = \mathbf{I}
 	\end{align}
 	
+% =========================================================
+% Q.53
+% [Reference: Machine Learning / Hard-Margin Support Vector Machine]
+% =========================================================
+\item Hard-Margin Support Vector Machine (SVM) Formulation
+\begin{itemize}
+	\item Canonical Separating Hyperplane and Decision Rule:
+	For linearly separable data with labels $y_i \in \{-1, +1\}$, the decision boundary is $\vec{w}^\top \vec{x} + b = 0$, giving the decision rule:
+	\begin{align}
+		f\brak{\vec{x}} = \text{sign}\brak{\vec{w}^\top \vec{x} + b}
+	\end{align}
+	The canonical constraints require:
+	\begin{align}
+		y_i\brak{\vec{w}^\top \vec{x}_i + b} \ge 1, \quad \forall i \in \{1, \dots, N\} \label{eq:DA2025-svm_canonical_constraint}
+	\end{align}
+	
+	\item Support Vectors:
+	A training sample $\vec{x}_i$ is a support vector if and only if it lies directly on its class margin boundary:
+	\begin{align}
+		y_i\brak{\vec{w}^\top \vec{x}_i + b} = 1 \label{eq:DA2025-svm_sv_def}
+	\end{align}
+	
+	\item Geometric Margin:
+	The total perpendicular separation between the bounding planes $\vec{w}^\top \vec{x} + b = +1$ and $\vec{w}^\top \vec{x} + b = -1$ is:
+	\begin{align}
+		\gamma = \frac{2}{\norm{\vec{w}}} \label{eq:DA2025-svm_margin_width}
+	\end{align}
+\end{itemize}
 	% =========================================================
 	% Q.54
 	% [Reference: main_2.pdf]

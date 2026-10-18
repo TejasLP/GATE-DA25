@@ -1,11 +1,11 @@
 # Fdb version 4
-["makeindex main.idx"] 1792276835.43428 "main.idx" "main.ind" "main" 1792276838.07319 0
-  "main.idx" 1792276836.70829 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex main.idx"] 1792347346.79012 "main.idx" "main.ind" "main" 1792347349.68753 0
+  "main.idx" 1792347348.16812 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "main.ilg"
   "main.ind"
   (rewritten before read)
-["pdflatex"] 1792276835.63563 "main.tex" "main.pdf" "main" 1792276838.07336 0
+["pdflatex"] 1792347347.03746 "main.tex" "main.pdf" "main" 1792347349.6877 0
   "/etc/texmf/web2c/texmf.cnf" 1787413520.77153 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -349,8 +349,8 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1787414082 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1787414148 3638322 7242d99ce4f51e0f56587b626ccb10b6 ""
-  "chapters/da-2025-formulae.tex" 1792273043.99963 39981 3414a82f109fc0048a5134891d604f7a ""
-  "chapters/da-2025-problems.tex" 1792273796.02684 49764 bd5507bf342c0f0c5462f46983816901 ""
+  "chapters/da-2025-formulae.tex" 1792343906.29356 41258 bcfd308c4bc489af5be6d1758370a55c ""
+  "chapters/da-2025-problems.tex" 1792346882.36412 53198 9eea2fd23ce5cdce98c9a74b3309aca1 ""
   "figs/DFS.tex" 1792273552.74631 2722 cd93c92def06255d148dbd8fa121e5cb ""
   "figs/Graph_Q58.tex" 1791469059.48405 1145 f766cb36cad74747fa8bd0d83c843b22 ""
   "figs/Loan.tex" 1791469011.57182 394 381a247bbf9efe287e26db2c60850fd7 ""
@@ -363,13 +363,14 @@
   "figs/pdf_cdf_distribution.pdf" 1792262602.47493 19694 d569b70d43a9b57abd8ee600bd46ba6a ""
   "figs/q33_extrema.pdf" 1792262477.20209 21382 d00c4863905e7f8c19596f6cbbf629b4 ""
   "figs/relational.tex" 1791668022.72723 1432 dc4eab445138056901139a1ba8de5eec ""
+  "figs/svm_hard_margin.pdf" 1792347267.67148 21393 b07777a1c1b6e2e913d6f3298bdbcc17 ""
   "gvv-book.sty" 1791389191.04189 2364 972c828b0fdb5c1b2ef6ab44859ce8d3 ""
   "gvv.sty" 1791389191.04289 4374 e0265f3cc8fb087d2434efb730c546e4 ""
-  "main.aux" 1792276837.88628 9794 60116b1a0e380714a3b090f212219f41 "pdflatex"
-  "main.ind" 1792276835.62631 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
-  "main.out" 1792276837.88728 303 f6688db632bb6c6fc25a608f9fc20625 "pdflatex"
+  "main.aux" 1792347349.4181 10332 418991f7ea13aeca14fcb8d24321211a "pdflatex"
+  "main.ind" 1792347347.02314 0 d41d8cd98f00b204e9800998ecf8427e "makeindex main.idx"
+  "main.out" 1792347349.4191 303 f6688db632bb6c6fc25a608f9fc20625 "pdflatex"
   "main.tex" 1792276402.80305 2566 41eb794bf47dffb8945f1c088ec96ec4 ""
-  "main.toc" 1792276837.88728 217 58a332e8c2bfda2c3a8562e2a0ceba75 "pdflatex"
+  "main.toc" 1792347349.4191 217 ba2ff0de31d044acc68199157230db3d "pdflatex"
   (generated)
   "main.aux"
   "main.idx"
