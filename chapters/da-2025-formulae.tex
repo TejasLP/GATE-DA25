@@ -303,16 +303,20 @@ Yielding,
 		A.\text{insert}\brak{i, B} &\implies A \gets \sbrak{a_1, \dots, a_i, B, a_{i+1}, \dots, a_n} \label{eq:DA2025-python_insert}
 	\end{align}
 	
-	% =========================================================
-	% Q.24
-	% [Reference: bt-2025-formulae.tex (Item 10: Continuity and Differentiability)]
-	% =========================================================
-	\item Differentiability Rules
-	\begin{align}
-		\brak{fg}'\brak{c} = f'\brak{c}g\brak{c} + f\brak{c}g'\brak{c} \label{eq:DA2025-product_rule}
-	\end{align}
-	If $f$ and $g$ are differentiable at $c$, their sum, difference, and product are strictly differentiable at $c$. The quotient is differentiable if $g\brak{c} \ne 0$. Composition $f \circ g$ requires $f$ to be differentiable at $g\brak{c}$, which is not universally guaranteed.
-	
+% =========================================================
+% Q.24
+% [Reference: bt-2025-formulae.tex (Item 10: Continuity and Differentiability)]
+% =========================================================
+\item Differentiability Rules
+\begin{align}
+	\brak{fg}'\brak{c} &= f'\brak{c}g\brak{c} + f\brak{c}g'\brak{c} \label{eq:DA2025-differentiability_rules}
+	\\
+	\brak{f \pm g}'\brak{c} &= f'\brak{c} \pm g'\brak{c}
+	\\
+	\brak{f \cdot g}'\brak{c} &= f'\brak{c}g\brak{c} + f\brak{c}g'\brak{c}
+	\\
+	\brak{\frac{f}{g}}'\brak{c} &= \frac{f'\brak{c}g\brak{c} - f\brak{c}g'\brak{c}}{\sbrak{g\brak{c}}^2}
+\end{align}
 	% =========================================================
 	% Q.25
 	% [Reference: ae-2026 formulae.tex (Item 16: 2-D Basis Vectors)]

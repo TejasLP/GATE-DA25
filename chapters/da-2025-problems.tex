@@ -36,13 +36,15 @@
 		\item Area increases by $10\%$.
 		\item The rectangle becomes a square.
 	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-scaling}, with width scaled by $\alpha = 0.10$:
-	\begin{align}
-		A' &= \brak{1 + 0.10}A
-		\\
-		&= 1.10A
-	\end{align}
+From \eqref{eq:DA2025-scaling}, with width scaled by $\alpha = 0.10$ ($W' = 1.10W$):
+\begin{align}
+	A' &= 1.10 A
+	\\
+	P' &= 2\brak{L + 1.10W} \neq 1.10\times 2\brak{L + W}
+	\\
+	D' &= \sqrt{L^2 + \brak{1.10W}^2} \neq 1.10\sqrt{L^2 + W^2}
+\end{align}
+Furthermore, for arbitrary $L > W$ (e.g., $L = 10, W = 1$), $W' = 1.10 \neq L$, so the rectangle does not generally become a square. Thus, only the area increases by $10\%$ for all values of $L$ and $W$.
 	
 	% Q.7
 	\item 
@@ -410,7 +412,7 @@ The following code verifies the solution
 		\end{multicols}
 	\end{enumerate}
 	\solution
-	From \eqref{eq:DA2025-product_rule}, the product $f \cdot g$, sum $f \pm g$, and quotient $f/g$ (since $g\brak{c} > 1 \ne 0$) are strictly differentiable at $c$. $f \circ g$ requires differentiability of $f$ at $g(c)$, which is not guaranteed.
+	From \eqref{eq:DA2025-differentiability_rules}, the product $f \cdot g$, sum $f \pm g$, and quotient $f/g$ (since $g\brak{c} > 1 \ne 0$) are strictly differentiable at $c$. $f \circ g$ requires differentiability of $f$ at $g(c)$, which is not guaranteed.
 	
 	% Q.25
 	\item 
@@ -1213,6 +1215,10 @@ From \eqref{eq:DA2025-triangle_ineq}, the shortest path distances given by the t
 	contradicting that $e-f-g-h$ is a shortest path.
 \end{itemize}
 $\therefore \brak{b, d}$, $\brak{b, h}$, and $\brak{e, g}$ are not edges of $G$.
+
+If edge $\brak{b, g}$ exists, the shortest paths using $\brak{b, g}$ between the given pairs are $a-b-g-h$ (length $3$), $a-b-c-d$ (length $3$), and $e-f-g-h$ (length $3$)- None of the shortest-path distances $d\brak{a, d} = 3$, $d\brak{e, h} = 3$, or $d\brak{a, h} = 3$ are reduced below $3$.
+\\
+ $\therefore \brak{b, g}$ can be an edge of $G$.
 	% Q.59
 	\item 
 	Let $f: \mathbb{R} \to \mathbb{R}$ be such that $\abs{f\brak{x} - f\brak{y}} \le \brak{x - y}^2$ for all $x, y \in \mathbb{R}$. Then
