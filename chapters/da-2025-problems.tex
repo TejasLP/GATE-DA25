@@ -479,29 +479,37 @@ Furthermore, the eigenvalues of the inverse matrix $\vec{A}^{-1}$ are the recipr
 \end{align}
 Because all eigenvalues of $\vec{A}^{-1}$ are strictly positive, $\vec{A}^{-1}$ has no negative eigenvalues. 
 	
-	% Q.29
-	\item 
-	Suppose that insertion sort is applied to the array $\sbrak{1, 3, 5, 7, 9, 11, x, 15, 13}$ and it takes exactly two swaps to sort the array. Select all possible values of $x$.
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item $10$
-			\item $12$
-			\item $14$
-			\item $16$
-		\end{multicols}
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-insertion_swaps}:
+% =========================================================
+% Q.29 (1.2.19 in main.pdf)
+% =========================================================
+\item 
+Suppose that insertion sort is applied to the array $\sbrak{1, 3, 5, 7, 9, 11, x, 15, 13}$ and it takes exactly two swaps to sort the array. Select all possible values of $x$.
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item $10$
+		\item $12$
+		\item $14$
+		\item $16$
+	\end{multicols}
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-insertion_swaps}:
+\begin{align}
+	\text{Swaps} &= \text{Inversions} = 2
+\end{align}
+The subarray $\sbrak{1, 3, 5, 7, 9, 11}$ is already sorted, and the pair $\brak{15, 13}$ accounts for $1$ inversion. Thus, $x$ must introduce exactly $1$ additional inversion with the remaining elements:
+\begin{itemize}
+	\item Case 1 ($x < 11$): $x$ is smaller than $11$ (and thus also smaller than $13$ and $15$, forming $0$ inversions with them). To form exactly $1$ inversion with $\sbrak{1, 3, 5, 7, 9, 11}$, $x$ must satisfy:
 	\begin{align}
-		\text{Swaps} &= \text{Inversions} = 2
+		9 \le x < 11 \implies x = 10
 	\end{align}
-	The pair $(15, 13)$ accounts for $1$ inversion. Therefore, $x$ contributes exactly $1$ inversion with $\sbrak{1, 3, 5, 7, 9, 11}$:
+	\item Case 2 ($x > 11$): $x$ forms $0$ inversions with $\sbrak{1, 3, 5, 7, 9, 11}$. Since $x$ precedes $15$ and $13$, it forms $1$ inversion if and only if it is greater than $13$ but at most $15$:
 	\begin{align}
-		9 \le x < 11
-		\\
-		\implies x &= 10
+		13 < x \le 15 \implies x = 14
 	\end{align}
+\end{itemize}
+$\therefore$ The possible values of $x$ are $10$ and $14$.
 	
 	% Q.31
 	\item 
@@ -568,22 +576,24 @@ WHERE L2.branch_name = 'SR Nagar');
 	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q22/q22.sql}@*)
 	\end{lstlisting}
-	% Q.34
-	\item 
-	Given data $\cbrak{\brak{-1, 1}, \brak{2, 5}, \brak{3, 5}}$ of the form $\brak{x, y}$, we fit a model $y = wx$ using linear least-squares regression. The optimal value of $w$ is \underline{\hspace{1.5cm}}.
-	\hfill (DA~2025)
+% =========================================================
+% Q.34 (1.2.23 in main.pdf)
+% =========================================================
+\item 
+Given data $\cbrak{\brak{-1, 1}, \brak{2, -5}, \brak{3, 5}}$ of the form $\brak{x, y}$, we fit a model $y = wx$ using linear least-squares regression. The optimal value of $w$ is \underline{\hspace{1.5cm}}.
+\hfill (DA~2025)
+\\
+\solution
+From \eqref{eq:DA2025-least_squares}:
+\begin{align}
+	w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
 	\\
-	\solution
-	From \eqref{eq:DA2025-least_squares}:
-	\begin{align}
-		w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
-		\\
-		&= \frac{\brak{-1}\brak{1} + \brak{2}\brak{5} + \brak{3}\brak{5}}{\brak{-1}^2 + 2^2 + 3^2}
-		\\
-		&= \frac{24}{14}
-		\\
-		&= \frac{12}{7} \approx 1.714
-	\end{align}
+	&= \frac{\brak{-1}\brak{1} + \brak{2}\brak{-5} + \brak{3}\brak{5}}{\brak{-1}^2 + 2^2 + 3^2}
+	\\
+	&= \frac{-1 - 10 + 15}{1 + 4 + 9} = \frac{4}{14}
+	\\
+	&= \frac{2}{7} \approx 0.286
+\end{align}
 	
 	% Q.35
 	\item 
@@ -809,8 +819,8 @@ The following code generates \figref{fig:DA-2025-39}.
 		\begin{multicols}{4}
 			\item $0$
 			\item $1$
-			\item $\brak{\frac{5}{6}}^{100}$
 			\item $1 - \brak{\frac{5}{6}}^{100}$
+			\item $\brak{\frac{5}{6}}^{100}$
 		\end{multicols}
 	\end{enumerate}
 	\solution
@@ -821,7 +831,7 @@ The following code generates \figref{fig:DA-2025-39}.
 		&= 1 - \brak{\frac{5}{6}}^{100}
 	\end{align}
 	
-% Q.32
+% Q.47
 \item 
 Consider the following Python code snippet.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt]
@@ -892,7 +902,7 @@ The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q32/q32.py}@*)
 \end{lstlisting}
-	
+%Q49
 \item Consider the function
 \begin{align}
 	f(x) = \frac{x^3}{3} + \frac{7}{2}x^2 + 10x + \frac{133}{2}, \quad x \in [-8, 0] \label{eq:DA-2025-33-1}
@@ -900,24 +910,48 @@ The following code verifies the solution
 Which of the following statements is/are correct?
 \hfill (DA~2025)
 \begin{enumerate}
-		\item The maximum value of $f$ is attained at $x = -5$
-		\item The minimum value of $f$ is attained at $x = -2$
-		\item The maximum value of $f$ is $\frac{133}{2}$
-		\item The minimum value of the derivative of $f$ is attained at $x = -\frac{7}{2}$
+	\item The maximum value of $f$ is attained at $x = -5$
+	\item The minimum value of $f$ is attained at $x = -2$
+	\item The maximum value of $f$ is $\frac{133}{2}$
+	\item The minimum value of the derivative of $f$ is attained at $x = -\frac{7}{2}$
 \end{enumerate}
 \solution From \eqref{eq:DA2025-extrema}, setting $f'(x) = 0$:
 \begin{align}
-	 f'(x) &= x^2 + 7x + 10 = 0 \label{eq:DA-2025-33-2}
+	f'(x) &= x^2 + 7x + 10 = 0 \label{eq:DA-2025-33-2}
 	\\
-	 \implies x &= -5, \quad x = -2 \label{eq:DA-2025-33-3}
+	\implies x &= -5, \quad x = -2 \label{eq:DA-2025-33-3}
 	\\
-	 f''(x) &= 2x + 7 \label{eq:DA-2025-33-4}
+	f''(x) &= 2x + 7 \label{eq:DA-2025-33-4}
 	\\
-	 \implies f''(-5) &= -3 < 0 \label{eq:DA-2025-33-5}
+	\implies f''(-5) &= -3 < 0 \label{eq:DA-2025-33-5}
 	\\
-	 f''(-2) &= 3 > 0 \label{eq:DA-2025-33-6}
+	f''(-2) &= 3 > 0 \label{eq:DA-2025-33-6}
 \end{align}
-Thus, local maximum occurs at $x = -5$ and local minimum at $x = -2$. The minimum of $f'(x) = (x + 7/2)^2 - 9/4$ occurs at $x = -7/2$.
+Thus, a local maximum occurs at $x = -5$ and a local minimum occurs at $x = -2$. 
+
+The minimum of the derivative is found by completing the square:
+\begin{align}
+	f'(x) = x^2 + 7x + 10 = \left(x + \frac{7}{2}\right)^2 - \frac{9}{4}
+\end{align}
+which attains its minimum at $x = -\frac{7}{2} \in [-8, 0]$. 
+
+To find the global extrema on the closed interval $[-8, 0]$, evaluate $f(x)$ at the critical points and the boundary endpoints:
+\begin{align}
+	f(-8) &= \frac{(-8)^3}{3} + \frac{7}{2}(-8)^2 + 10(-8) + \frac{133}{2} = \frac{239}{6} \approx 39.83
+	\\
+	f(-5) &= \frac{(-5)^3}{3} + \frac{7}{2}(-5)^2 + 10(-5) + \frac{133}{2} = \frac{187}{3} \approx 62.33
+	\\
+	f(-2) &= \frac{(-2)^3}{3} + \frac{7}{2}(-2)^2 + 10(-2) + \frac{133}{2} = \frac{347}{6} \approx 57.83
+	\\
+	f(0) &= \frac{(0)^3}{3} + \frac{7}{2}(0)^2 + 10(0) + \frac{133}{2} = \frac{133}{2} = 66.5 \label{eq:DA-2025-33-max}
+\end{align}
+Comparing these values, the global maximum on $[-8, 0]$ occurs at the boundary $x = 0$:
+\begin{align}
+	\max_{x \in [-8, 0]} f(x) = f(0) = \frac{133}{2}
+\end{align}
+Because $f(0) = \frac{133}{2} > f(-5) = \frac{187}{3}$, the global maximum is attained at $x = 0$ rather than $x = -5$.
+
+Similarly, the global minimum is $f(-8) = \frac{239}{6}$, attained at the boundary $x = -8$ rather than $x = -2$.
 
 The following code verifies the solution and generates \figref{fig:DA-2025-33}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -1003,37 +1037,31 @@ Since $f''(x) > 0$ for all $x \in \mathbb{R}$, the first derivative $f'(x)$ is s
 	
 	\item Global and local minima count: For any convex function, any local minimum is necessarily a global minimum. Since $f'(x)$ is strictly increasing, $f'(x) = 0$ has at most one solution, ensuring $f$ has at most one local minimum and at most one global minimum.
 \end{itemize}
-	% =========================================================
-	% Q.52
-	% [Reference: Linear Algebra / Isometric Norm Preservation]
-	% =========================================================
-	\item 
-	An $n \times n$ matrix $\vec{A}$ with real entries satisfies the property: $\norm{\vec{Ax}}^2 = \norm{\vec{x}}^2$, for all $\vec{x} \in \mathbb{R}^n$, where $\norm{\cdot}$ denotes the Euclidean norm. Which of the following statements is/are ALWAYS correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $\vec{A}$ must be orthogonal
-		\item $\vec{A} = \vec{I}$ where $\vec{I}$ denotes the identity matrix, is the only solution
-		\item The eigenvalues of $\vec{A}$ are either +1 or -1
-		\item $\vec{A}$ has full rank
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-isometric_norm}:
-	\begin{align}
-		\norm{\vec{Ax}}^2 &= \norm{\vec{x}}^2
-		\\
-		\iff \vec{A}^\top\vec{A} &= \vec{I}
-	\end{align}
-	$\vec{A}$ is orthogonal, and hence $\text{rank}\brak{\vec{A}} = n$.
-	
-	Furthermore, let $\lambda$ be an eigenvalue of $\vec{A}$ with corresponding non-zero eigenvector $\vec{v}$. Then $\vec{Av} = \lambda\vec{v}$. Taking the squared Euclidean norm of both sides:
-	\begin{align}
-		\norm{\vec{Av}}^2 &= \norm{\lambda\vec{v}}^2
-		\\
-		\norm{\vec{v}}^2 &= \lambda^2 \norm{\vec{v}}^2
-		\\
-		\brak{\lambda^2 - 1}\norm{\vec{v}}^2 &= 0
-	\end{align}
-	Since $\vec{v} \neq \vec{0}$, $\norm{\vec{v}}^2 \neq 0$, which implies $\lambda^2 = 1$, or equivalently, the eigenvalues of $\vec{A}$ are restricted to $\lambda \in \{+1, -1\}$.
+% =========================================================
+% Q.52 (1.2.36 in main.pdf)
+% =========================================================
+\item 
+An $n \times n$ matrix $\vec{A}$ with real entries satisfies the property: $\norm{\vec{Ax}}^2 = \norm{\vec{x}}^2$, for all $\vec{x} \in \mathbb{R}^n$, where $\norm{\cdot}$ denotes the Euclidean norm. Which of the following statements is/are ALWAYS correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $\vec{A}$ must be orthogonal
+	\item $\vec{A} = \vec{I}$ where $\vec{I}$ denotes the identity matrix, is the only solution
+	\item The eigenvalues of $\vec{A}$ are either $+1$ or $-1$
+	\item $\vec{A}$ has full rank
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-isometric_norm}:
+\begin{align}
+	\norm{\vec{Ax}}^2 = \norm{\vec{x}}^2 \iff \vec{A}^\top\vec{A} = \vec{I}
+\end{align}
+Thus, $\vec{A}$ must be orthogonal, which implies $\mydet{\vec{A}} = \pm 1 \neq 0$ and $\text{rank}\brak{\vec{A}} = n$ (full rank).
+
+However, a real orthogonal matrix need not equal $\vec{I}$ and can possess complex eigenvalues of unit modulus $\abs{\lambda} = 1$. For example, the $90^\circ$ rotation matrix:
+\begin{align}
+	\vec{A} = \myvec{0 & -1 \\ 1 & 0}
+\end{align}
+satisfies $\vec{A}^\top\vec{A} = \vec{I} \text{ with } \vec{A} \neq \vec{I}$, and its characteristic equation $\lambda^2 + 1 = 0$ yields complex eigenvalues $\lambda = \pm \j \notin \{+1, -1\}$.
+
 % =========================================================
 % Q.53
 % [Reference: Machine Learning / Hard-Margin Support Vector Machine]
@@ -1141,42 +1169,50 @@ The following code verifies the solution and generates \figref{fig:DA-2025-53}.
 	\end{align}
 	Since $n$ is in the denominator, $var\brak{\hat{p}}$ strictly decreases as $n$ increases.
 	
-	% Q.58
-	\item 
-	Let $G$ be a simple, unweighted, and undirected graph. A subset of the vertices and edges of $G$ are shown below.
-	\begin{figure}[H]
-		\centering
-		\input{figs/Graph_Q58.tex}
-		\caption{}
-		\label{fig:DA-2025-58}
-	\end{figure}
-	It is given that $a-b-c-d$ is a shortest path between $a$ and $d$; $e-f-g-h$ is a shortest path between $e$ and $h$; $a-f-c-h$ is a shortest path between $a$ and $h$. Which of the following is/are NOT the edges of $G$?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item $\brak{b, d}$
-			\item $\brak{b, g}$
-			\item $\brak{b, h}$
-			\item $\brak{e, g}$
-		\end{multicols}
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-triangle_ineq}:
+% =========================================================
+% Q.58 (1.2.39 in main.pdf)
+% =========================================================
+\item 
+Let $G$ be a simple, unweighted, and undirected graph. A subset of the vertices and edges of $G$ are shown below.
+\begin{figure}[H]
+	\centering
+	\input{figs/Graph_Q58.tex}
+	\caption{}
+	\label{fig:DA-2025-58}
+\end{figure}
+It is given that $a-b-c-d$ is a shortest path between $a$ and $d$; $e-f-g-h$ is a shortest path between $e$ and $h$; $a-f-c-h$ is a shortest path between $a$ and $h$. Which of the following is/are NOT the edges of $G$?
+\hfill (DA~2025)
+\begin{enumerate}
+	\begin{multicols}{4}
+		\item $\brak{b, d}$
+		\item $\brak{b, g}$
+		\item $\brak{b, h}$
+		\item $\brak{e, g}$
+	\end{multicols}
+\end{enumerate}
+\solution
+From \eqref{eq:DA2025-triangle_ineq}, the shortest path distances given by the three paths of length $3$ are $d\brak{a, d} = 3$, $d\brak{e, h} = 3$, and $d\brak{a, h} = 3$:
+\begin{align}
+	d\brak{u, v} &\le d\brak{u, w} + d\brak{w, v}
+\end{align}
+\begin{itemize}
+	\item If edge $\brak{b, d}$ exists, the path $a-b-d$ gives:
 	\begin{align}
-		d\brak{u, v} &\le d\brak{u, w} + d\brak{w, v}
-	\end{align}
-	If edge $(b, d)$ exists:
-	\begin{align}
-		d(a, d) &\le d(a, b) + d(b, d) = 2 < 3
+		d\brak{a, d} \le d\brak{a, b} + d\brak{b, d} = 1 + 1 = 2 < 3
 	\end{align}
 	contradicting that $a-b-c-d$ is a shortest path.
-	If edge $(e, g)$ exists:
+	\item If edge $\brak{b, h}$ exists, the path $a-b-h$ gives:
 	\begin{align}
-		d(e, h) &\le d(e, g) + d(g, h) = 2 < 3
+		d\brak{a, h} \le d\brak{a, b} + d\brak{b, h} = 1 + 1 = 2 < 3
+	\end{align}
+	contradicting that $a-f-c-h$ is a shortest path.
+	\item If edge $\brak{e, g}$ exists, the path $e-g-h$ gives:
+	\begin{align}
+		d\brak{e, h} \le d\brak{e, g} + d\brak{g, h} = 1 + 1 = 2 < 3
 	\end{align}
 	contradicting that $e-f-g-h$ is a shortest path.
-	$\therefore (b, d)$ and $(e, g)$ are not edges of $G$.
-	
+\end{itemize}
+$\therefore \brak{b, d}$, $\brak{b, h}$, and $\brak{e, g}$ are not edges of $G$.
 	% Q.59
 	\item 
 	Let $f: \mathbb{R} \to \mathbb{R}$ be such that $\abs{f\brak{x} - f\brak{y}} \le \brak{x - y}^2$ for all $x, y \in \mathbb{R}$. Then
