@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  19 OCT 2026 03:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  19 OCT 2026 18:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1501,7 +1501,7 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 ) [5]
 (./figs/linear_probing.tex) [6] [7] [8] [9] (./figs/insertion_sort.tex)
 [10] [11] [12] [13] [14] [15]
-Underfull \hbox (badness 2790) in paragraph at lines 783--784
+Underfull \hbox (badness 2790) in paragraph at lines 781--782
 []\OT1/ptm/m/n/10 To eval-u-ate the vari-ance, ap-ply the fun-da-men-tal vari-a
 nce scal-ing prop-erty
  []
@@ -1652,7 +1652,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.11.3
                    \relax 
 l.308 \end{align}
                  
-<figs/pdf_cdf_distribution.pdf, id=582, 570.79814pt x 715.23712pt>
+<figs/pdf_cdf_distribution.pdf, id=581, 570.79814pt x 715.23712pt>
 File: figs/pdf_cdf_distribution.pdf Graphic file (type pdf)
 <use figs/pdf_cdf_distribution.pdf>
 Package pdftex.def Info: figs/pdf_cdf_distribution.pdf  used on input line 316.
@@ -1926,7 +1926,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.28.5
                    \relax 
 l.737 \end{align}
                  
-<figs/interval_cdf_shaded.pdf, id=839, 571.06409pt x 715.95483pt>
+<figs/interval_cdf_shaded.pdf, id=838, 571.06409pt x 715.95483pt>
 File: figs/interval_cdf_shaded.pdf Graphic file (type pdf)
 <use figs/interval_cdf_shaded.pdf>
 Package pdftex.def Info: figs/interval_cdf_shaded.pdf  used on input line 754.
@@ -2054,7 +2054,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.33.5
                    \relax 
 l.931 \end{align}
                   [35]
-<figs/q33_extrema.pdf, id=994, 498.50116pt x 318.34935pt>
+<figs/q33_extrema.pdf, id=993, 498.50116pt x 318.34935pt>
 File: figs/q33_extrema.pdf Graphic file (type pdf)
 <use figs/q33_extrema.pdf>
 Package pdftex.def Info: figs/q33_extrema.pdf  used on input line 964.
@@ -2154,7 +2154,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.37.1
                    \relax 
 l.1124 	\end{align}
                    
-<figs/svm_hard_margin.pdf, id=1113, 479.76698pt x 498.663pt>
+<figs/svm_hard_margin.pdf, id=1112, 479.76698pt x 498.663pt>
 File: figs/svm_hard_margin.pdf Graphic file (type pdf)
 <use figs/svm_hard_margin.pdf>
 Package pdftex.def Info: figs/svm_hard_margin.pdf  used on input line 1146.
@@ -2246,8 +2246,8 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F6688DB632BB6C6FC25A608F9FC20625;303.
  ) 
 Here is how much of TeX's memory you used:
- 56029 strings out of 467533
- 1332829 string characters out of 5422138
+ 56028 strings out of 467533
+ 1332816 string characters out of 5422138
  2062915 words of memory out of 5000000
  83466 multiletter control sequences out of 15000+600000
  682122 words of font info for 170 fonts, out of 8000000 for 9000
@@ -2277,10 +2277,10 @@ symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
 a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (45 pages, 490269 bytes).
+Output written on main.pdf (45 pages, 490239 bytes).
 PDF statistics:
- 1552 PDF objects out of 1728 (max. 8388607)
- 1116 compressed objects within 12 object streams
- 632 named destinations out of 1000 (max. 500000)
+ 1551 PDF objects out of 1728 (max. 8388607)
+ 1115 compressed objects within 12 object streams
+ 631 named destinations out of 1000 (max. 500000)
  153 words of extra memory for PDF output out of 10000 (max. 10000000)
 
