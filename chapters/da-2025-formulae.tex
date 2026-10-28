@@ -571,7 +571,7 @@ SOURCE /sdcard/Download/codes/q40/script.sql;
 	On a relation named Loan of a bank:
 	\begin{figure}[H]
 		\centering
-		\input{figs/Loan.tex}
+		\input{tables/qF25/Loan.tex}
 		\caption{}
 		\label{fig:DA-LOAN}
 	\end{figure}
@@ -580,8 +580,8 @@ SOURCE /sdcard/Download/codes/q40/script.sql;
 SELECT L1.loan_number
 FROM Loan L1
 WHERE L1.amount > (SELECT MAX (L2.amount)
-FROM Loan L2
-WHERE L2.branch_name = 'SR Nagar');
+	FROM Loan L2
+	WHERE L2.branch_name = 'SR Nagar');
 	\end{lstlisting}
 	The number of rows returned by the query is \underline{\hspace{1.5cm}}.
 	\hfill (DA~2025)

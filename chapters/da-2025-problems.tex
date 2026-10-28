@@ -6,7 +6,7 @@
 	\hfill (DA~2025)
 	\begin{figure}[H]
 		\centering
-		\input{figs/Pixel_Grid.tex}
+		\input{tables/q1/Pixel_Grid.tex}
 		\caption{Pixel Grid}
 		\label{fig:DA-2025-3}
 	\end{figure}
@@ -1332,9 +1332,18 @@ If edge $\brak{b, g}$ exists, the shortest paths using $\brak{b, g}$ between the
 Consider the  following tables,Loan and Borrower, of a bank.
 \begin{figure}[H]
 	\centering
-	\input{figs/Loan_Borrower.tex}
-	\caption{}
-	\label{fig:DA-2025-43-1}
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\textbf{Loan}\\[0.5ex]
+		\input{tables/q40/Loan.tex}
+	\end{minipage}\hfill
+	\begin{minipage}[t]{0.48\textwidth}
+		\centering
+		\textbf{Borrower}\\[0.5ex]
+		\input{tables/q40/Borrower.tex}
+	\end{minipage}
+	\caption{Loan and Borrower relations of a bank}
+	\label{fig:loan_borrower}
 \end{figure}
 Query: $\pi_{\text{branch\_name}, \text{customer\_name}}(\text{Loan} \bowtie \text{Borrower}) \div \pi_{\text{branch\_name}}(\text{Loan})$ where $\bowtie$ denotes natural join. The number of tuples returned by the above relational algebra query is \underline{\hspace{1.5cm}}.
 \hfill (DA~2025)
