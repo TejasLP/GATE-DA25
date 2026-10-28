@@ -1,119 +1,49 @@
-import os
-import sys
-from pathlib import Path
-import matplotlib.pyplot as plt
 import numpy as np
+from scipy.stats import binom, norm
 
-# Resolve project root and CoordGeo paths relative to codes/q39/q39.py
-script_dir = Path(__file__).resolve().parent
-project_root = script_dir.parents[1]  # GATE-DA25/
-coordgeo_dir = project_root / "codes" / "CoordGeo"
+# -------------------------------------------------------------
+# 1. Parameters from GATE DA 2025 Q1.2.28
+# -------------------------------------------------------------
+n = 100
+p = 1.0 / 6.0
+q = 1.0 - p  # 5/6
 
-# Add CoordGeo paths to sys.path
-sys.path.insert(0, str(coordgeo_dir))
-sys.path.insert(0, str(coordgeo_dir / "line"))
-sys.path.insert(0, str(coordgeo_dir / "plotting"))
+# -------------------------------------------------------------
+# 2. Exact Binomial Theoretical Calculation
+# -------------------------------------------------------------
+# Complement event A^c: None of the 100 dice show a 1 (X = 0)
+p_ac_binom = binom.pmf(0, n, p)          # Exact (5/6)^100
+p_a_binom = 1.0 - (q ** n)               # Exact 1 - (5/6)^100
 
-# Import custom functions from CoordGeo
-from line.funcs import line_gen
-from plotting.funcs import label_pts
+# -------------------------------------------------------------
+# 3. Gaussian (Normal) Approximation via CLT
+# -------------------------------------------------------------
+mu = n * p                               # 100 / 6 ≈ 16.6667
+sigma = np.sqrt(n * p * q)               # sqrt(500 / 36) ≈ 3.7268
 
-# Resolve the root figs directory
-fig_dir = project_root / "figs"
-fig_dir.mkdir(parents=True, exist_ok=True)
+# (a) Without continuity correction: P(X >= 1) ≈ 1 - P(X <= 0)
+z_uncorrected = (0.0 - mu) / sigma
+p_ac_gauss_uncorr = norm.cdf(z_uncorrected)
+p_a_gauss_uncorr = 1.0 - p_ac_gauss_uncorr
 
-# Define parameters for the specific question: CDF of X and c^2 = 0.25 => c = 0.5
-c = 0.5
-c_sq = 0.25
+# (b) With 0.5 continuity correction: P(X >= 1) ≈ 1 - P(X <= 0.5)
+z_corrected = (0.5 - mu) / sigma
+p_ac_gauss_corr = norm.cdf(z_corrected)
+p_a_gauss_corr = 1.0 - p_ac_gauss_corr
 
-# Generate x values covering the relevant range
-x = np.linspace(-2, 2, 1000)
+# -------------------------------------------------------------
+# 4. Comparison Output
+# -------------------------------------------------------------
+print("=== GATE DA 2025 Q1.2.28: Binomial vs Gaussian Comparison ===")
+print(f"Parameters: n = {n}, p = 1/6, q = 5/6")
+print(f"Gaussian Mean (mu) = {mu:.4f}, Std Dev (sigma) = {sigma:.4f}\n")
 
-# Define the piecewise CDF F_X(x)
-def cdf_val(val):
-    if val <= -1:
-        return 0.0
-    elif val <= 1:
-        return 0.25 * (val + 1) ** 2
-    else:
-        return 1.0
+print(f"{'Method':<38} | {'P(A^c) [Zero 1s]':<18} | {'P(A) [At least one 1]':<22}")
+print("-" * 84)
+print(f"{'Binomial Theoretical: 1 - (5/6)^100':<38} | {p_ac_binom:<18.6e} | {p_a_binom:<22.12f}")
+print(f"{'Gaussian CLT (Uncorrected, X <= 0)':<38} | {p_ac_gauss_uncorr:<18.6e} | {p_a_gauss_uncorr:<22.12f}")
+print(f"{'Gaussian CLT (Corrected, X <= 0.5)':<38} | {p_ac_gauss_corr:<18.6e} | {p_a_gauss_corr:<22.12f}")
 
-cdf = np.vectorize(cdf_val)(x)
-
-# Corresponding PDF (derivative of CDF piecewise)
-def pdf_val(val):
-    if -1 <= val <= 1:
-        return 0.5 * (val + 1)
-    else:
-        return 0.0
-
-pdf = np.vectorize(pdf_val)(x)
-
-# Create figure with two subplots (PDF with shaded region, and CDF)
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))
-
-# --- Plot 1: PDF with shaded interval [-c, c] ---
-ax1.plot(x, pdf, color="blue", lw=2, label=r"PDF $f_X(x)$")
-
-# Shade the area under PDF between -c and c (-0.5 and 0.5)
-x_shade = np.linspace(-c, c, 200)
-y_shade = np.vectorize(pdf_val)(x_shade)
-ax1.fill_between(
-    x_shade, y_shade, color="skyblue", alpha=0.5, label=r"$-0.5 \leq X \leq 0.5$"
-)
-
-# Use line_gen from line.funcs to draw boundary indicator lines at -c and c
-A_left = np.array([[-c], [0.0]])
-B_left = np.array([[-c], [pdf_val(-c)]])
-line_left = line_gen(A_left, B_left)
-
-A_right = np.array([[c], [0.0]])
-B_right = np.array([[c], [pdf_val(c)]])
-line_right = line_gen(A_right, B_right)
-
-ax1.plot(line_left[0, :], line_left[1, :], color="red", linestyle="--", lw=1.5)
-ax1.plot(
-    line_right[0, :],
-    line_right[1, :],
-    color="red",
-    linestyle="--",
-    lw=1.5,
-    label=r"Bounds $\pm 0.5$",
-)
-
-ax1.set_title(r"PDF: Shaded Area Corresponding to $\Pr({X}^2 \leq 0.25)$")
-ax1.set_xlabel("$x$")
-ax1.set_ylabel("$f_X(x)$")
-ax1.grid(True)
-ax1.legend()
-
-# Use CoordGeo's label_pts to annotate bounds
-plt.sca(ax1)
-G_v_bounds = np.array([[-c, c], [0.0, 0.0]])
-label_pts(G_v_bounds, [r"$-0.5$", r"$0.5$"])
-
-# --- Plot 2: CDF showing $F_X(0.5) - F_X(-0.5) = 0.5$ ---
-ax2.plot(x, cdf, color="purple", lw=2, label=r"CDF $F_X(x)$")
-
-ax2.set_title(r"CDF: $\Pr({X}^2 \leq 0.25) = F_X(0.5) - F_X(-0.5) = 0.5$")
-ax2.set_xlabel("$x$")
-ax2.set_ylabel("$F_X(x)$")
-ax2.set_ylim(-0.1, 1.1)
-ax2.grid(True)
-ax2.legend()
-
-# Annotate points on CDF using label_pts
-plt.sca(ax2)
-val_neg_c = cdf_val(-c)
-val_pos_c = cdf_val(c)
-G_v_cdf = np.array([[-c, c], [val_neg_c, val_pos_c]])
-label_pts(G_v_cdf, [r"$F_X(-0.5)$", r"$F_X(0.5)$"])
-ax2.scatter([-c, c], [val_neg_c, val_pos_c], color="black", zorder=5)
-
-# Save figure directly to the root figs/ directory
-plt.tight_layout()
-output_path = fig_dir / "interval_cdf_shaded.pdf"
-plt.savefig(output_path, format="pdf", bbox_inches="tight")
-plt.close()
-
-print(f"Successfully saved PDF to {output_path}")
+print("\n=== Absolute Error in P(A) (Binomial vs Gaussian) ===")
+print(f"Uncorrected Gaussian Error : {abs(p_a_binom - p_a_gauss_uncorr):.6e}")
+print(f"Corrected Gaussian Error   : {abs(p_a_binom - p_a_gauss_corr):.6e}")

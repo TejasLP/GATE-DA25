@@ -40,7 +40,7 @@
 	% Q.7
 	% [Reference: bt-2025-formulae.tex (Item 6: Convexity & Minima definitions)]
 	% =========================================================
-	\item Injectivity of Strictly Unimodal Functions
+	\item 
 	\begin{align}
 		x_1 < c < x_2 \quad \text{for} \quad f\brak{x_1} = f\brak{x_2} \label{eq:DA2025-unimodal}
 	\end{align}
@@ -120,41 +120,77 @@
 		The number of solutions depends on $R$ and the remaining unknown eigenvalues of $\vec{A}$. If $R \neq 0$ and all other eigenvalues are non-zero ($\mydet{\vec{A}} \neq 0$), the system has a unique solution. If $R = 0$ or $0$ happens to be one of the other eigenvalues of $\vec{A}$, the matrix is singular, resulting in either no solution or infinitely many solutions.
 	\end{enumerate}
 	
-	% =========================================================
-	% Q.14
-	% [Reference: bt-2025-formulae.tex (Item 1: Taylor and Maclaurin Series Foundations)]
-	% =========================================================
-	\item Maclaurin Series of Hyperbolic Sine
-	\begin{align}
-		\sinh\brak{x} = \sum_{k=0}^{\infty} \frac{x^{2k+1}}{\brak{2k+1}!} \label{eq:DA2025-maclaurin}
-	\end{align}
-	\solution
-	Expanding $e^x$ and $e^{-x}$ via Maclaurin series:
-	\begin{align}
-		f\brak{x} &= \frac{1}{2}\brak{\sum_{n=0}^{\infty} \frac{x^n}{n!} - \sum_{n=0}^{\infty} \frac{\brak{-1}^n x^n}{n!}}
-		\\
-		&= x + \frac{x^3}{3!} + \frac{x^5}{5!} + \cdots
-	\end{align}
-	
+% =========================================================
+% Q.14
+% [Reference: Calculus / Higher-Order Derivatives of Hyperbolic Functions]
+% =========================================================
+\item Higher-Order Derivatives of Hyperbolic Sine
+Let $f\brak{x} = \sinh\brak{x}$.
+\begin{align}
+	f'\brak{x} &= \cosh\brak{x} \label{eq:DA2025-sinh_diff1}
+	\\
+	f''\brak{x} &= \sinh\brak{x} \label{eq:DA2025-sinh_diff2}
+\end{align}
+\solution
+Successive differentiation establishes that the derivative alternates with period $2$. For any integer $m \ge 1$:
+\begin{align}
+	f^{(2m)}\brak{x} &= \sinh\brak{x} \label{eq:DA2025-sinh_even_deriv}
+	\\
+	f^{(2m-1)}\brak{x} &= \cosh\brak{x} \label{eq:DA2025-sinh_odd_deriv}
+\end{align}
+
 	% =========================================================
 	% Q.17
 	% [Reference: General Domain Knowledge - SQL/Relational Algebra]
 	% =========================================================
 	\item Relational Algebra Natural Join
 	\input{figs/natural_join.tex}
-	\begin{align}
-		R \bowtie S = \pi_{R \cup S}\brak{\sigma_{R.A = S.A}\brak{R \times S}} \label{eq:DA2025-join}
-	\end{align}
-	\solution
-	The equation describes the mechanical steps of combining database tables using relational algebra operators, as applied to the relations \texttt{Car}, \texttt{Make}, and \texttt{Own}:
-	\begin{itemize}
-		\item $R$ and $S$: The input relations being combined, such as joining \texttt{Car} and \texttt{Make} on \texttt{model}, or joining \texttt{Own} with the filtered vehicle results.
-		\item $\bowtie$ (Natural Join): The overarching operator that merges relations by matching rows with identical values in their common columns (e.g., matching \texttt{model} or \texttt{serial}), outputting a combined relation with no redundant duplicate columns.
-		\item $R \times S$ (Cartesian Product): The foundational operation that pairs every single row in relation $R$ with every single row in relation $S$, generating all possible combinations before filtering.
-		\item $\sigma_{\text{condition}}$ (Selection): The row-filtering step. The $\sigma$ operator evaluates conditions on the tuples, such as filtering for red cars ($\sigma_{\text{color}=\text{'red'}}$) or cars made by a specific company ($\sigma_{\text{maker}=\text{'ABC'}}$).
-		\item $\pi_{\text{attributes}}$ (Projection): The column-filtering step. The $\pi$ operator isolates specific attributes in the final output, such as projecting the owner names ($\pi_{\text{owner}}$) who satisfy all join and selection criteria.
-	\end{itemize}
+\begin{align}
+	\sigma_{c}\brak{R} &= \cbrak{t \in R \mid c\brak{t}} \label{eq:DA2025-selection}
+	\\
+	R \bowtie S &= \cbrak{t \cup s \mid t \in R, \; s \in S, \; t\sbrak{A} = s\sbrak{A} \; \forall A \in \text{attr}\brak{R} \cap \text{attr}\brak{S}} \label{eq:DA2025-join}
+	\\
+	\pi_{L}\brak{R} &= \cbrak{t\sbrak{L} \mid t \in R} \label{eq:DA2025-projection}
+\end{align}
+\solution
+The operators define the query evaluation:
+\begin{itemize}
+	\item $\sigma_{c}\brak{R}$ (Selection): Filters tuples in relation $R$ that satisfy condition $c$ (e.g., filtering by $\text{maker} = \text{'ABC'}$ or $\text{color} = \text{'red'}$).
+	\item $R \bowtie S$ (Natural Join): Merges tuples from relations $R$ and $S$ having identical values on their common attributes (e.g., matching on \texttt{model} or \texttt{serial}) and eliminates duplicate attribute columns.
+	\item $\pi_{L}\brak{R}$ (Projection): Extracts only the specified attribute list $L$ from the relation (e.g., isolating $\pi_{\text{owner}}$).
+\end{itemize}
 	
+		% Q.17
+	\item 
+	Consider the following three relations:
+	\begin{align*}
+		&\text{Car } (\underline{\text{model}}, \underline{\text{year}}, \underline{\text{serial}}, \text{color}) \\
+		&\text{Make } (\underline{\text{maker}}, \underline{\text{model}}) \\
+		&\text{Own } (\underline{\text{owner}}, \underline{\text{serial}})
+	\end{align*}
+	A tuple in Car represents a specific car of a given model, made in a given year, with a serial number and a color. A tuple in Make specifies that a maker company makes cars of a certain model. A tuple in Own specifies that an owner owns the car with a given serial number. Keys are underlined; (owner, serial) together form key for Own. ($\bowtie$ denotes natural join)
+	\begin{align}
+		\pi_{\text{owner}}\brak{\text{Own} \bowtie \brak{\sigma_{\text{color} = \text{'red'}}\brak{\text{Car} \bowtie \brak{\sigma_{\text{maker} = \text{'ABC'}}\text{Make}}}}}
+	\end{align}
+	Which one of the following options describes what the above expression computes?
+	\hfill (DA~2025)
+	\begin{enumerate}
+		\item All owners of a red car, a car made by ABC, or a red car made by ABC
+		\item All owners of more than one car, where at least one car is red and made by ABC
+		\item All owners of a red car made by ABC
+		\item All red cars made by ABC
+	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-join}, $\sigma_{\text{color} = \text{'red'}}\brak{\text{Car} \bowtie \brak{\sigma_{\text{maker} = \text{'ABC'}}\text{Make}}}$ filters red cars made by ABC. Joining with $\text{Own}$ and projecting via $\pi_{\text{owner}}$ selects:
+	\begin{align}
+		\pi_{\text{owner}}\brak{\text{Own} \bowtie \brak{\dots}}
+	\end{align}
+	which corresponds to all owners of a red car made by ABC.
+	\\
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/qF10/qF10.c}@*)
+	\end{lstlisting}
 	% =========================================================
 	% Q.18
 	% [Reference: General Domain Knowledge - Data Structures (Hashing)]
@@ -173,7 +209,43 @@
 		\item $\pmod M$: The modulo operation ensuring the probe sequence wraps around to index $0$ if the end of the table is reached.
 		\item $h\brak{k, i}$: The final calculated storage index for the $i$-th probe attempt.
 	\end{itemize}
-	
+		% Q.18
+	\item 
+	Consider a hash table of size 10 with indices $\cbrak{0, 1, \dots, 9}$, with the hash function
+	\begin{align}
+		h\brak{x} = 3x \brak{\text{mod } 10}
+	\end{align}
+	where linear probing is used to handle collisions. The hash table is initially empty and then the following sequence of keys is inserted into the hash table: $1, 4, 5, 6, 14, 15$. The indices where the keys 14 and 15 are stored are, respectively
+	\hfill (DA~2025)
+	\begin{enumerate}
+		\begin{multicols}{4}
+			\item 2 and 5
+			\item 2 and 6
+			\item 4 and 5
+			\item 4 and 6
+		\end{multicols}
+	\end{enumerate}
+	\solution
+	From \eqref{eq:DA2025-probing}, $h\brak{k, i} = \brak{3k + i} \pmod{10}$:
+	\begin{align}
+		k=1 &\implies h\brak{1, 0} = 3
+		\\
+		k=4 &\implies h\brak{4, 0} = 2
+		\\
+		k=5 &\implies h\brak{5, 0} = 5
+		\\
+		k=6 &\implies h\brak{6, 0} = 8
+		\\
+		k=14 &\implies h\brak{14, 0} = 2
+		\\
+		&\implies h\brak{14, 1} = 3
+		\\
+		&\implies h\brak{14, 2} = 4
+		\\
+		k=15 &\implies h\brak{15, 0} = 5
+		\\
+		&\implies h\brak{15, 1} = 6
+	\end{align}
 	% =========================================================
 	% Q.19
 	% [Reference: formulae.tex (Item 8: Median definition adjusted for CDFs)]
@@ -451,30 +523,101 @@ Yielding,
 		\lim_{t \to +\infty} \frac{\brak{t^2 + at} - t^2}{\sqrt{t^2 + at} + t} &= \lim_{t \to +\infty} \frac{a}{\sqrt{1 + \frac{a}{t}} + 1} = \frac{a}{2}
 	\end{align}
 	
-	% =========================================================
-	% Q.34
-	% [Reference: General Domain Knowledge - Statistics/Machine Learning]
-	% =========================================================
-	\item Least Squares Regression Through Origin
-	\begin{align}
-		w^* &= \frac{\sum x_i y_i}{\sum x_i^2} \label{eq:DA2025-least_squares}
-	\end{align}
-	\solution
-	For a linear model constrained to pass strictly through the origin, the predicted value is $\hat{y}_i = w x_i$. The objective function $S\brak{w}$ represents the Sum of Squared Residuals (SSR), which measures the total squared penalty between the actual observed values $y_i$ and the model's predictions $\hat{y}_i$:
-	\begin{align}
-		S\brak{w} &= \sum \brak{y_i - \hat{y}_i}^2
-		\\
-		&= \sum \brak{y_i - w x_i}^2
-	\end{align}
-	To determine the optimal parameter $w^*$ that minimizes this cumulative error, evaluate the derivative of $S\brak{w}$ with respect to $w$ and equate it to zero to solve for the global minimum symbolically:
-	\begin{align}
-		\frac{dS}{dw} &= -2 \sum x_i \brak{y_i - w x_i} = 0
-		\\
-		\sum x_i y_i - w \sum x_i^2 &= 0
-		\\
-		w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
-	\end{align}
 	
+	% =========================================================
+	% MySQL (MariaDB) Setup and SQL Script Execution in Termux
+	% =========================================================
+	\item Setting up MySQL (MariaDB) and Executing `.sql` Files on Termux
+	
+
+	To install, initialize, run the MariaDB daemon, and execute external `.sql` script files inside the Termux environment on Android:
+	
+	\begin{itemize}
+		\item Initialize Packages \& Install MariaDB:
+		\begin{lstlisting}[language=bash]
+# Grant storage access to Termux
+termux-setup-storage
+			
+# Update mirrors and install mariadb engine
+pkg update && pkg upgrade -y
+pkg install mariadb -y
+		\end{lstlisting}
+		
+		\item Initialize Data Directory \& Start Server Daemon:
+		\begin{lstlisting}[language=bash]
+# Initialize MySQL system tables
+mariadb-install-db
+
+# Start MariaDB server daemon in the background
+mysqld_safe &
+		\end{lstlisting}
+
+		\item Interactive Console Execution (`SOURCE` Command):
+		\begin{lstlisting}[language=sql]
+-- Connect to MariaDB console
+mariadb -u root
+			
+-- Execute .sql script inside interactive shell
+SOURCE /sdcard/Download/codes/q40/script.sql;
+	
+-- Alternative shortcut notation:
+\. /sdcard/Download/codes/q40/script.sql
+		\end{lstlisting}
+	\end{itemize}
+	
+	
+		% Q.33
+	\item 
+	On a relation named Loan of a bank:
+	\begin{figure}[H]
+		\centering
+		\input{figs/Loan.tex}
+		\caption{}
+		\label{fig:DA-LOAN}
+	\end{figure}
+	the following SQL query is executed.
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
+SELECT L1.loan_number
+FROM Loan L1
+WHERE L1.amount > (SELECT MAX (L2.amount)
+FROM Loan L2
+WHERE L2.branch_name = 'SR Nagar');
+	\end{lstlisting}
+	The number of rows returned by the query is \underline{\hspace{1.5cm}}.
+	\hfill (DA~2025)
+	\\
+	\solution
+	The inner subquery evaluates the maximum loan amount for the \texttt{'SR Nagar'} branch, giving $\max\{40000, 25000, 65000\} = 65000$. The outer query selects candidate rows satisfying $\text{amount} > 65000$, which matches $\cbrak{\text{L11}, \text{L23}, \text{L25}}$.
+	\begin{align}
+		\text{Number of rows returned} = 3
+	\end{align}
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/qF25/qF25.sql}@*)
+	\end{lstlisting}
+	
+% =========================================================
+% Q.34 Formula Reference (Matrix Formulation)
+% =========================================================
+\item Least Squares Regression Through Origin (Matrix Form)
+\begin{align}
+	w^* &= \brak{\vec{X}^\top \vec{X}}^{-1} \vec{X}^\top \vec{y} \label{eq:DA2025-least_squares_matrix}
+\end{align}
+\solution
+For a linear model constrained to pass strictly through the origin, $\hat{y}_i = w x_i$. Given $n$ observations, the design vector $\vec{X}$ and target vector $\vec{y}$ are expressed as:
+\begin{align}
+	\vec{X} &= \myvec{x_1 \\ x_2 \\ \vdots \\ x_n}, \quad \vec{y} = \myvec{y_1 \\ y_2 \\ \vdots \\ y_n}
+\end{align}
+The Sum of Squared Residuals in vector-matrix notation is given by $S\brak{w} = \norm{\vec{y} - \vec{X}w}^2$. Expanding and differentiating with respect to $w$, we set the derivative to zero to derive the normal equations:
+\begin{align}
+	\frac{d}{dw} \brak{\vec{y}^\top \vec{y} - 2 w \vec{X}^\top \vec{y} + w^2 \vec{X}^\top \vec{X}} &= 0
+	\\
+	-2 \vec{X}^\top \vec{y} + 2 w \vec{X}^\top \vec{X} &= 0
+	\\
+	\vec{X}^\top \vec{X} \, w &= \vec{X}^\top \vec{y}
+	\\
+	w^* &= \brak{\vec{X}^\top \vec{X}}^{-1} \vec{X}^\top \vec{y}
+\end{align}
 	% =========================================================
 	% Q.32
 	% [Reference: main.pdf (Eq 4.1.3.1: Total Probability & Eq 4.1.4.1: Bayes' Theorem)]
@@ -493,7 +636,7 @@ Yielding,
 	Z &\sim \mathcal{N}\brak{0, 1} \implies E\sbrak{Z^2} = 1, E\sbrak{Z^4} = 3 \quad \text{(using \eqref{eq:DA2025-normal_moment_even})} \label{eq:DA2025-normal_moments_2_4}
 \end{align}
 \begin{align}
-	var\brak{Y} &= E\sbrak{Y^2} - \brak{E\sbrak{Y}}^2 \quad \text{(using \eqref{eq:DA2025-normal_moments_2_4})} \label{eq:DA2025-variance_identity}
+	var\brak{Y} &= E\sbrak{Y^2} - \brak{E\sbrak{Y}}^2  \label{eq:DA2025-varY}
 \end{align}
 	% =========================================================
 	% Q.37
@@ -582,30 +725,31 @@ Yielding,
 		\Pr\brak{X^2 \le c^2} &= F_X\brak{c} - F_X\brak{-c}
 	\end{align}
 	
-	% =========================================================
-	% Q.40
-	% [Reference: DA.pdf]
-	% =========================================================
-	\item Central Limit Theorem Approximation for Binomial Sums
-	\begin{align}
-		Z &= \frac{Y - n\theta}{\sqrt{n\theta(1-\theta)}} \xrightarrow{d} \mathcal{N}\brak{0, 1} \label{eq:DA2025-clt_z_standard}
-	\end{align}
-	For independent variables $X_i \sim \text{Bernoulli}\brak{\theta}$, the sum $Y$, its mean $\mu$, and standard deviation $\sigma$ are defined as:
-	\begin{align}
-		Y &= \sum_{i=1}^n X_i \label{eq:DA2025-binomial_sum_def}
-		\\
-		\mu &= n\theta \label{eq:DA2025-binomial_sum_mean}
-		\\
-		\sigma &= \sqrt{n\theta\brak{1-\theta}} \label{eq:DA2025-binomial_sum_std}
-	\end{align}
-	
-	Standardizing the interval $[a, b]$ maps the boundaries to the standard normal distribution $Z$. The probability evaluates to the difference of the standard normal Cumulative Distribution Function (CDF), denoted by $\phi\brak{x}$, at these bounds:
-	\begin{align}
-		P\brak{a \le Y \le b} &= P\brak{\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}}
-		\\
-		&= \phi\brak{\frac{b - n\theta}{\sqrt{n\theta\brak{1-\theta}}}} - \phi\brak{\frac{a - n\theta}{\sqrt{n\theta\brak{1-\theta}}}} \label{eq:DA2025-clt_binomial}
-	\end{align}
-	
+% =========================================================
+% Q.40
+% [Reference: DA.pdf]
+% =========================================================
+\item Central Limit Theorem Approximation for Binomial Sums
+
+For independent and identically distributed random variables $X_i \sim \text{Bernoulli}\brak{\theta}$, the sum $Y \sim \text{Bin}\brak{n, \theta}$, its mean $\mu$, and standard deviation $\sigma$ are given by:
+\begin{align}
+	Y &= \sum_{i=1}^n X_i \label{eq:DA2025-binomial_sum_def}
+	\\
+	\mu &= n\theta \label{eq:DA2025-binomial_sum_mean}
+	\\
+	\sigma &= \sqrt{n\theta\brak{1-\theta}} \label{eq:DA2025-binomial_sum_std}
+\end{align}
+For large $n$ such that $n\theta \ge 5$ and $n\brak{1-\theta} \ge 5$, the binomial sum $Y$ is approximated by a Gaussian distribution $\mathcal{N}\brak{\mu, \sigma^2}$ via the Central Limit Theorem:
+\begin{align}
+	Z &= \frac{Y - \mu}{\sigma} = \frac{Y - n\theta}{\sqrt{n\theta\brak{1-\theta}}} \xrightarrow{d} \mathcal{N}\brak{0, 1} \label{eq:DA2025-clt_z_standard}
+\end{align}
+
+Standardizing the interval $\sbrak{a, b}$ maps the boundaries to the standard normal variable $Z$. Without the $0.5$ continuity correction factor applied, the interval probability evaluates directly in terms of the standard normal Cumulative Distribution Function (CDF), denoted by $\phi\brak{x} = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{x} e^{-t^2/2}\,dt$:
+\begin{align}
+	P\brak{a \le Y \le b} &\approx P\brak{\frac{a - \mu}{\sigma} \le Z \le \frac{b - \mu}{\sigma}} \nonumber
+	\\
+	&= \phi\brak{\frac{b - n\theta}{\sqrt{n\theta\brak{1-\theta}}}} - \phi\brak{\frac{a - n\theta}{\sqrt{n\theta\brak{1-\theta}}}} \label{eq:DA2025-clt_binomial}
+\end{align}
 	% =========================================================
 	% Q.41
 	% [Reference: Geometric Discretization of Exponential]

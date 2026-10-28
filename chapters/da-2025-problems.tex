@@ -25,6 +25,10 @@
 		\\
 		&= 11
 	\end{align}
+		The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q1/q1.c}@*)
+	\end{lstlisting}
 	
 	% Q.5
 	\item 
@@ -46,7 +50,11 @@ From \eqref{eq:DA2025-scaling}, with width scaled by $\alpha = 0.10$ ($W' = 1.10
 	D' &= \sqrt{L^2 + \brak{1.10W}^2} \neq 1.10\sqrt{L^2 + W^2}
 \end{align}
 Furthermore, for arbitrary $L > W$ (e.g., $L = 10, W = 1$), $W' = 1.10 \neq L$, so the rectangle does not generally become a square. Thus, only the area increases by $10\%$ for all values of $L$ and $W$.
-	
+\\
+The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q2/q2.c}@*)
+	\end{lstlisting}
 	% Q.7
 	\item 
 	Weight of a person can be expressed as a function of their age. The function usually varies from person to person. Suppose this function is identical for two brothers, and it monotonically increases till the age of 50 years and then it monotonically decreases. Let $a_1$ and $a_2$ (in years) denote the ages of the brothers and $a_1 < a_2$. Which one of the following statements is correct about their age on the day when they attain the same weight?
@@ -96,7 +104,10 @@ Furthermore, for arbitrary $L > W$ (e.g., $L = 10, W = 1$), $W' = 1.10 \neq L$, 
 		\\
 		&= 2^3
 	\end{align}
-	
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q4/q4.c}@*)
+	\end{lstlisting}
 % Q.11
 \item 
 Suppose $X$ and $Y$ are random variables. The conditional expectation of $X$ given $Y$ is denoted by $E\sbrak{X \mid Y}$. Then $E\sbrak{E\sbrak{X \mid Y}}$ equals
@@ -126,17 +137,20 @@ From \eqref{eq:DA2025-total_expectation} and \eqref{eq:DA2025-cond_expectation}:
 	\\
 	&= E\sbrak{X}
 \end{align}
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q5/q5.c}@*)
+\end{lstlisting}
 % Q.12
 \item 
 The number of additions and multiplications involved in performing Gaussian elimination on any $n \times n$ upper triangular matrix is of the order
 \hfill (DA~2025)
+
 \begin{enumerate}
-	\begin{multicols}{4}
-		\item $O\brak{n}$
-		\item $O\brak{n^2}$
-		\item $O\brak{n^3}$
-		\item $O\brak{n^4}$
-	\end{multicols}
+	\item[] 
+	\begin{tabular*}{\linewidth}{@{\extracolsep{\fill}} l l l l}
+		i) $O\brak{n}$ & ii) $O\brak{n^2}$ & iii) $O\brak{n^3}$ & iv) $O\brak{n^4}$
+	\end{tabular*}
 \end{enumerate}
 
 \solution
@@ -164,6 +178,24 @@ The total sum of all arithmetic operations evaluates to:
 	\\
 	&= O\brak{n^2}
 \end{align}
+The following code and data verifies the solution:
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q6/q6.c}@*)
+\end{lstlisting}
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{\rmfamily codes/q6/timing\_results.dat}@*)
+\end{lstlisting}
+The following code generates \figref{fig:DA-2025-12}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q6/q6.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figs/timing_stem_plot.pdf}
+	\caption{Back-Substitution Time Complexity}
+	\label{fig:DA-2025-12}
+\end{figure}
+
 	% Q.13
 	\item 
 	The sum of the elements in each row of $\vec{A} \in \mathbb{R}^{n \times n}$ is 1. If $\vec{B} = \vec{A}^3 - 2\vec{A}^2 + \vec{A}$, which one of the following statements is correct (for $\vec{x} \in \mathbb{R}^n$)?
@@ -186,7 +218,11 @@ The total sum of all arithmetic operations evaluates to:
 		&= \vec{0}
 	\end{align}
 	Thus, $\lambda = 0$ is an eigenvalue of $\vec{B}$, implying $\vec{B}$ has dependent column vectors, which yields infinitely many solutions.
-	
+	\\
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q7/q7.py}@*)
+	\end{lstlisting}
 % Q.14
 \item 
 Let $f\brak{x} = \frac{e^x - e^{-x}}{2}, \; x \in \mathbb{R}$. Let $f^{(k)}\brak{a}$ denote the $k^{\text{th}}$ derivative of $f$ evaluated at $a$. What is the value of $f^{(10)}\brak{0}$? (Note: ! denotes factorial)
@@ -199,81 +235,19 @@ Let $f\brak{x} = \frac{e^x - e^{-x}}{2}, \; x \in \mathbb{R}$. Let $f^{(k)}\brak
 		\item $\frac{2}{10!}$
 	\end{multicols}
 \end{enumerate}
+% =========================================================
+% Updated Problem 1.2.8 Solution
+% =========================================================
 \solution
-From \eqref{eq:DA2025-maclaurin}:
+From \eqref{eq:DA2025-sinh_even_deriv} with $m = 5$:
 \begin{align}
-	f\brak{x} &= \sinh\brak{x} = \sum_{k=0}^{\infty} \frac{x^{2k+1}}{\brak{2k+1}!}
-\end{align}
-By definition, the general Maclaurin series coefficient for $x^n$ is given by $\frac{f^{(n)}\brak{0}}{n!}$. Since the series contains only odd powers of $x$, the coefficient of $x^{10}$ is zero:
-\begin{align}
-	\frac{f^{(10)}\brak{0}}{10!} &= 0
+	f^{(10)}\brak{x} &= \sinh\brak{x}
 	\\
-	\implies f^{(10)}\brak{0} &= 0
+	\implies f^{(10)}\brak{0} &= \sinh\brak{0} = 0
 \end{align}
-	% Q.17
-	\item 
-	Consider the following three relations:
-	\begin{align*}
-		&\text{Car } (\underline{\text{model}}, \underline{\text{year}}, \underline{\text{serial}}, \text{color}) \\
-		&\text{Make } (\underline{\text{maker}}, \underline{\text{model}}) \\
-		&\text{Own } (\underline{\text{owner}}, \underline{\text{serial}})
-	\end{align*}
-	A tuple in Car represents a specific car of a given model, made in a given year, with a serial number and a color. A tuple in Make specifies that a maker company makes cars of a certain model. A tuple in Own specifies that an owner owns the car with a given serial number. Keys are underlined; (owner, serial) together form key for Own. ($\bowtie$ denotes natural join)
-	\begin{align}
-		\pi_{\text{owner}}\brak{\text{Own} \bowtie \brak{\sigma_{\text{color} = \text{'red'}}\brak{\text{Car} \bowtie \brak{\sigma_{\text{maker} = \text{'ABC'}}\text{Make}}}}}
-	\end{align}
-	Which one of the following options describes what the above expression computes?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item All owners of a red car, a car made by ABC, or a red car made by ABC
-		\item All owners of more than one car, where at least one car is red and made by ABC
-		\item All owners of a red car made by ABC
-		\item All red cars made by ABC
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-join}, $\sigma_{\text{color} = \text{'red'}}\brak{\text{Car} \bowtie \brak{\sigma_{\text{maker} = \text{'ABC'}}\text{Make}}}$ filters red cars made by ABC. Joining with $\text{Own}$ and projecting via $\pi_{\text{owner}}$ selects:
-	\begin{align}
-		\pi_{\text{owner}}\brak{\text{Own} \bowtie \brak{\dots}}
-	\end{align}
-	which corresponds to all owners of a red car made by ABC.
+
 	
-	% Q.18
-	\item 
-	Consider a hash table of size 10 with indices $\cbrak{0, 1, \dots, 9}$, with the hash function
-	\begin{align}
-		h\brak{x} = 3x \brak{\text{mod } 10}
-	\end{align}
-	where linear probing is used to handle collisions. The hash table is initially empty and then the following sequence of keys is inserted into the hash table: $1, 4, 5, 6, 14, 15$. The indices where the keys 14 and 15 are stored are, respectively
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\begin{multicols}{4}
-			\item 2 and 5
-			\item 2 and 6
-			\item 4 and 5
-			\item 4 and 6
-		\end{multicols}
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-probing}, $h\brak{k, i} = \brak{3k + i} \pmod{10}$:
-	\begin{align}
-		k=1 &\implies h\brak{1, 0} = 3
-		\\
-		k=4 &\implies h\brak{4, 0} = 2
-		\\
-		k=5 &\implies h\brak{5, 0} = 5
-		\\
-		k=6 &\implies h\brak{6, 0} = 8
-		\\
-		k=14 &\implies h\brak{14, 0} = 2
-		\\
-		&\implies h\brak{14, 1} = 3
-		\\
-		&\implies h\brak{14, 2} = 4
-		\\
-		k=15 &\implies h\brak{15, 0} = 5
-		\\
-		&\implies h\brak{15, 1} = 6
-	\end{align}
+
 	
 % Q.19 (or corresponding problem number)
 \item 
@@ -307,10 +281,13 @@ From \eqref{eq:DA2025-median}, the median $m = 3$ satisfies:
 	\\
 	\implies t &= 2
 \end{align}
-
+The following code helps generate data to plot the simulated CDF for a large sampling size
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q9/q9.c}@*)
+\end{lstlisting}
 The following code generates \figref{fig:DA-2025-19}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q11/q11.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q9/q9.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
@@ -350,6 +327,10 @@ The following code generates \figref{fig:DA-2025-19}.
 		\\
 		\implies a &= -2
 	\end{align}
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q10/q10.c}@*)
+	\end{lstlisting}
 	
 	% Q.21
 	\item 
@@ -374,6 +355,10 @@ The following code generates \figref{fig:DA-2025-19}.
 		\\
 		\implies \lambda &= \ln 2
 	\end{align}
+		The following code verifies each option and the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q11/q11.c}@*)
+	\end{lstlisting}
 % Q.23
 \item 
 Consider the following Python declarations of two lists.
@@ -415,18 +400,44 @@ The following code verifies the solution
 	\solution
 	From \eqref{eq:DA2025-differentiability_rules}, the product $f \cdot g$, sum $f \pm g$, and quotient $f/g$ (since $g\brak{c} > 1 \ne 0$) are strictly differentiable at $c$. $f \circ g$ requires differentiability of $f$ at $g(c)$, which is not guaranteed.
 	
-	% Q.25
-	\item 
-	Which of the following statements is/are correct?
-	\hfill (DA~2025)
-	\begin{enumerate}
-		\item $\mathbb{R}^n$ has a unique set of orthonormal basis vectors
-		\item $\mathbb{R}^n$ does not have a unique set of orthonormal basis vectors
-		\item Linearly independent vectors in $\mathbb{R}^n$ are orthonormal
-		\item Orthonormal vectors in $\mathbb{R}^n$ are linearly independent
-	\end{enumerate}
-	\solution
-	From \eqref{eq:DA2025-orthonormal}, $\vec{u}_i^\top \vec{u}_j = \delta_{ij}$ guarantees linear independence. Orthonormal bases in $\mathbb{R}^n$ are non-unique under spatial rotation.
+% Q.25
+\item 
+Which of the following statements is/are correct?
+\hfill (DA~2025)
+\begin{enumerate}
+	\item $\mathbb{R}^n$ has a unique set of orthonormal basis vectors
+	\item $\mathbb{R}^n$ does not have a unique set of orthonormal basis vectors
+	\item Linearly independent vectors in $\mathbb{R}^n$ are orthonormal
+	\item Orthonormal vectors in $\mathbb{R}^n$ are linearly independent
+\end{enumerate}
+
+\solution
+From \eqref{eq:DA2025-orthonormal}, $\vec{u}_i^\top \vec{u}_j = \delta_{ij}$ guarantees that orthonormal sets are unconditionally linearly independent. Furthermore, orthonormal bases in $\mathbb{R}^n$ are non-unique.
+
+To illustrate these properties with examples:
+\begin{itemize}
+	\item Non-uniqueness of Orthonormal Bases in $\mathbb{R}^n$:
+	Consider $\mathbb{R}^2$. The standard canonical orthonormal basis is:
+	\begin{align}
+		\mathbf{B}_1 = \cbrak{\vec{e}_1 = \myvec{1 \\ 0}, \, \vec{e}_2 = \myvec{0 \\ 1}}
+	\end{align}
+	If we apply a spatial rotation by an angle $\theta = \frac{\pi}{4}$ ($45^\circ$), we obtain a completely different valid orthonormal basis:
+	\begin{align}
+		\mathbf{B}_2 = \cbrak{\vec{u}_1 = \myvec{\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}}, \, \vec{u}_2 = \myvec{-\frac{1}{\sqrt{2}} \\ \frac{1}{\sqrt{2}}}}
+	\end{align}
+	Since $\vec{u}_1^\top \vec{u}_2 = 0$ and $\norm{\vec{u}_1} = \norm{\vec{u}_2} = 1$, $\mathbf{B}_2$ satisfies all orthonormal basis requirements. This proves that $\mathbb{R}^n$ does not have a unique set of orthonormal basis vectors.
+	
+	\item Linearly Independent Vectors Need Not Be Orthogonal/Orthonormal:
+	Consider two vectors in $\mathbb{R}^2$:
+	\begin{align}
+		\vec{v}_1 = \myvec{1 \\ 0}, \quad \vec{v}_2 = \myvec{1 \\ 1}
+	\end{align}
+	These vectors are linearly independent because neither is a scalar multiple of the other. However, they are not orthogonal (and thus not orthonormal) since their inner product is non-zero:
+	\begin{align}
+		\vec{v}_1^\top \vec{v}_2 = (1)(1) + (0)(1) = 1 \neq 0
+	\end{align}
+	This demonstrates that linear independence does not imply orthogonality or orthonormality.
+\end{itemize}
 	
 	% Q.27
 	\item 
@@ -446,6 +457,22 @@ The following code verifies the solution
 		&= O\brak{\log n}
 	\end{align}
 	which requires $O(1)$ random access to the median element, satisfied exclusively by an array of $n$ integers in increasing order.
+	\\
+	The following code verifies the solution
+		\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q15/q15.c}@*)
+	\end{lstlisting}
+	
+	The following code verifies the theoretical time complexity with simulated values and generates \figref{fig:DA-2025-27}.
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q15/q15.py}@*)
+	\end{lstlisting}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.85\linewidth]{figs/bsearch_worst_case.pdf}
+		\caption{Binary search time complexity}
+		\label{fig:DA-2025-27}
+	\end{figure}
 	
 % Q.28
 \item 
@@ -481,6 +508,11 @@ Furthermore, the eigenvalues of the inverse matrix $\vec{A}^{-1}$ are the recipr
 	\lambda_{2,\dots,n}\brak{\vec{A}^{-1}} &= \frac{1}{\lambda_{2,\dots,n}} = 1 > 0
 \end{align}
 Because all eigenvalues of $\vec{A}^{-1}$ are strictly positive, $\vec{A}^{-1}$ has no negative eigenvalues. 
+	\\
+		The following code verifies our solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q16/q16.c}@*)
+	\end{lstlisting}
 	
 % =========================================================
 % Q.29 (1.2.19 in main.pdf)
@@ -501,18 +533,11 @@ From \eqref{eq:DA2025-insertion_swaps}:
 \begin{align}
 	\text{Swaps} &= \text{Inversions} = 2
 \end{align}
-The subarray $\sbrak{1, 3, 5, 7, 9, 11}$ is already sorted, and the pair $\brak{15, 13}$ accounts for $1$ inversion. Thus, $x$ must introduce exactly $1$ additional inversion with the remaining elements:
-\begin{itemize}
-	\item Case 1 ($x < 11$): $x$ is smaller than $11$ (and thus also smaller than $13$ and $15$, forming $0$ inversions with them). To form exactly $1$ inversion with $\sbrak{1, 3, 5, 7, 9, 11}$, $x$ must satisfy:
-	\begin{align}
-		9 \le x < 11 \implies x = 10
-	\end{align}
-	\item Case 2 ($x > 11$): $x$ forms $0$ inversions with $\sbrak{1, 3, 5, 7, 9, 11}$. Since $x$ precedes $15$ and $13$, it forms $1$ inversion if and only if it is greater than $13$ but at most $15$:
-	\begin{align}
-		13 < x \le 15 \implies x = 14
-	\end{align}
-\end{itemize}
-$\therefore$ The possible values of $x$ are $10$ and $14$.
+
+		The following code finds the number of swaps for the values of x as mentioned in the options
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q17/q17.c}@*)
+\end{lstlisting}
 	
 	% Q.31
 	\item 
@@ -549,36 +574,11 @@ $\therefore$ The possible values of $x$ are $10$ and $14$.
 	\begin{align}
 		\lim_{t \to +\infty} \brak{\sqrt{t^2 + t} - t} &= \frac{1}{2} = 0.5
 	\end{align}
+			The following code verifies our solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q19/q19.c}@*)
+	\end{lstlisting}
 	
-	% Q.33
-	\item 
-	On a relation named Loan of a bank:
-	\begin{figure}[H]
-		\centering
-		\input{figs/Loan.tex}
-		\caption{}
-		\label{fig:DA-LOAN}
-	\end{figure}
-	the following SQL query is executed.
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily]
-SELECT L1.loan_number
-FROM Loan L1
-WHERE L1.amount > (SELECT MAX (L2.amount)
-FROM Loan L2
-WHERE L2.branch_name = 'SR Nagar');
-	\end{lstlisting}
-	The number of rows returned by the query is \underline{\hspace{1.5cm}}.
-	\hfill (DA~2025)
-	\\
-	\solution
-	The inner subquery evaluates the maximum loan amount for the \texttt{'SR Nagar'} branch, giving $\max\{40000, 25000, 65000\} = 65000$. The outer query selects candidate rows satisfying $\text{amount} > 65000$, which matches $\cbrak{\text{L11}, \text{L23}, \text{L25}}$.
-	\begin{align}
-		\text{Number of rows returned} = 3
-	\end{align}
-	The following code verifies the solution
-	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q22/q22.sql}@*)
-	\end{lstlisting}
 % =========================================================
 % Q.34 (1.2.23 in main.pdf)
 % =========================================================
@@ -587,17 +587,24 @@ Given data $\cbrak{\brak{-1, 1}, \brak{2, -5}, \brak{3, 5}}$ of the form $\brak{
 \hfill (DA~2025)
 \\
 \solution
-From \eqref{eq:DA2025-least_squares}:
+From \eqref{eq:DA2025-least_squares_matrix}, we define the design vector $\vec{X}$ and target vector $\vec{y}$ for the given data points:
 \begin{align}
-	w^* &= \frac{\sum x_i y_i}{\sum x_i^2}
-	\\
-	&= \frac{\brak{-1}\brak{1} + \brak{2}\brak{-5} + \brak{3}\brak{5}}{\brak{-1}^2 + 2^2 + 3^2}
-	\\
-	&= \frac{-1 - 10 + 15}{1 + 4 + 9} = \frac{4}{14}
-	\\
-	&= \frac{2}{7} \approx 0.286
+	\vec{X} &= \myvec{-1 \\ 2 \\ 3}, \quad \vec{y} = \myvec{1 \\ -5 \\ 5}
 \end{align}
-	
+The optimal parameter $w^*$ using the matrix least-squares normal equations is given by:
+\begin{align}
+	w^* &= \brak{\vec{X}^\top \vec{X}}^{-1} \vec{X}^\top \vec{y}
+	\\
+	\vec{X}^\top \vec{X} &= \myvec{-1 & 2 & 3} \myvec{-1 \\ 2 \\ 3} = 14
+	\\
+	\vec{X}^\top \vec{y} &= \myvec{-1 & 2 & 3} \myvec{1 \\ -5 \\ 5} = 4
+	\\
+	w^* &= \frac{4}{14} \approx 0.286
+\end{align}
+			The following code verifies our solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q20/q20.py}@*)
+\end{lstlisting}
 	% Q.35
 	\item 
 	The naive Bayes classifier is used to solve a two-class classification problem with class-labels $y_1, y_2$. Suppose the prior probabilities are $P\brak{y_1} = \frac{1}{3}$ and $P\brak{y_2} = \frac{2}{3}$. Assuming a discrete feature space with
@@ -634,14 +641,18 @@ Let $Y = Z^2, \; Z = \frac{X - \mu}{\sigma}$, where $X$ is a normal random varia
 	\end{multicols}
 \end{enumerate}
 \solution
-From \eqref{eq:DA2025-variance_identity} and \eqref{eq:DA2025-normal_moments_2_4}, with $Z \sim \mathcal{N}\brak{0, 1}$:
+From \eqref{eq:DA2025-normal_moments_2_4}, with $Z \sim \mathcal{N}\brak{0, 1}$:
 \begin{align}
-	var\brak{Y} &= E\sbrak{Z^4} - \brak{E\sbrak{Z^2}}^2 \quad \text{(using \eqref{eq:DA2025-variance_identity})}
+	var\brak{Y} &= E\sbrak{Z^4} - \brak{E\sbrak{Z^2}}^2 \quad \text{(using \eqref{eq:DA2025-varY})}
 	\\
-	&= 3 - 1^2 \quad \text{(using \eqref{eq:DA2025-normal_moments_2_4})}
+	&= 3 - 1^2 
 	\\
 	&= 2
 \end{align}
+			The following code verifies our solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q22/q22.c}@*)
+\end{lstlisting}
 	
 % Q.37
 \item 
@@ -745,17 +756,23 @@ Differentiating the cumulative distribution function $F_X\brak{x}$ with respect 
 		0 & x > 1
 	\end{cases}
 \end{align}
-
-The following code generates \figref{fig:DA-2025-39}.
+	\\
+The following code verifies the solution and generates the data for simulating the CDF
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q28/q28.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q25/q25.c}@*)
+\end{lstlisting}
+
+The following code verifies the theoretical CDF with simulated values and generates \figref{fig:DA-2025-39}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q25/q25.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.80\linewidth]{figs/interval_cdf_shaded.pdf}
+	\includegraphics[width=0.85\linewidth]{figs/interval_cdf_shaded.pdf}
 	\caption{PDF and CDF of continuous random variable $X$ illustrating $P(X^2 \le 0.25)$}
 	\label{fig:DA-2025-39}
 \end{figure}
+
 	% Q.40
 	\item 
 	A random variable $X$ is said to be distributed as $\text{Bernoulli}(\theta)$, denoted by $X \sim \text{Bernoulli}(\theta)$, if $P\brak{X = 1} = \theta, \; P\brak{X = 0} = 1 - \theta$ for $0 < \theta < 1$. Let $Y = \sum_{i=1}^{300} X_i$, where $X_i \sim \text{Bernoulli}(\theta), \; i = 1, 2, \dots, 300$ be independent and identically distributed random variables with $\theta = 0.25$. The value of $P\brak{60 \le Y \le 90}$ after approximation through Central Limit Theorem, is given by (Recall that $\phi\brak{x} = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^x e^{-\frac{t^2}{2}}\,dt$)
@@ -781,7 +798,16 @@ The following code generates \figref{fig:DA-2025-39}.
 		\\
 		&= \phi\brak{2} - \phi\brak{-2}
 	\end{align}
-	
+The following code verifies the Central Limit Theorem approximation for the binomial sum $Y = \sum_{i=1}^{300} X_i$ and generates \figref{fig:DA-2025-40}.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q26/q26.py}@*)
+\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figs/q40_binomial_normal_clt.pdf}
+	\caption{Binomial PMF and Normal PDF approximation for $Y \sim \text{Bin}\brak{300, 0.25}$ illustrating $P\brak{60 \le Y \le 90} \approx \phi\brak{2} - \phi\brak{-2}$}
+	\label{fig:DA-2025-40}
+\end{figure}
 	% Q.41
 	\item 
 	For $x \in \mathbb{R}$, the floor function is denoted by $f\brak{x} = \lfloor x \rfloor$ and defined as follows
@@ -813,7 +839,10 @@ The following code generates \figref{fig:DA-2025-39}.
 		\\
 		&= 0.1
 	\end{align}
-	
+	The following code verifies the solution 
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q27/q27.c}@*)
+	\end{lstlisting}
 	% Q.45
 	\item 
 	A random experiment consists of throwing 100 fair dice, each die having six faces numbered 1 to 6. An event $A$ represents the set of all outcomes where at least one of the dice shows a 1. Then, $P\brak{A} = $
@@ -833,7 +862,10 @@ The following code generates \figref{fig:DA-2025-39}.
 		\\
 		&= 1 - \brak{\frac{5}{6}}^{100}
 	\end{align}
-	
+The following code verifies the solution for the dice rolling probability and compares the exact binomial complement formula with the Gaussian (Central Limit Theorem) approximation.
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q28/q28.py}@*)
+\end{lstlisting}
 % Q.47
 \item 
 Consider the following Python code snippet.
@@ -903,7 +935,7 @@ $\therefore$ Only set $B$ contains \texttt{"this"}.
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q32/q32.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q29/q29.py}@*)
 \end{lstlisting}
 %Q49
 \item Consider the function
@@ -958,11 +990,11 @@ Similarly, the global minimum is $f(-8) = \frac{239}{6}$, attained at the bounda
 
 The following code verifies the solution and generates \figref{fig:DA-2025-33}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q33/q33.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q30/q30.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.75\linewidth]{figs/q33_extrema.pdf}
+	\includegraphics[width=0.80\linewidth]{figs/q30_extrema.pdf}
 	\caption{Extrema of $f(x)$ on $[-8, 0]$}
 	\label{fig:DA-2025-33}
 \end{figure}
@@ -1015,7 +1047,11 @@ The determinant is given by the product of all 10 eigenvalues:
 	\mydet{\vec{A}} = \prod_{i=1}^{10} \lambda_i = 1^5 \times 0^5 = 0
 \end{align}
 Since $\mydet{\vec{A}} = 0$, $\vec{A}$ is non-invertible.
-
+\\
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q31/q31.py}@*)
+\end{lstlisting}
 	
 % Q.51
 \item 
@@ -1064,6 +1100,11 @@ However, a real orthogonal matrix need not equal $\vec{I}$ and can possess compl
 	\vec{A} = \myvec{0 & -1 \\ 1 & 0}
 \end{align}
 satisfies $\vec{A}^\top\vec{A} = \vec{I} \text{ with } \vec{A} \neq \vec{I}$, and its characteristic equation $\lambda^2 + 1 = 0$ yields complex eigenvalues $\lambda = \pm \j \notin \{+1, -1\}$.
+\\
+The following code verifies the solution
+\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q33/q33.py}@*)
+\end{lstlisting}
 
 % =========================================================
 % Q.53
@@ -1140,7 +1181,7 @@ Thus, the optimal parameters of the decision boundary are:
 
 The following code verifies the solution and generates \figref{fig:DA-2025-53}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q37/q37.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q34/q34.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
@@ -1171,7 +1212,11 @@ The following code verifies the solution and generates \figref{fig:DA-2025-53}.
 		var\brak{\hat{p}} &= \frac{p\brak{1-p}}{n}
 	\end{align}
 	Since $n$ is in the denominator, $var\brak{\hat{p}}$ strictly decreases as $n$ increases.
-	
+	\\
+	The following code verifies the solution
+	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q35/q35.py}@*)
+	\end{lstlisting}
 % =========================================================
 % Q.58 (1.2.39 in main.pdf)
 % =========================================================
@@ -1316,7 +1361,7 @@ By definition of relational division $R(A, B) \div S(B)$, the result contains al
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q43/q43.sql}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q40/q40.c}@*)
 \end{lstlisting}
 % Q.63
 \item 
@@ -1354,22 +1399,22 @@ Thus, the value printed by the code snippet is $160$.
 
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q44/q44.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q41/q41.py}@*)
 \end{lstlisting}
 % Q.64
 \item 
 Consider the following pseudocode.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, xleftmargin=0pt]
-	Create empty stack S
-	Set x = 0, flag = 0, sum = 0
-	Push x onto S
+Create empty stack S
+Set x = 0, flag = 0, sum = 0
+Push x onto S
 	
-	while (S is not empty) {
-		if (flag equals 0){
-			Set x = x + 1
-			Push x onto S
-		}
-		if (x equals 8):
+while (S is not empty) {
+	if (flag equals 0){
+		Set x = x + 1
+		Push x onto S
+	}
+	if (x equals 8):
 		Set flag = 1
 		if (flag equals 1){
 			x = Pop(S)
@@ -1377,11 +1422,12 @@ Consider the following pseudocode.
 			Pop(S)
 			Set sum = sum + x
 		}
-	}
+}
 	Output sum
 \end{lstlisting}
 The value of sum output by a program executing the above pseudocode is \underline{\hspace{1.5cm}}.
 \hfill (DA~2025)
+\\
 \solution
 The algorithm executes in two distinct phases:
 \begin{itemize}
@@ -1408,7 +1454,7 @@ The stack is now empty, terminating the loop.
 \end{align}
 The following code verifies the solution
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
-(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q45/q45.py}@*)
+(*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q42/q42.py}@*)
 \end{lstlisting}
 	% Q.65
 	\item 

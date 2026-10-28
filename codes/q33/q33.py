@@ -1,88 +1,73 @@
-import sys
-from pathlib import Path
-import matplotlib.pyplot as plt
 import numpy as np
 
-# Point sys.path to the sibling CoordGeo folder inside codes/
-script_dir = Path(__file__).resolve().parent
-sys.path.insert(0, str(script_dir.parent / "CoordGeo"))
+# Set dimension n
+n = 4
 
-from plotting.funcs import label_pts
+# ---------------------------------------------------------
+# Construct a random orthogonal matrix A using QR decomposition
+# ---------------------------------------------------------
+np.random.seed(42)
+Q, _ = np.linalg.qr(np.random.randn(n, n))
+A = Q  # A satisfies A^T * A = I_n
 
+# 1. Verify property: ||A x||^2 == ||x||^2 for random vectors
+x_test = np.random.randn(n)
+norm_Ax_sq = np.linalg.norm(A @ x_test) ** 2
+norm_x_sq = np.linalg.norm(x_test) ** 2
+assert np.isclose(
+    norm_Ax_sq, norm_x_sq
+), "Property ||A x||^2 = ||x||^2 does not hold!"
 
-# Define the function f(x)
-def f(x):
-    return (x**3) / 3.0 + 3.5 * (x**2) + 10.0 * x + 133.0 / 2.0
+# ---------------------------------------------------------
+# Test Statements
+# ---------------------------------------------------------
 
+# Statement i: A must be orthogonal (A^T * A = I)
+stmt_i = np.allclose(A.T @ A, np.eye(n))
 
-# Domain interval x in [-8, 0]
-x = np.linspace(-8, 0, 500)
-y = f(x)
+# Statement ii: A = I is the ONLY solution
+# Counterexample: Check if A can be -I or a Rotation Matrix (A != I)
+stmt_ii_counterexample = not np.allclose(A, np.eye(n))
+stmt_ii = not stmt_ii_counterexample  # False because non-identity orthogonal matrices exist
 
-# Critical and boundary points
-x_loc_max, y_loc_max = -5.0, f(-5.0)  # Local maximum (187/3 ≈ 62.33)
-x_loc_min, y_loc_min = -2.0, f(-2.0)  # Local minimum (347/6 ≈ 57.83)
-x_glob_max, y_glob_max = 0.0, f(0.0)  # Global maximum (133/2 = 66.50)
-x_glob_min, y_glob_min = -8.0, f(-8.0)  # Global minimum (239/6 ≈ 39.83)
-
-# Construct the 2x4 matrix G_v required by label_pts
-G_v = np.array(
-    [
-        [x_loc_max, x_glob_max, x_loc_min, x_glob_min],
-        [y_loc_max, y_glob_max, y_loc_min, y_glob_min],
-    ]
+# Statement iii: Eigenvalues of A are either +1 or -1
+# Counterexample: Real orthogonal matrices can have complex conjugate eigenvalues e^(i*theta)
+# For instance, 2D Rotation matrix by 90 degrees (pi/2)
+A_rot = np.array([[0, -1], [1, 0]])  # Orthogonal, ||A_rot x||^2 = ||x||^2
+eigenvalues_rot = np.linalg.eigvals(A_rot)
+stmt_iii = np.all(
+    np.isclose(eigenvalues_rot, 1.0) | np.isclose(eigenvalues_rot, -1.0)
 )
 
-vert_labels = [
-    f"Local Max\n$(-5, {y_loc_max:.2f})$",
-    r"Global Max $\left(0, \frac{133}{2}\right)$",
-    f"Local Min\n$(-2, {y_loc_min:.2f})$",
-    f"Global Min\n$(-8, {y_glob_min:.2f})$",
-]
+# Statement iv: A has full rank
+rank_A = np.linalg.matrix_rank(A)
+stmt_iv = rank_A == n
 
-# Plotting
-plt.figure(figsize=(7, 4.5))
+# ---------------------------------------------------------
+# Output Results
+# ---------------------------------------------------------
+print("=== NUMERICAL RESULTS ===")
+print(f"Norm condition test       : ||Ax||^2 = {norm_Ax_sq:.4f}, ||x||^2 = {norm_x_sq:.4f}")
+print(f"Is A^T * A == I?         : {stmt_i}")
+print(f"Rotation matrix eigenvalues: {eigenvalues_rot}")
+print(f"Rank of A                : {rank_A} (Full rank = {n})")
+print("-" * 50)
 
-# Blue curve
-plt.plot(
-    x,
-    y,
-    color="blue",
-    linewidth=1.8,
-    label=r"$f(x) = \frac{x^3}{3} + \frac{7}{2}x^2 + 10x + \frac{133}{2}$",
-)
+print("=== STATEMENT EVALUATION ===")
+print(f"i)   A must be orthogonal               : {stmt_i} (ALWAYS TRUE)")
+print(f"ii)  A = I is the only solution          : {stmt_ii} (FALSE: Counterexample A = -I or Rotation Matrix)")
+print(f"iii) Eigenvalues of A are either +1 or -1: {stmt_iii} (FALSE: Counterexample 90° Rotation gives ±i)")
+print(f"iv)  A has full rank                     : {stmt_iv} (ALWAYS TRUE)")
 
-# Red extrema points
-plt.scatter(
-    G_v[0, :],
-    G_v[1, :],
-    color="red",
-    s=50,
-    zorder=5,
-    label="Extrema Points",
-)
-
-# Label extrema points using label_pts from CoordGeo/plotting/funcs.py
-label_pts(G_v, vert_labels)
-
-# Pad axes so labels at the boundary points (-8 and 0) don't clip the frame
-plt.xlim(-9.2, 1.5)
-plt.ylim(35, 73)
-
-# Plot styling
-plt.title(r"Extrema of $f(x)$ on $[-8, 0]$", fontsize=11)
-plt.xlabel(r"$x$", fontsize=10)
-plt.ylabel(r"$f(x)$", fontsize=10)
-plt.grid(True, linestyle="--", alpha=0.6)
-plt.legend(loc="lower right", fontsize=8.5)
-plt.tight_layout()
-
-# Navigate from codes/q33/ -> codes/ -> GATE-DA25/ -> figs/
-output_dir = script_dir.parents[1] / "figs"
-output_dir.mkdir(parents=True, exist_ok=True)
-output_path = output_dir / "q33_extrema.pdf"
-
-plt.savefig(output_path, format="pdf", bbox_inches="tight")
-plt.close()
-
-print(f"Figure saved to: {output_path}")    
+print("-" * 50)
+print("Correct Statement(s):")
+correct_opts = []
+if stmt_i:
+    correct_opts.append("i")
+if stmt_ii:
+    correct_opts.append("ii")
+if stmt_iii:
+    correct_opts.append("iii")
+if stmt_iv:
+    correct_opts.append("iv")
+print(f"-> {', '.join(correct_opts)}")

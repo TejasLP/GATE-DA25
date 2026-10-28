@@ -4,7 +4,14 @@
 	\begin{tikzpicture}[
 		table/.style={
 			matrix of nodes,
-			nodes={draw, minimum width=1.3cm, minimum height=0.6cm, align=center},
+			nodes={
+				draw,
+				minimum height=0.7cm,
+				align=center,
+				font=\small,
+				anchor=center,
+				inner sep=2pt
+			},
 			column sep=-\pgflinewidth,
 			row sep=-\pgflinewidth,
 			nodes in empty cells
@@ -14,37 +21,59 @@
 		]
 		
 		% Table Make
-		\matrix[table, label=above:{Relation Make}] (Make) {
+		\matrix[table, 
+		column 1/.style={nodes={text width=1.6cm}},
+		column 2/.style={nodes={text width=1.8cm}},
+		label=above:{Relation Make}] (Make) {
 			|[header]| maker & |[header]| model \\
 			ABC & sedan \\
 			XYZ & SUV \\
+			ABC & hatchback \\
+			DEF & coupe \\
 		};
 		
 		% Table Car
-		\matrix[table, right=2.0cm of Make, label=above:{Relation Car}] (Car) {
+		\matrix[table, 
+		right=1.8cm of Make,
+		column 1/.style={nodes={text width=1.8cm}},
+		column 2/.style={nodes={text width=1.4cm}},
+		column 3/.style={nodes={text width=1.4cm}},
+		label=above:{Relation Car}] (Car) {
 			|[header]| model & |[header]| serial & |[header]| color \\
 			sedan & 101 & red \\
 			SUV & 102 & blue \\
+			hatchback & 103 & red \\
+			sedan & 104 & white \\
+			coupe & 105 & red \\
 		};
 		
 		% Join Symbol
 		\path (Make.east) -- (Car.west) node[midway] (join1) {\Large $\bowtie$};
 		
-		% Result Table Label placed clearly in the upper space
-		\node[below=0.7cm of join1, font=\small] (ResultLabel) {Result: $\sigma_{\text{color}=\text{'red'}}(\text{Car} \bowtie \text{Make})$};
+		% Helper coordinate safely below the lowest table row
+		\path (Make.south) -- (Car.south) coordinate[midway] (TableBottom);
 		
-		% Result Table for Make bowtie Car filtered by red
-		\matrix[table, below=2.4cm of join1] (Result1) {
+		% Result Label positioned cleanly below the tables
+		\node[below=1.0cm of TableBottom, font=\small] (ResultLabel) {Result: $\sigma_{\text{color}=\text{'red'}}(\text{Car} \bowtie \sigma_{\text{maker}=\text{'ABC'}}(\text{Make}))$};
+		
+		% Result Table placed lower down
+		\matrix[table, 
+		below=1.2cm of ResultLabel,
+		column 1/.style={nodes={text width=1.8cm}},
+		column 2/.style={nodes={text width=1.4cm}},
+		column 3/.style={nodes={text width=1.4cm}},
+		column 4/.style={nodes={text width=1.6cm}}] (Result1) {
 			|[header]| model & |[header]| serial & |[header]| color & |[header]| maker \\
 			sedan & 101 & red & ABC \\
+			hatchback & 103 & red & ABC \\
 		};
 		
-		% Arrows tracking the match with clean clearance
-		\draw[->, thick, dashed] (Make.south) -- ([xshift=-1.5cm]Result1.north);
-		\draw[->, thick, dashed] (Car.south) -- ([xshift=1.5cm]Result1.north);
+		% Strictly vertical straight-down arrows
+		\draw[->, thick, dashed] (Make.south) -- (Make.south |- Result1.north);
+		\draw[->, thick, dashed] (Car.south) -- (Car.south |- Result1.north);
 		
-		% Formula description at the bottom
-		\node[below=0.4cm of Result1, align=center, text width=10cm] (Formula) {\small $\pi_{\text{owner}}(\text{Own} \bowtie (\sigma_{\text{color} = \text{'red'}}(\text{Car} \bowtie \sigma_{\text{maker} = \text{'ABC'}}(\text{Make}))))$};
+		% Formula description at the very bottom
+		\node[below=0.8cm of Result1.south, align=center, text width=12cm] (Formula) {\small $\pi_{\text{owner}}(\text{Own} \bowtie (\sigma_{\text{color} = \text{'red'}}(\text{Car} \bowtie \sigma_{\text{maker} = \text{'ABC'}}(\text{Make}))))$};
 		
 	\end{tikzpicture}
 	\caption{Pictorial representation of relational joins in the Car-Make-Own database schema}
