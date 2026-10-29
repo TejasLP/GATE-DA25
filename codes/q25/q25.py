@@ -4,7 +4,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Resolve project root and CoordGeo paths relative to codes/q39/q39.py
+# Resolve project root and CoordGeo paths relative to this script
 script_dir = Path(__file__).resolve().parent
 project_root = script_dir.parents[1]  # GATE-DA25/
 coordgeo_dir = project_root / "codes" / "CoordGeo"
@@ -29,7 +29,6 @@ if not dat_path.exists():
 
 # Define parameters for the specific question: CDF of X and c^2 = 0.25 => c = 0.5
 c = 0.5
-c_sq = 0.25
 
 # Generate x values covering the relevant range
 x = np.linspace(-2, 2, 1000)
@@ -54,10 +53,12 @@ def pdf_val(val):
 
 pdf = np.vectorize(pdf_val)(x)
 
-# Create figure with two subplots (PDF with shaded region, and CDF)
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))
 
-# --- Plot 1: PDF with shaded interval [-c, c] (LEFT AS IS) ---
+# ==========================================
+# FIGURE 1: PDF with Shaded Region & Bounds
+# ==========================================
+fig1, ax1 = plt.subplots(figsize=(8, 5))
+
 ax1.plot(x, pdf, color="blue", lw=2, label=r"PDF $f_X(x)$")
 
 # Shade the area under PDF between -c and c (-0.5 and 0.5)
@@ -97,7 +98,18 @@ plt.sca(ax1)
 G_v_bounds = np.array([[-c, c], [0.0, 0.0]])
 label_pts(G_v_bounds, [r"$-0.5$", r"$0.5$"])
 
-# --- Plot 2: CDF showing Theoretical vs Simulated CDF (Sorted X vs Index) ---
+plt.tight_layout()
+output_path_pdf = fig_dir / "pdf_distribution.pdf"
+fig1.savefig(output_path_pdf, format="pdf", bbox_inches="tight")
+plt.close(fig1)
+print(f"Successfully saved PDF to {output_path_pdf}")
+
+
+# ==========================================
+# FIGURE 2: Theoretical vs Simulated CDF
+# ==========================================
+fig2, ax2 = plt.subplots(figsize=(8, 5))
+
 ax2.plot(x, cdf, color="purple", lw=2.2, label=r"Theoretical CDF $F_X(x)$")
 
 # Load and plot simulated CDF exported from C
@@ -132,10 +144,8 @@ G_v_cdf = np.array([[-c, c], [val_neg_c, val_pos_c]])
 label_pts(G_v_cdf, [r"$F_X(-0.5)$", r"$F_X(0.5)$"])
 ax2.scatter([-c, c], [val_neg_c, val_pos_c], color="black", zorder=5)
 
-# Save figure directly to the root figs/ directory
 plt.tight_layout()
-output_path = fig_dir / "interval_cdf_shaded.pdf"
-plt.savefig(output_path, format="pdf", bbox_inches="tight")
-plt.close()
-
-print(f"Successfully saved PDF to {output_path}")
+output_path_cdf = fig_dir / "cdf_distribution.pdf"
+fig2.savefig(output_path_cdf, format="pdf", bbox_inches="tight")
+plt.close(fig2)
+print(f"Successfully saved PDF to {output_path_cdf}")

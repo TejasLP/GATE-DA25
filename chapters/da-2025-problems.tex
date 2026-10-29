@@ -281,6 +281,17 @@ From \eqref{eq:DA2025-median}, the median $m = 3$ satisfies:
 	\\
 	\implies t &= 2
 \end{align}
+We express $U$ in terms of $X$ as:
+\begin{align}
+	U = \frac{X - 2}{4 - 2} = \frac{X - 2}{2}
+\end{align}
+Solving for $X$ gives:
+\begin{align}
+	X = 2U + 2
+\end{align}
+For verification via code, we generate a large sample of $X$ as $2U + 2$, where $U$ is a uniformly distributed random variable between $0$ and $1$.
+\\
+
 The following code helps generate data to plot the simulated CDF for a large sampling size
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q9/q9.c}@*)
@@ -355,6 +366,15 @@ The following code generates \figref{fig:DA-2025-19}.
 		\\
 		\implies \lambda &= \ln 2
 	\end{align}
+We express $U$ in terms of $X$ as:
+\begin{align}
+	U = e^{-\lambda X}
+\end{align}
+Solving for $X$ gives:
+\begin{align}
+	X = -\frac{\ln(U)}{\lambda}
+\end{align}tion via code, we generate a large sample of $X$ as $-\frac{\ln(U)}{\lambda}$, where $U$ is a uniformly distributed random variable between $0$ and $1$.
+	\\
 		The following code verifies each option and the solution
 	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q11/q11.c}@*)
@@ -756,21 +776,36 @@ Differentiating the cumulative distribution function $F_X\brak{x}$ with respect 
 		0 & x > 1
 	\end{cases}
 \end{align}
+We express $U$ in terms of $X$ as:
+\begin{align}
+	U = \frac{1}{4}(X + 1)^2
+\end{align}
+Solving for $X$ gives:
+\begin{align}
+	X = 2\sqrt{U} - 1
+\end{align}
+For verification via code, we generate a large sample of $X$ as $2\sqrt{U} - 1$, where $U$ is a uniformly distributed random variable between $0$ and $1$.
 	\\
-The following code verifies the solution and generates the data for simulating the CDF
+
+The following code verifies the solution and generates data for simulating the CDF:
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q25/q25.c}@*)
 \end{lstlisting}
-
-The following code verifies the theoretical CDF with simulated values and generates \figref{fig:DA-2025-39}.
+The following code generates \figref{fig:DA-2025-pdf} and \figref{fig:DA-2025-cdf}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q25/q25.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\linewidth]{figs/interval_cdf_shaded.pdf}
-	\caption{PDF and CDF of continuous random variable $X$ illustrating $P(X^2 \le 0.25)$}
-	\label{fig:DA-2025-39}
+	\includegraphics[width=0.85\linewidth]{figs/pdf_distribution.pdf}
+	\caption{PDF of continuous random variable $X$ showing shaded area corresponding to $\Pr(X^2 \le 0.25)$}
+	\label{fig:DA-2025-pdf}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figs/cdf_distribution.pdf}
+	\caption{Theoretical CDF vs Simulated CDF of continuous random variable $X$}
+	\label{fig:DA-2025-cdf}
 \end{figure}
 
 	% Q.40
