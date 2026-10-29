@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  29 OCT 2026 15:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  29 OCT 2026 20:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1495,18 +1495,25 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
  [2]
 (./chapters/da-2025-formulae.tex [3
 
-] [4] (./figs/natural_join.tex
-LaTeX Font Info:    Calculating math sizes for size <14> on input line 51.
-) [5]
+] [4] (./tables/qF9/natural_join.tex
+\gnumericTableWidth=\skip78
+\gnumericTableWidthComplete=\skip79
+\gnumericMultiRowLength=\skip80
+\gnumericColB=\skip81
+\gnumericColC=\skip82
+\gnumericColD=\skip83
+\gnumericColE=\skip84
+\gnumericColF=\skip85
+\gnumericColG=\skip86
+)
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
 58.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-(./figs/linear_probing.tex) [6] [7] [8] [9] [10] [11]
-(./figs/insertion_sort.tex)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+) [5]
+(./figs/linear_probing.tex) [6] [7] [8] [9] [10] (./figs/insertion_sort.tex)
+[11] (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -1517,7 +1524,7 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 5
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [12]
+)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
@@ -1531,13 +1538,8 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 563.
 
 (./tables/qF25/Loan.tex
-\gnumericTableWidth=\skip78
-\gnumericTableWidthComplete=\skip79
-\gnumericMultiRowLength=\skip80
-\gnumericColA=\skip81
-\gnumericColB=\skip82
-\gnumericColC=\skip83
-)
+\gnumericColA=\skip87
+) [12]
 LaTeX Font Info:    Trying to load font information for OML+ptm on input line 5
 81.
 
@@ -1547,16 +1549,14 @@ File: omlptm.fd
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 581.
  [13] [14] [15]
-[16] [17] [18]
+[16] [17]
 Underfull \hbox (badness 2790) in paragraph at lines 924--925
 []\OT1/ptm/m/n/10 To eval-u-ate the vari-ance, ap-ply the fun-da-men-tal vari-a
 nce scal-ing prop-erty
  []
 
-[19] (./figs/relational.tex) (./figs/DFS.tex [20]))
-(./chapters/da-2025-problems.tex (./tables/q1/Pixel_Grid.tex
-\gnumericColD=\skip84
-)
+[18] [19] (./tables/qF46/relational_division_tables.tex) (./figs/DFS.tex)
+[20]) (./chapters/da-2025-problems.tex (./tables/q1/Pixel_Grid.tex)
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1}
 ) has been already used, duplicate ignored
 <to be read again> 
@@ -1568,7 +1568,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2}
 <to be read again> 
                    \relax 
 l.27 	\end{align}
-                  [21]
+                 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.2.1}
 ) has been already used, duplicate ignored
 <to be read again> 
@@ -1586,7 +1586,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.2.3}
 <to be read again> 
                    \relax 
 l.51 \end{align}
-                
+                 [21]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.3.1}
 ) has been already used, duplicate ignored
 <to be read again> 
@@ -1629,12 +1629,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.6.1}
                    \relax 
 l.160 \end{align}
                   [23]
-<figs/timing_stem_plot.pdf, id=618, 714.87389pt x 427.0354pt>
+<figs/timing_stem_plot.pdf, id=617, 714.87389pt x 427.0354pt>
 File: figs/timing_stem_plot.pdf Graphic file (type pdf)
 <use figs/timing_stem_plot.pdf>
 Package pdftex.def Info: figs/timing_stem_plot.pdf  used on input line 194.
 (pdftex.def)             Requested size: 309.56822pt x 184.92484pt.
- [24]
+ [24 <./figs/timing_stem_plot.pdf>]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.7.1}
 ) has been already used, duplicate ignored
 <to be read again> 
@@ -1670,7 +1670,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.8.2}
 <to be read again> 
                    \relax 
 l.247 \end{align}
-                  [25 <./figs/timing_stem_plot.pdf>]
+                 
 pdfTeX warning (ext4): destination with the same identifier (name{equation.9.1}
 ) has been already used, duplicate ignored
 <to be read again> 
@@ -1688,12 +1688,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.9.3}
 <to be read again> 
                    \relax 
 l.283 \end{align}
-                 
+                  [25]
 Underfull \hbox (badness 10000) in paragraph at lines 291--294
 
  []
 
-<figs/pdf_cdf_distribution.pdf, id=705, 570.79814pt x 715.23712pt>
+<figs/pdf_cdf_distribution.pdf, id=710, 570.79814pt x 715.23712pt>
 File: figs/pdf_cdf_distribution.pdf Graphic file (type pdf)
 <use figs/pdf_cdf_distribution.pdf>
 Package pdftex.def Info: figs/pdf_cdf_distribution.pdf  used on input line 305.
@@ -1760,7 +1760,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.15.2
                    \relax 
 l.478 	\end{align}
                   
-<figs/bsearch_worst_case.pdf, id=850, 570.12515pt x 355.44559pt>
+<figs/bsearch_worst_case.pdf, id=849, 570.12515pt x 355.44559pt>
 File: figs/bsearch_worst_case.pdf Graphic file (type pdf)
 <use figs/bsearch_worst_case.pdf>
 Package pdftex.def Info: figs/bsearch_worst_case.pdf  used on input line 492.
@@ -1896,12 +1896,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 786--789
 
  []
 
-<figs/pdf_distribution.pdf, id=1045, 571.06409pt x 354.6048pt>
+<figs/pdf_distribution.pdf, id=1044, 571.06409pt x 354.6048pt>
 File: figs/pdf_distribution.pdf Graphic file (type pdf)
 <use figs/pdf_distribution.pdf>
 Package pdftex.def Info: figs/pdf_distribution.pdf  used on input line 800.
 (pdftex.def)             Requested size: 309.56822pt x 192.225pt.
-<figs/cdf_distribution.pdf, id=1046, 571.06409pt x 354.6048pt>
+<figs/cdf_distribution.pdf, id=1045, 571.06409pt x 354.6048pt>
 File: figs/cdf_distribution.pdf Graphic file (type pdf)
 <use figs/cdf_distribution.pdf>
 Package pdftex.def Info: figs/cdf_distribution.pdf  used on input line 806.
@@ -1913,7 +1913,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.26.1
                    \relax 
 l.829 	\end{align}
                   
-<figs/q40_binomial_normal_clt.pdf, id=1117, 606.67418pt x 391.5003pt>
+<figs/q40_binomial_normal_clt.pdf, id=1116, 606.67418pt x 391.5003pt>
 File: figs/q40_binomial_normal_clt.pdf Graphic file (type pdf)
 <use figs/q40_binomial_normal_clt.pdf>
 Package pdftex.def Info: figs/q40_binomial_normal_clt.pdf  used on input line 8
@@ -2022,7 +2022,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.30.9
                    \relax 
 l.982 \end{align}
                  
-<figs/q30_extrema.pdf, id=1333, 498.50116pt x 318.34935pt>
+<figs/q30_extrema.pdf, id=1332, 498.50116pt x 318.34935pt>
 File: figs/q30_extrema.pdf Graphic file (type pdf)
 <use figs/q30_extrema.pdf>
 Package pdftex.def Info: figs/q30_extrema.pdf  used on input line 997.
@@ -2128,7 +2128,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.34.7
                    \relax 
 l.1152 \end{align}
                    [44]
-<figs/svm_hard_margin.pdf, id=1471, 479.76698pt x 498.663pt>
+<figs/svm_hard_margin.pdf, id=1470, 479.76698pt x 498.663pt>
 File: figs/svm_hard_margin.pdf Graphic file (type pdf)
 <use figs/svm_hard_margin.pdf>
 Package pdftex.def Info: figs/svm_hard_margin.pdf  used on input line 1188.
@@ -2325,41 +2325,39 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: F6688DB632BB6C6FC25A608F9FC20625;303.
  ) 
 Here is how much of TeX's memory you used:
- 56760 strings out of 467533
- 1344547 string characters out of 5422138
- 2220815 words of memory out of 5000000
- 84104 multiletter control sequences out of 15000+600000
- 681377 words of font info for 170 fonts, out of 8000000 for 9000
+ 56209 strings out of 467533
+ 1333609 string characters out of 5422138
+ 2214767 words of memory out of 5000000
+ 83561 multiletter control sequences out of 15000+600000
+ 670761 words of font info for 134 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
- 102i,18n,107p,1194b,2814s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,18n,107p,1194b,2812s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8
-a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (51 pages, 585934 bytes).
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
+pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (51 pages, 567738 bytes).
 PDF statistics:
- 1912 PDF objects out of 2073 (max. 8388607)
- 1280 compressed objects within 13 object streams
- 710 named destinations out of 1000 (max. 500000)
+ 1903 PDF objects out of 2073 (max. 8388607)
+ 1275 compressed objects within 13 object streams
+ 711 named destinations out of 1000 (max. 500000)
  173 words of extra memory for PDF output out of 10000 (max. 10000000)
 
