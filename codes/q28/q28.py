@@ -1,5 +1,5 @@
+import math
 import numpy as np
-from scipy.stats import binom, norm
 
 # -------------------------------------------------------------
 # 1. Parameters from GATE DA 2025 Q1.2.28
@@ -12,23 +12,28 @@ q = 1.0 - p  # 5/6
 # 2. Exact Binomial Theoretical Calculation
 # -------------------------------------------------------------
 # Complement event A^c: None of the 100 dice show a 1 (X = 0)
-p_ac_binom = binom.pmf(0, n, p)          # Exact (5/6)^100
-p_a_binom = 1.0 - (q ** n)               # Exact 1 - (5/6)^100
+# P(X = 0) = (100 choose 0) * (1/6)^0 * (5/6)^100 = (5/6)^100
+p_ac_binom = q**n
+p_a_binom = 1.0 - p_ac_binom
 
 # -------------------------------------------------------------
-# 3. Gaussian (Normal) Approximation via CLT
+# 3. Gaussian (Normal) Approximation via CLT (No SciPy)
 # -------------------------------------------------------------
-mu = n * p                               # 100 / 6 ≈ 16.6667
-sigma = np.sqrt(n * p * q)               # sqrt(500 / 36) ≈ 3.7268
+mu = n * p                                # 100 / 6 ≈ 16.6667
+sigma = math.sqrt(n * p * q)              # sqrt(500 / 36) ≈ 3.7268
+
+# Standard Normal CDF using Python's math.erf:
+# Phi(z) = 0.5 * (1 + erf(z / sqrt(2)))
+def norm_cdf(x, loc=0.0, scale=1.0):
+    z = (x - loc) / scale
+    return 0.5 * (1.0 + math.erf(z / math.sqrt(2.0)))
 
 # (a) Without continuity correction: P(X >= 1) ≈ 1 - P(X <= 0)
-z_uncorrected = (0.0 - mu) / sigma
-p_ac_gauss_uncorr = norm.cdf(z_uncorrected)
+p_ac_gauss_uncorr = norm_cdf(0.0, loc=mu, scale=sigma)
 p_a_gauss_uncorr = 1.0 - p_ac_gauss_uncorr
 
 # (b) With 0.5 continuity correction: P(X >= 1) ≈ 1 - P(X <= 0.5)
-z_corrected = (0.5 - mu) / sigma
-p_ac_gauss_corr = norm.cdf(z_corrected)
+p_ac_gauss_corr = norm_cdf(0.5, loc=mu, scale=sigma)
 p_a_gauss_corr = 1.0 - p_ac_gauss_corr
 
 # -------------------------------------------------------------
