@@ -40,7 +40,7 @@
 	% Q.7
 	% [Reference: bt-2025-formulae.tex (Item 6: Convexity & Minima definitions)]
 	% =========================================================
-	\item 
+	\item Bounds Around a Function Maximum
 	\begin{align}
 		x_1 < c < x_2 \quad \text{for} \quad f\brak{x_1} = f\brak{x_2} \label{eq:DA2025-unimodal}
 	\end{align}
@@ -523,46 +523,67 @@ Yielding,
 	\end{align}
 	
 	
-	% =========================================================
-	% MySQL (MariaDB) Setup and SQL Script Execution in Termux
-	% =========================================================
-	\item Setting up MySQL (MariaDB) and Executing `.sql` Files on Termux
-	
+% =========================================================
+% MySQL (MariaDB) Setup and SQL Script Execution in Termux
+% =========================================================
+\item Setting up MySQL (MariaDB) and Executing `.sql` Files on Termux
 
-	To install, initialize, run the MariaDB daemon, and execute external `.sql` script files inside the Termux environment on Android:
-	
-	\begin{itemize}
-		\item Initialize Packages \& Install MariaDB:
-		\begin{lstlisting}[language=bash]
+
+To install, initialize, run the MariaDB daemon, and execute external `.sql` script files inside the Termux environment on Android:
+
+\begin{itemize}
+	\item Initialize Packages \& Install MariaDB:
+	\begin{lstlisting}[language=bash]
 # Grant storage access to Termux
 termux-setup-storage
-			
+		
 # Update mirrors and install mariadb engine
 pkg update && pkg upgrade -y
 pkg install mariadb -y
-		\end{lstlisting}
-		
-		\item Initialize Data Directory \& Start Server Daemon:
-		\begin{lstlisting}[language=bash]
+	\end{lstlisting}
+	
+	\item Initialize Data Directory \& Start Server Daemon:
+	\begin{lstlisting}[language=bash]
 # Initialize MySQL system tables
 mariadb-install-db
-
+		
 # Start MariaDB server daemon in the background
 mysqld_safe &
-		\end{lstlisting}
-
-		\item Interactive Console Execution (`SOURCE` Command):
-		\begin{lstlisting}[language=sql]
--- Connect to MariaDB console
-mariadb -u root
-			
--- Execute .sql script inside interactive shell
-SOURCE /sdcard/Download/codes/q40/script.sql;
+	\end{lstlisting}
 	
--- Alternative shortcut notation:
+	\item Interactive Console Execution (`SOURCE` Command):
+	\begin{lstlisting}[language=sql]
+	-- Connect to MariaDB console
+mariadb -u root
+		
+	-- Execute .sql script inside interactive shell
+SOURCE /sdcard/Download/codes/q40/script.sql;
+		
+	-- Alternative shortcut notation:
 \. /sdcard/Download/codes/q40/script.sql
-		\end{lstlisting}
-	\end{itemize}
+	\end{lstlisting}
+	
+	\item Creating Databases and Tables Manually:
+	
+	If you are not using an external script and want to define your tables directly in the console:
+	\begin{lstlisting}[language=sql]
+	-- 1. Create and select a database
+CREATE DATABASE my_database;
+USE my_database;
+		
+	-- 2. Create a sample table
+CREATE TABLE users (
+id INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(50) NOT NULL,
+email VARCHAR(100),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+	);
+		
+	-- 3. Verify table creation
+SHOW TABLES;
+DESCRIBE users;
+	\end{lstlisting}
+\end{itemize}
 	
 	
 		% Q.33
@@ -677,7 +698,7 @@ The Sum of Squared Residuals in vector-matrix notation is given by $S\brak{w} = 
 	% Q.38
 	% [Reference: bt-2025-formulae.tex (Item 8: System of Linear Equations)]
 	% =========================================================
-	\item 
+	\item Inner Product Matrix of Independent Vectors
 	Construct the matrix $\vec{X} \in \mathbb{R}^{n \times n}$ having the given vectors as its columns:
 	\begin{align}
 		\vec{X} &= \myvec{\vec{x}_1 & \vec{x}_2 & \dots & \vec{x}_n}
@@ -753,7 +774,7 @@ Standardizing the interval $\sbrak{a, b}$ maps the boundaries to the standard no
 	% Q.41
 	% [Reference: Geometric Discretization of Exponential]
 	% =========================================================
-	\item
+	\item Floor of an Exponential Variable
 	\begin{align}
 		\Pr\brak{\lfloor X \rfloor = \ell} &= e^{-\lambda \ell}\brak{1 - e^{-\lambda}} \label{eq:DA2025-exp_geom}
 	\end{align}

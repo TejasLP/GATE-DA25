@@ -281,6 +281,15 @@ From \eqref{eq:DA2025-median}, the median $m = 3$ satisfies:
 	\\
 	\implies t &= 2
 \end{align}
+Differentiating each segment with respect to $x$:
+\begin{align}
+	f_X(x) = \begin{cases}
+		0 & x \le 2 \\
+		0.5 & 2 \le x \le 4 \\
+		0 & x \ge 4
+	\end{cases}
+\end{align}
+
 We express $U$ in terms of $X$ as:
 \begin{align}
 	U = \frac{X - 2}{4 - 2} = \frac{X - 2}{2}
@@ -296,15 +305,22 @@ The following code helps generate data to plot the simulated CDF for a large sam
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q9/q9.c}@*)
 \end{lstlisting}
-The following code generates \figref{fig:DA-2025-19}.
+The following code generates \figref{fig:DA-2025-19} and \figref{fig:DA-2025-c19}.
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q9/q9.py}@*)
 \end{lstlisting}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.85\linewidth]{figs/pdf_cdf_distribution.pdf}
-	\caption{PDF and CDF of continuous random variable $X$ with $t = 2$}
+	\includegraphics[width=0.85\linewidth]{figs/pdf_distribution_q9.pdf}
+	\caption{Theoretical probability density function for the continuous random variable $X$ with parameter $t = 2$}
 	\label{fig:DA-2025-19}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.85\linewidth]{figs/cdf_distribution_q9.pdf}
+	\caption{Theoretical CDF vs simulated empirical CDF for the continuous random variable $X$ with parameter $t = 2$}
+	\label{fig:DA-2025-c19}
 \end{figure}
 	
 	% Q.20
@@ -373,7 +389,7 @@ We express $U$ in terms of $X$ as:
 Solving for $X$ gives:
 \begin{align}
 	X = -\frac{\ln(U)}{\lambda}
-\end{align}tion via code, we generate a large sample of $X$ as $-\frac{\ln(U)}{\lambda}$, where $U$ is a uniformly distributed random variable between $0$ and $1$.
+\end{align}For generation via code, we generate a large sample of $X$ as $-\frac{\ln(U)}{\lambda}$, where $U$ is a uniformly distributed random variable between $0$ and $1$.
 	\\
 		The following code verifies each option and the solution
 	\begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
@@ -553,7 +569,10 @@ From \eqref{eq:DA2025-insertion_swaps}:
 \begin{align}
 	\text{Swaps} &= \text{Inversions} = 2
 \end{align}
+The prefix \sbrak{ 1, 3, 5, 7, 9, 11} is already sorted, while the suffix \sbrak{ 15, 13 } contributes $1$ inherent inversion because $15 > 13$. Since exactly $2$ total swaps are required, the placement of $x$ must introduce precisely $1$ additional inversion. 
 
+Thus, on verification, we get exactly two swaps for $10$ and $14$.
+\\
 		The following code finds the number of swaps for the values of x as mentioned in the options
 \begin{lstlisting}[frame=single, basicstyle=\rmfamily, escapeinside={(*@}{@*)}]
 (*@\makebox[\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax][c]{codes/q17/q17.c}@*)
@@ -1334,12 +1353,10 @@ Consider the  following tables,Loan and Borrower, of a bank.
 	\centering
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
-		\textbf{Loan}\\[0.5ex]
 		\input{tables/q40/Loan.tex}
 	\end{minipage}\hfill
 	\begin{minipage}[t]{0.48\textwidth}
 		\centering
-		\textbf{Borrower}\\[0.5ex]
 		\input{tables/q40/Borrower.tex}
 	\end{minipage}
 	\caption{Loan and Borrower relations of a bank}

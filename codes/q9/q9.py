@@ -64,10 +64,11 @@ A_pdf_right = np.array([[4.0], [0.0]])
 B_pdf_right = np.array([[6.0], [0.0]])
 pdf_right_seg = line_gen(A_pdf_right, B_pdf_right)
 
-# Create figure with two subplots
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 10))
+# ==========================================
+# Figure 1: CDF Plot (Saved Separately)
+# ==========================================
+fig1, ax1 = plt.subplots(figsize=(8, 5))
 
-# --- Plot 1: CDF (Theoretical CDF in Blue & Empirical Dashed Plot in Red, n=500) ---
 ax1.plot(cdf_left_seg[0, :], cdf_left_seg[1, :], color="blue", lw=2)
 ax1.plot(
     cdf_mid_seg[0, :],
@@ -97,7 +98,16 @@ ax1.set_ylim(-0.1, 1.1)
 ax1.grid(True)
 ax1.legend()
 
-# --- Plot 2: PDF (Strictly Theoretical, Extended to x=6) ---
+fig1.tight_layout()
+cdf_output_path = fig_dir / "cdf_distribution_q9.pdf"
+fig1.savefig(cdf_output_path, format="pdf", bbox_inches="tight")
+plt.close(fig1)
+
+# ==========================================
+# Figure 2: PDF Plot (Saved Separately)
+# ==========================================
+fig2, ax2 = plt.subplots(figsize=(8, 5))
+
 ax2.plot(pdf_left_seg[0, :], pdf_left_seg[1, :], color="red", lw=2)
 ax2.plot(
     pdf_mid_seg[0, :],
@@ -116,10 +126,10 @@ ax2.set_ylim(-0.1, 0.8)
 ax2.grid(True)
 ax2.legend()
 
-# Save PDF directly into the root figs/ directory
-plt.tight_layout()
-output_path = fig_dir / "pdf_cdf_distribution.pdf"
-plt.savefig(output_path, format="pdf", bbox_inches="tight")
-plt.close()
+fig2.tight_layout()
+pdf_output_path = fig_dir / "pdf_distribution_q9.pdf"
+fig2.savefig(pdf_output_path, format="pdf", bbox_inches="tight")
+plt.close(fig2)
 
-print(f"Successfully saved plot with blue theoretical and red dashed simulation to {output_path}")
+print(f"Successfully saved CDF plot to {cdf_output_path}")
+print(f"Successfully saved PDF plot to {pdf_output_path}")

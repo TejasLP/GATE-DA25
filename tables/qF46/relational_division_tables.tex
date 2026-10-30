@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                                  %%
-%%  This is the header of a LaTeX2e file exported from Gnumeric.    %%
+%%  Relational Division Table (Normal Font)                         %%
 %%                                                                  %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -48,14 +48,18 @@
 \setlongtables
 
 \setlength\gnumericTableWidth{%
-	68pt+%
-	68pt+%
-	55pt+%
-	68pt+%
-	55pt+%
-	55pt+%
+	81pt+%
+	81pt+%
+	17pt+%
+	35pt+%
+	17pt+%
+	93pt+%
+	17pt+%
+	35pt+%
+	17pt+%
+	81pt+%
 	0pt}
-\def\gumericNumCols{6}
+\def\gumericNumCols{10}
 \setlength\gnumericTableWidthComplete{\gnumericTableWidth+%
 	\tabcolsep*\gumericNumCols*2+\arrayrulewidth*\gumericNumCols}
 \ifthenelse{\lengthtest{\gnumericTableWidthComplete > \linewidth}}%
@@ -65,12 +69,16 @@
 		{\gnumericTableWidth}}}%
 {\def\gnumericScale{1}}
 
-\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{68pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{68pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{55pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColE}}{\newlength{\gnumericColE}}{}\settowidth{\gnumericColE}{\begin{tabular}{@{}p{68pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColF}}{\newlength{\gnumericColF}}{}\settowidth{\gnumericColF}{\begin{tabular}{@{}p{55pt*\gnumericScale}@{}}x\end{tabular}}
-\ifthenelse{\isundefined{\gnumericColG}}{\newlength{\gnumericColG}}{}\settowidth{\gnumericColG}{\begin{tabular}{@{}p{55pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColB}}{\newlength{\gnumericColB}}{}\settowidth{\gnumericColB}{\begin{tabular}{@{}p{81pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColC}}{\newlength{\gnumericColC}}{}\settowidth{\gnumericColC}{\begin{tabular}{@{}p{81pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColD}}{\newlength{\gnumericColD}}{}\settowidth{\gnumericColD}{\begin{tabular}{@{}p{17pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColE}}{\newlength{\gnumericColE}}{}\settowidth{\gnumericColE}{\begin{tabular}{@{}p{35pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColF}}{\newlength{\gnumericColF}}{}\settowidth{\gnumericColF}{\begin{tabular}{@{}p{17pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColG}}{\newlength{\gnumericColG}}{}\settowidth{\gnumericColG}{\begin{tabular}{@{}p{93pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColH}}{\newlength{\gnumericColH}}{}\settowidth{\gnumericColH}{\begin{tabular}{@{}p{17pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColI}}{\newlength{\gnumericColI}}{}\settowidth{\gnumericColI}{\begin{tabular}{@{}p{35pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColJ}}{\newlength{\gnumericColJ}}{}\settowidth{\gnumericColJ}{\begin{tabular}{@{}p{17pt*\gnumericScale}@{}}x\end{tabular}}
+\ifthenelse{\isundefined{\gnumericColK}}{\newlength{\gnumericColK}}{}\settowidth{\gnumericColK}{\begin{tabular}{@{}p{81pt*\gnumericScale}@{}}x\end{tabular}}
 
 \begin{longtable}[c]{%
 		p{\gnumericColB}%
@@ -79,170 +87,165 @@
 		p{\gnumericColE}%
 		p{\gnumericColF}%
 		p{\gnumericColG}%
+		p{\gnumericColH}%
+		p{\gnumericColI}%
+		p{\gnumericColJ}%
+		p{\gnumericColK}%
 	}
 	
-	%% Row 1: Top Table Titles
-	\multicolumn{2}{p{\gnumericColB+\gnumericColC+\tabcolsep*2}}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.12,0.16,0.22} Relation Make}}}
+	\multicolumn{2}{p{\gnumericColB+\gnumericColC+\tabcolsep*2*1}}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.12,0.16,0.22} R (Student, Skill)}}}
 	&
-	&\multicolumn{3}{p{\gnumericColE+\gnumericColF+\gnumericColG+\tabcolsep*4}}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.12,0.16,0.22} Relation Car}}}
+	&
+	&
+	&
+	&
+	&
+	&
+	&
 	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 2: Top Table Headers
+	\hhline{|-|-~~~~~~~~}
 	\multicolumn{1}{|p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{maker}}
+	{\gnumericPB{\centering}\gnumbox{A}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{model}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{model}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{serial}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{color}}
+	{\gnumericPB{\centering}\gnumbox{B}}
+	&
+	&
+	&
+	&
+	&
+	&
+	&
+	&
 	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 3: Data Row 1
+	\hhline{|--|~~~~~~~~}
 	\multicolumn{1}{|p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} ABC}}}
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Alice}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} sedan}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} sedan}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 101}}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} red}}}
-	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 4: Data Row 2 + Natural Join Symbol
-	\multicolumn{1}{|p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} XYZ}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SUV}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{$\bowtie$}}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SUV}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 102}}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} blue}}}
-	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 5: Data Row 3
-	\multicolumn{1}{|p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} ABC}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} hatchback}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} hatchback}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 103}}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} red}}}
-	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 6: Data Row 4
-	\multicolumn{1}{|p{\gnumericColB}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} DEF}}}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} coupe}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} sedan}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 104}}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} white}}}
-	\tabularnewline
-	\hhline{|--|~|---|}
-	
-	%% Row 7: Data Row 5 (Relation Car only)
-	&
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} coupe}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 105}}}
-	&\multicolumn{1}{p{\gnumericColG}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} red}}}
-	\tabularnewline
-	\hhline{~~~|---|}
-	
-	%% Row 8: Spacer & Result Expression
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SQL}}}
 	&
 	&
 	&
-	&
-	&
-	\tabularnewline
-	\multicolumn{1}{p{\gnumericColB}}%
-
-	&\multicolumn{4}{p{\gnumericColC+\gnumericColD+\gnumericColE+\gnumericColF+\tabcolsep*6}}%
-	{\gnumericPB{\centering}\gnumbox{Result: $\sigma_{\text{color='red'}}(\text{Car} \bowtie \sigma_{\text{maker='ABC'}}(\text{Make}))$}}
 	&\multicolumn{1}{p{\gnumericColG}}%
-
-	\tabularnewline
-	\hhline{~|----|~}
-	
-	%% Row 9: Result Table Header
-	\multicolumn{1}{p{\gnumericColB}|}%
-	{}
-	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{model}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{serial}}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{color}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{maker}}
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.12,0.16,0.22} S (Required)}}}
+	&
+	&
 	&
 	\tabularnewline
-	\hhline{~|----|~}
-	
-	%% Row 10: Result Table Row 1
-	\multicolumn{1}{p{\gnumericColB}|}%
-	{}
+	\hhline{|--|~~~|-|~~~~}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Alice}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} sedan}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 101}}}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} red}}}
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Java}}}
+	&
+	&
 	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} ABC}}}
+	{}
+	&\multicolumn{1}{p{\gnumericColG}|}%
+	{\gnumericPB{\centering}\gnumbox{B}}
+	&
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColK}}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.12,0.16,0.22} R $\div$ S}}}
+	\tabularnewline
+	\hhline{|--|~~~|-|~~~|-|}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Alice}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Python}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColF}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColG}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SQL}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColJ}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColK}|}%
+	{\gnumericPB{\centering}\gnumbox{A}}
+	\tabularnewline
+	\hhline{|--|~~~|-|~~~|-|}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Bob}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SQL}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColF}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColG}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Java}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColJ}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColK}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Alice}}}
+	\tabularnewline
+	\hhline{|--|~~~|-|~~~|-|}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Bob}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Python}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColF}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColG}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Python}}}
+	&
+	&
+	&\multicolumn{1}{p{\gnumericColJ}|}%
+	{}
+	&\multicolumn{1}{p{\gnumericColK}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Charlie}}}
+	\tabularnewline
+	\hhline{|--|~~~|-|~~~|-|}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Charlie}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} SQL}}}
+	&
+	&
+	&
+	&
+	&
+	&
+	&
 	&
 	\tabularnewline
-	\hhline{~|----|~}
-	
-	%% Row 11: Result Table Row 2
-	\multicolumn{1}{p{\gnumericColB}|}%
-	{}
+	\hhline{|--|~~~~~~~~}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Charlie}}}
 	&\multicolumn{1}{p{\gnumericColC}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} hatchback}}}
-	&\multicolumn{1}{p{\gnumericColD}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} 103}}}
-	&\multicolumn{1}{p{\gnumericColE}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} red}}}
-	&\multicolumn{1}{p{\gnumericColF}|}%
-	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} ABC}}}
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Java}}}
+	&
+	&
+	&
+	&
+	&
+	&
+	&
 	&
 	\tabularnewline
-	\hhline{~|----|~}
+	\hhline{|--|~~~~~~~~}
+	\multicolumn{1}{|p{\gnumericColB}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Charlie}}}
+	&\multicolumn{1}{p{\gnumericColC}|}%
+	{\gnumericPB{\centering}\gnumbox{{\color[rgb]{0.07,0.09,0.15} Python}}}
+	&
+	&
+	&
+	&
+	&
+	&
+	&
+	&
+	\tabularnewline
+	\hhline{|-|-|~~~~~~~~}
 \end{longtable}
 
 \ifthenelse{\isundefined{\languageshorthands}}{}{\languageshorthands{\languagename}}
