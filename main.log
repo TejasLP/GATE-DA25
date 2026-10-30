@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  30 OCT 2026 20:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex 2026.8.22)  30 OCT 2026 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1700,12 +1700,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 300--303
 
  []
 
-<figs/pdf_distribution_q9.pdf, id=734, 570.79814pt x 353.88712pt>
+<figs/pdf_distribution_q9.pdf, id=733, 570.79814pt x 353.88712pt>
 File: figs/pdf_distribution_q9.pdf Graphic file (type pdf)
 <use figs/pdf_distribution_q9.pdf>
 Package pdftex.def Info: figs/pdf_distribution_q9.pdf  used on input line 314.
 (pdftex.def)             Requested size: 309.56822pt x 191.93317pt.
-<figs/cdf_distribution_q9.pdf, id=735, 571.06409pt x 353.88712pt>
+<figs/cdf_distribution_q9.pdf, id=734, 571.06409pt x 353.88712pt>
 File: figs/cdf_distribution_q9.pdf Graphic file (type pdf)
 <use figs/cdf_distribution_q9.pdf>
 Package pdftex.def Info: figs/cdf_distribution_q9.pdf  used on input line 321.
@@ -2333,7 +2333,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  56250 strings out of 467533
  1334326 string characters out of 5422138
- 2250019 words of memory out of 5000000
+ 2250020 words of memory out of 5000000
  83584 multiletter control sequences out of 15000+600000
  670761 words of font info for 134 fonts, out of 8000000 for 9000
  1144 hyphenation exceptions out of 8191
@@ -2360,7 +2360,7 @@ lic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (51 pages, 581254 bytes).
+Output written on main.pdf (51 pages, 581538 bytes).
 PDF statistics:
  1970 PDF objects out of 2073 (max. 8388607)
  1307 compressed objects within 14 object streams
